@@ -15022,43 +15022,43 @@ module.exports = g;
 var map = {
 	"./Auth/Passwords/email": [
 		"./resources/js/Pages/Auth/Passwords/email.vue",
-		4,
-		0
+		0,
+		1
 	],
 	"./Auth/Passwords/email.vue": [
 		"./resources/js/Pages/Auth/Passwords/email.vue",
-		4,
-		0
+		0,
+		1
 	],
 	"./Auth/Passwords/reset": [
 		"./resources/js/Pages/Auth/Passwords/reset.vue",
-		4,
-		5
+		0,
+		2
 	],
 	"./Auth/Passwords/reset.vue": [
 		"./resources/js/Pages/Auth/Passwords/reset.vue",
-		4,
-		5
+		0,
+		2
 	],
 	"./Auth/login": [
 		"./resources/js/Pages/Auth/login.vue",
-		4,
-		1
+		0,
+		3
 	],
 	"./Auth/login.vue": [
 		"./resources/js/Pages/Auth/login.vue",
-		4,
-		1
+		0,
+		3
 	],
 	"./home": [
 		"./resources/js/Pages/home.vue",
-		4,
-		2
+		0,
+		4
 	],
 	"./home.vue": [
 		"./resources/js/Pages/home.vue",
-		4,
-		2
+		0,
+		4
 	]
 };
 function webpackAsyncContext(req) {
