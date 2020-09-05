@@ -59,7 +59,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "password-reset",
+  name: "auth-password-reset",
   layout: _Layouts_layout__WEBPACK_IMPORTED_MODULE_0__["default"],
   props: {
     token: String,

@@ -15020,44 +15020,64 @@ module.exports = g;
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
+	"./Admin/Users": [
+		"./resources/js/Pages/Admin/Users/index.vue",
+		5,
+		6
+	],
+	"./Admin/Users/": [
+		"./resources/js/Pages/Admin/Users/index.vue",
+		5,
+		6
+	],
+	"./Admin/Users/index": [
+		"./resources/js/Pages/Admin/Users/index.vue",
+		5,
+		6
+	],
+	"./Admin/Users/index.vue": [
+		"./resources/js/Pages/Admin/Users/index.vue",
+		5,
+		6
+	],
 	"./Auth/Passwords/email": [
 		"./resources/js/Pages/Auth/Passwords/email.vue",
-		0,
+		5,
 		1
 	],
 	"./Auth/Passwords/email.vue": [
 		"./resources/js/Pages/Auth/Passwords/email.vue",
-		0,
+		5,
 		1
 	],
 	"./Auth/Passwords/reset": [
 		"./resources/js/Pages/Auth/Passwords/reset.vue",
-		0,
+		5,
 		2
 	],
 	"./Auth/Passwords/reset.vue": [
 		"./resources/js/Pages/Auth/Passwords/reset.vue",
-		0,
+		5,
 		2
 	],
 	"./Auth/login": [
 		"./resources/js/Pages/Auth/login.vue",
-		0,
+		5,
 		3
 	],
 	"./Auth/login.vue": [
 		"./resources/js/Pages/Auth/login.vue",
-		0,
+		5,
 		3
 	],
 	"./home": [
 		"./resources/js/Pages/home.vue",
-		0,
+		5,
 		4
 	],
 	"./home.vue": [
 		"./resources/js/Pages/home.vue",
-		0,
+		5,
 		4
 	]
 };

@@ -8,7 +8,7 @@
     import Layout from '../Layouts/layout';
 
     export default {
-        name: "home.vue",
+        name: "home",
 
         props: {
             title: String

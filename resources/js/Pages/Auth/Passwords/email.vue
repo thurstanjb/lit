@@ -27,7 +27,7 @@
     import Layout from '../../../Layouts/layout'
 
     export default {
-        name: "email",
+        name: "auth-password-email",
 
         layout: Layout,
 

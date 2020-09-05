@@ -34,7 +34,7 @@
 <script>
     import Layout from '../../Layouts/layout';
     export default {
-        name: "login",
+        name: "auth-login",
         layout: Layout,
 
         props: {

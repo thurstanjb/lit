@@ -35,7 +35,8 @@ class AppServiceProvider extends ServiceProvider
             'auth' => function(){
                 return [
                     'user' => Auth::user() ? [
-                        'name' => Auth::user()->name
+                        'name' => Auth::user()->name,
+                        'isAdmin' => Auth::user()->isAdmin()
                     ] : null
                 ];
             }

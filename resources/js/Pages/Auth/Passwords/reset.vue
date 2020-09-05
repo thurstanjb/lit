@@ -49,7 +49,7 @@
     import Layout from '../../../Layouts/layout';
 
     export default {
-        name: "password-reset",
+        name: "auth-password-reset",
         layout: Layout,
 
         props: {

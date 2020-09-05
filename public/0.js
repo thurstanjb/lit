@@ -190,7 +190,44 @@ var render = function() {
             "w-full block flex-grow lg:flex lg:items-center lg:w-auto"
         },
         [
-          _vm._m(1),
+          _c(
+            "div",
+            { staticClass: "text-sm lg:flex-grow" },
+            [
+              _vm.$page.auth.user.isAdmin
+                ? _c(
+                    "inertia-link",
+                    {
+                      staticClass:
+                        "block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4",
+                      attrs: { href: "/users" }
+                    },
+                    [_vm._v("\n                Users\n            ")]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass:
+                    "block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4",
+                  attrs: { href: "#responsive-header" }
+                },
+                [_vm._v("\n                Examples\n            ")]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass:
+                    "block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white",
+                  attrs: { href: "#responsive-header" }
+                },
+                [_vm._v("\n                Blog\n            ")]
+              )
+            ],
+            1
+          ),
           _vm._v(" "),
           _c("div", [
             _vm.$page.auth.user
@@ -229,42 +266,6 @@ var staticRenderFns = [
         ])
       ]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "text-sm lg:flex-grow" }, [
-      _c(
-        "a",
-        {
-          staticClass:
-            "block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4",
-          attrs: { href: "/about" }
-        },
-        [_vm._v("\n                Docs\n            ")]
-      ),
-      _vm._v(" "),
-      _c(
-        "a",
-        {
-          staticClass:
-            "block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4",
-          attrs: { href: "#responsive-header" }
-        },
-        [_vm._v("\n                Examples\n            ")]
-      ),
-      _vm._v(" "),
-      _c(
-        "a",
-        {
-          staticClass:
-            "block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white",
-          attrs: { href: "#responsive-header" }
-        },
-        [_vm._v("\n                Blog\n            ")]
-      )
-    ])
   }
 ]
 render._withStripped = true
