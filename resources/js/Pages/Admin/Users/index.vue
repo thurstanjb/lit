@@ -1,6 +1,11 @@
 <template>
     <div>
-        <h1 class="bg-teal-200 px-10 py-5 text-2xl rounded-t">Users</h1>
+        <div class="flex content-between bg-teal-400 rounded-t py-5 px-5">
+            <h1 class="text-2xl flex-1">Users</h1>
+            <inertia-link href="/users/create" class="hover:text-white text-teal-700 font-bold pt-1">
+                <font-awesome-icon icon="user-plus" />
+            </inertia-link>
+        </div>
         <table class="table-auto w-full">
             <thead class="border">
             <tr>

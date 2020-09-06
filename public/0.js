@@ -88,6 +88,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "navbar",
   methods: {
@@ -119,7 +121,12 @@ var render = function() {
     [
       _c("navbar"),
       _vm._v(" "),
-      _c("div", { staticClass: "container mx-auto" }, [_vm._t("default")], 2)
+      _c(
+        "div",
+        { staticClass: "container mx-auto mt-5" },
+        [_vm._t("default")],
+        2
+      )
     ],
     1
   )
@@ -183,72 +190,75 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass:
-            "w-full block flex-grow lg:flex lg:items-center lg:w-auto"
-        },
-        [
-          _c(
+      _vm.$page.auth.user
+        ? _c(
             "div",
-            { staticClass: "text-sm lg:flex-grow" },
+            {
+              staticClass:
+                "w-full block flex-grow lg:flex lg:items-center lg:w-auto"
+            },
             [
-              _vm.$page.auth.user.isAdmin
-                ? _c(
-                    "inertia-link",
+              _c(
+                "div",
+                { staticClass: "text-sm lg:flex-grow" },
+                [
+                  _vm.$page.auth.user.isAdmin
+                    ? _c(
+                        "inertia-link",
+                        {
+                          staticClass:
+                            "block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4",
+                          attrs: { href: "/users" }
+                        },
+                        [_vm._v("\n                Users\n            ")]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _c(
+                    "a",
                     {
                       staticClass:
                         "block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4",
-                      attrs: { href: "/users" }
+                      attrs: { href: "#responsive-header" }
                     },
-                    [_vm._v("\n                Users\n            ")]
+                    [_vm._v("\n                Examples\n            ")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    {
+                      staticClass:
+                        "block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white",
+                      attrs: { href: "#responsive-header" }
+                    },
+                    [_vm._v("\n                Blog\n            ")]
                   )
-                : _vm._e(),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass:
-                    "block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4",
-                  attrs: { href: "#responsive-header" }
-                },
-                [_vm._v("\n                Examples\n            ")]
+                ],
+                1
               ),
               _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass:
-                    "block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white",
-                  attrs: { href: "#responsive-header" }
-                },
-                [_vm._v("\n                Blog\n            ")]
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c("div", [
-            _vm.$page.auth.user
-              ? _c(
-                  "button",
-                  {
-                    staticClass:
-                      "bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded",
-                    on: {
-                      click: function($event) {
-                        $event.preventDefault()
-                        return _vm.logout($event)
-                      }
-                    }
-                  },
-                  [_vm._v("Logout")]
-                )
-              : _vm._e()
-          ])
-        ]
-      )
+              _c("div", [
+                _vm.$page.auth.user
+                  ? _c(
+                      "a",
+                      {
+                        staticClass:
+                          "text-teal-200 hover:text-white font-bold px-4 cursor-pointer",
+                        on: {
+                          click: function($event) {
+                            $event.preventDefault()
+                            return _vm.logout($event)
+                          }
+                        }
+                      },
+                      [_c("font-awesome-icon", { attrs: { icon: "eject" } })],
+                      1
+                    )
+                  : _vm._e()
+              ])
+            ]
+          )
+        : _vm._e()
     ]
   )
 }

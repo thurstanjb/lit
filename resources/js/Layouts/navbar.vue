@@ -28,7 +28,9 @@
                 </a>
             </div>
             <div>
-                <button class="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded" @click.prevent="logout" v-if="$page.auth.user">Logout</button>
+                <a class="text-teal-200 hover:text-white font-bold px-4 cursor-pointer" @click.prevent="logout" v-if="$page.auth.user">
+                    <font-awesome-icon icon="eject" />
+                </a>
             </div>
         </div>
     </nav>
