@@ -38,11 +38,12 @@ class UserAdminTest extends TestCase
     public function _an_admin_user_can_create_a_new_user()
     {
         $this->signIn();
-        $this->get('/users/create')
-            ->assertRedirect('/home');
+        $this->followingRedirects()->get('/users/create')
+            ->assertInertia('home');
 
         $this->signIn($this->admin_user);
         $this->get('/users/create')
+            ->assertInertia('Admin/Users/create')
             ->assertStatus(200);
 
 
