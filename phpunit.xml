@@ -15,6 +15,14 @@
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
             <directory suffix=".php">./app</directory>
+            <exclude>
+                <directory>./app/Providers</directory>
+                <directory>./app/Console</directory>
+                <directory>./app/Http/Controllers/Auth</directory>
+                <file>./app/Http/Middleware/Authenticate.php</file>
+                <file>./app/Http/Middleware/RedirectIfAuthenticated.php</file>
+                <file>./app/Http/Middleware/TrustHosts.php</file>
+            </exclude>
         </whitelist>
     </filter>
     <logging>
