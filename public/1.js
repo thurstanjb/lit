@@ -103,6 +103,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'user-form',
   props: {
@@ -116,7 +121,7 @@ __webpack_require__.r(__webpack_exports__);
         password_confirmation: ''
       }
     },
-    errors: Object,
+    errors: Array,
     editing: {
       type: Boolean,
       "default": false
@@ -142,12 +147,18 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     processUser: function processUser() {
       var uri = '/users/create';
+      var method = 'post';
 
       if (this.editing) {
         uri = '/users/' + this.user.id + '/edit';
+        method = 'put';
       }
 
-      this.$inertia.post(uri, this.user);
+      this.$inertia[method](uri, this.user);
+    },
+    deleteUser: function deleteUser() {
+      console.log('DeletingUser');
+      this.$inertia["delete"]('/users/' + this.user.id);
     }
   }
 });
@@ -482,14 +493,10 @@ var render = function() {
           ])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "w-full" }, [
+        _c("div", { staticClass: "w-full flex justify-between" }, [
           _c(
             "button",
-            {
-              staticClass:
-                "bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline",
-              attrs: { type: "submit" }
-            },
+            { staticClass: "submit-btn", attrs: { type: "submit" } },
             [
               _vm._v(
                 "\n                " +
@@ -497,7 +504,16 @@ var render = function() {
                   " User\n            "
               )
             ]
-          )
+          ),
+          _vm._v(" "),
+          _vm.editing && _vm.$page.auth.user.name !== _vm.userData.name
+            ? _c(
+                "button",
+                { staticClass: "delete-btn", on: { click: _vm.deleteUser } },
+                [_c("font-awesome-icon", { attrs: { icon: "trash-alt" } })],
+                1
+              )
+            : _vm._e()
         ])
       ]
     )

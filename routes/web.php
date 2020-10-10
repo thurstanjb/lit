@@ -26,5 +26,6 @@ Route::prefix('/users')->as('users.')->middleware(['auth', 'admin'])->group(func
    Route::get('/create', 'UserController@create')->name('create');
    Route::post('/create', 'UserController@store')->name('store');
    Route::get('/{user}/edit', 'UserController@edit')->name('edit');
-   Route::post('/{user}/edit', 'UserController@update')->name('update');
+   Route::put('/{user}/edit', 'UserController@update')->name('update');
+   Route::delete('/{user}', 'UserController@destroy')->name('destroy');
 });

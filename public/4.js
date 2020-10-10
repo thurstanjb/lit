@@ -18,13 +18,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "admin-users-create",
+  name: "admin-users-update",
   components: {
     UserForm: _Components_userForm__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   props: {
     title: String,
-    errors: Object,
+    errors: Array,
     user: Object
   },
   layout: _Layouts_layout__WEBPACK_IMPORTED_MODULE_0__["default"],

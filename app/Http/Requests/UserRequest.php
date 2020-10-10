@@ -44,11 +44,9 @@ class UserRequest extends FormRequest
     public function validated(){
         $valid = $this->validator->validated();
 
-        if(request('id')){
-            //Prevent auth user from locking themselves out.
-            if(auth()->id() === request('id')){
-                unset($valid['role']);
-            }
+        //Prevent auth user from locking themselves out.
+        if(request('id') && auth()->id() === request('id')){
+            unset($valid['role']);
         }
 
         //Only update password, if has been set.

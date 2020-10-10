@@ -1,0 +1,24 @@
+.submit-btn {
+    @apply bg-teal-500 text-white font-bold py-2 px-4 rounded;
+
+    &:hover {
+        @apply bg-teal-700;
+    }
+
+    &:focus {
+        @apply outline-none shadow-outline;
+    }
+}
+
+.delete-btn {
+    @apply bg-red-500 text-white font-bold py-2 px-4 rounded;
+
+    &:hover {
+        @apply bg-red-700;
+    }
+
+    &:focus {
+        @apply outline-none shadow-outline-danger;
+    }
+}
+

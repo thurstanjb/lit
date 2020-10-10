@@ -80,11 +80,16 @@
                 </div>
             </div>
 
-            <div class="w-full">
+            <div class="w-full flex justify-between">
                 <button
-                    class="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                    class="submit-btn"
                     type="submit">
                     {{heading}} User
+                </button>
+                <button
+                    class="delete-btn"
+                    v-if="editing && $page.auth.user.name !== userData.name" @click="deleteUser">
+                    <font-awesome-icon icon="trash-alt"/>
                 </button>
             </div>
 
@@ -106,7 +111,7 @@
                     password_confirmation: ''
                 })
             },
-            errors: Object,
+            errors: Array,
             editing: {
                 type: Boolean,
                 default: false
@@ -132,12 +137,19 @@
         methods: {
             processUser() {
                 let uri = '/users/create';
+                let method = 'post';
 
                 if(this.editing){
                     uri = '/users/' + this.user.id + '/edit'
+                    method = 'put'
                 }
 
-                this.$inertia.post(uri, this.user);
+                this.$inertia[method](uri, this.user);
+            },
+
+            deleteUser(){
+                console.log('DeletingUser');
+                this.$inertia.delete('/users/' + this.user.id);
             }
         }
     }

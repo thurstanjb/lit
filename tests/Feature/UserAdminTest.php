@@ -139,11 +139,11 @@ class UserAdminTest extends TestCase
 
         // We cannot update to an existing email address
         $edited_user['email'] = $this->admin_user->email;
-        $this->post($uri, $edited_user)
+        $this->put($uri, $edited_user)
             ->assertSessionHasErrorsIn('default', 'email');
         $edited_user['email'] = 'notused@wallsauce.com';
 
-        $this->post($uri, $edited_user)
+        $this->put($uri, $edited_user)
             ->assertSessionHasNoErrors()
             ->assertRedirect('/users');
 
@@ -165,7 +165,7 @@ class UserAdminTest extends TestCase
 
         $edited_user['role'] = 'user';
 
-        $this->post('/users/'.$edited_user['id'].'/edit', $edited_user)
+        $this->put('/users/'.$edited_user['id'].'/edit', $edited_user)
             ->assertSessionHasNoErrors()
             ->assertRedirect('/users');
 
@@ -188,10 +188,32 @@ class UserAdminTest extends TestCase
         $edited_user['password'] = 'newpassword';
         $edited_user['password_confirmation'] = 'newpassword';
 
-        $this->post('/users/'.$edited_user['id'].'/edit', $edited_user)
+        $this->put('/users/'.$edited_user['id'].'/edit', $edited_user)
             ->assertSessionHasNoErrors()
             ->assertRedirect('/users');
 
         $this->assertTrue(Hash::check($edited_user['password'], $new_user->fresh()->password));
+    }
+
+    /**
+     * @test
+     */
+    public function _only_an_admin_user_can_delete_another_user()
+    {
+        $this->signin();
+        $doomed_user = create(User::class);
+        $uri = '/users/' . $doomed_user->id;
+
+        $this->followingRedirects()->delete($uri)
+            ->assertInertia('home');
+
+        $this->signIn($this->admin_user);
+        $this->delete($uri)
+            ->assertSessionHasNoErrors()
+            ->assertRedirect('/users');
+
+        $this->assertDatabaseMissing('users', [
+            'id' => $doomed_user->id
+        ]);
     }
 }

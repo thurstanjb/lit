@@ -8,6 +8,7 @@ use Inertia\Inertia;
 
 class UserController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -81,11 +82,14 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
+     * @param \App\User $user
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Exception
      */
     public function destroy(User $user)
     {
-        //
+        $user->delete();
+
+        return redirect()->route('users.index');
     }
 }

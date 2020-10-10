@@ -13,7 +13,7 @@
 
         props: {
             title: String,
-            errors: Object,
+            errors: Array,
             user: Object
         },
 
