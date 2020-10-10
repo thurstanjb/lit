@@ -7,8 +7,10 @@
     import UserForm from "./Components/userForm";
 
     export default {
-        name: "admin-users-create",
+        name: "admin-users-update",
+
         components: {UserForm},
+
         props: {
             title: String,
             errors: Object,
@@ -17,10 +19,9 @@
 
         layout: Layout,
 
-
         created() {
             this.$parent.title = this.title
-        },
+        }
     }
 </script>
 

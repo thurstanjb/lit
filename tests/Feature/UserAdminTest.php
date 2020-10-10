@@ -61,6 +61,65 @@ class UserAdminTest extends TestCase
     /**
      * @test
      */
+    public function _a_user_must_have_a_name()
+    {
+        $this->signIn($this->admin_user);
+        $this->new_user['name'] = null;
+
+        $this->post('/users/create', $this->new_user)
+            ->assertSessionHasErrorsIn('default', 'name');
+    }
+
+    /**
+     * @test
+     */
+    public function _a_user_must_have_a_valid_email()
+    {
+        $this->signIn($this->admin_user);
+
+        $this->new_user['email'] = null;
+        $this->post('/users/create', $this->new_user)
+            ->assertSessionHasErrorsIn('default', 'email');
+
+        $this->new_user['email'] = 'not.an.email';
+        $this->post('/users/create', $this->new_user)
+            ->assertSessionHasErrorsIn('default', 'email');
+
+        $this->new_user['email'] = 'like.an@email.com';
+        $this->post('/users/create', $this->new_user)
+            ->assertSessionHasNoErrors();
+    }
+
+    /**
+     * @test
+     */
+    public function _a_user_must_have_a_confirmed_password_of_appropriate_length()
+    {
+        $this->signIn($this->admin_user);
+
+        $this->new_user['password'] = '';
+        $this->post('/users/create', $this->new_user)
+            ->assertSessionHasErrorsIn('default', 'password');
+
+        $this->new_user['password'] = 'test';
+        $this->new_user['password_confirmation'] = 'test';
+        $this->post('/users/create', $this->new_user)
+            ->assertSessionHasErrorsIn('default', 'password');
+
+        $this->new_user['password'] = 'morethan8chars';
+        $this->new_user['password_confirmation'] = 'test';
+        $this->post('/users/create', $this->new_user)
+            ->assertSessionHasErrorsIn('default', 'password');
+
+        $this->new_user['password'] = 'morethan8chars';
+        $this->new_user['password_confirmation'] = 'morethan8chars';
+        $this->post('/users/create', $this->new_user)
+            ->assertSessionHasNoErrors();
+    }
+
+    /**
+     * @test
+     */
     public function _an_admin_user_can_edit_another_user()
     {
         $this->signIn();
@@ -121,59 +180,18 @@ class UserAdminTest extends TestCase
     /**
      * @test
      */
-    public function _a_user_must_have_a_name()
+    public function _a_password_can_be_updated_if_confirmed()
     {
         $this->signIn($this->admin_user);
-        $this->new_user['name'] = null;
+        $new_user = create(User::class);
+        $edited_user = $new_user->toArray();
+        $edited_user['password'] = 'newpassword';
+        $edited_user['password_confirmation'] = 'newpassword';
 
-        $this->post('/users/create', $this->new_user)
-            ->assertSessionHasErrorsIn('default', 'name');
-    }
+        $this->post('/users/'.$edited_user['id'].'/edit', $edited_user)
+            ->assertSessionHasNoErrors()
+            ->assertRedirect('/users');
 
-    /**
-     * @test
-     */
-    public function _a_user_must_have_a_valid_email()
-    {
-        $this->signIn($this->admin_user);
-
-        $this->new_user['email'] = null;
-        $this->post('/users/create', $this->new_user)
-            ->assertSessionHasErrorsIn('default', 'email');
-
-        $this->new_user['email'] = 'not.an.email';
-        $this->post('/users/create', $this->new_user)
-            ->assertSessionHasErrorsIn('default', 'email');
-
-        $this->new_user['email'] = 'like.an@email.com';
-        $this->post('/users/create', $this->new_user)
-            ->assertSessionHasNoErrors();
-    }
-
-    /**
-     * @test
-     */
-    public function _a_user_must_have_a_confirmed_password_of_appropriate_length()
-    {
-        $this->signIn($this->admin_user);
-
-        $this->new_user['password'] = '';
-        $this->post('/users/create', $this->new_user)
-            ->assertSessionHasErrorsIn('default', 'password');
-
-        $this->new_user['password'] = 'test';
-        $this->new_user['password_confirmation'] = 'test';
-        $this->post('/users/create', $this->new_user)
-            ->assertSessionHasErrorsIn('default', 'password');
-
-        $this->new_user['password'] = 'morethan8chars';
-        $this->new_user['password_confirmation'] = 'test';
-        $this->post('/users/create', $this->new_user)
-            ->assertSessionHasErrorsIn('default', 'password');
-
-        $this->new_user['password'] = 'morethan8chars';
-        $this->new_user['password_confirmation'] = 'morethan8chars';
-        $this->post('/users/create', $this->new_user)
-            ->assertSessionHasNoErrors();
+        $this->assertTrue(Hash::check($edited_user['password'], $new_user->fresh()->password));
     }
 }
