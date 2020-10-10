@@ -1,5 +1,5 @@
 <template>
-    <user-form :errors="errors"></user-form>
+    <user-form :user-data="user" :errors="errors" :editing="true"></user-form>
 </template>
 
 <script>
@@ -11,7 +11,8 @@
         components: {UserForm},
         props: {
             title: String,
-            errors: Object
+            errors: Object,
+            user: Object
         },
 
         layout: Layout,

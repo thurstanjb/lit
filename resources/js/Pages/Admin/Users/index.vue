@@ -24,7 +24,9 @@
                 <td class="border px-4 py-2">{{user.email}}</td>
                 <td class="border px-4 py-2">{{user.role}}</td>
                 <td class="border px-4 py-2">{{user.joined}}</td>
-                <td class="border px-4 py-2">Edit</td>
+                <td class="border px-4 py-2">
+                    <a :href="'/users/' + user.id + '/edit'">Edit</a>
+                </td>
             </tr>
             </tbody>
         </table>

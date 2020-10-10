@@ -75,12 +75,15 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
+     * @param \App\User $user
+     * @return \Inertia\Response
      */
     public function edit(User $user)
     {
-        //
+        return Inertia::render('Admin/Users/update', [
+            'title' => 'Edit User',
+            'user' => $user
+        ]);
     }
 
     /**
@@ -88,11 +91,30 @@ class UserController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Request $request, User $user)
     {
-        //
+        $valid = request()->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users,email,' . $user->id,
+            'password' => 'sometimes|string|min:8|confirmed',
+            'role' => 'string'
+        ]);
+
+        //Only update password, if has been set.
+        if(!empty($valid['password'])){
+            $valid['password'] = Hash::make($valid['password']);
+        }
+
+        //Prevent auth user from locking themselves out.
+        if(auth()->id() === $user->id){
+            $valid['role'] = $user->role;
+        }
+
+        $user->update($valid);
+
+        return redirect()->route('users.index');
     }
 
     /**

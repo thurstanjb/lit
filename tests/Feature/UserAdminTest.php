@@ -61,6 +61,66 @@ class UserAdminTest extends TestCase
     /**
      * @test
      */
+    public function _an_admin_user_can_edit_another_user()
+    {
+        $this->signIn();
+        $new_user = create(User::class);
+        $uri = '/users/'.$new_user->id.'/edit';
+
+        $this->followingRedirects()->get($uri)
+            ->assertInertia('home');
+
+        $this->signIn($this->admin_user);
+        $this->get($uri)
+            ->assertInertia('Admin/Users/update')
+            ->assertStatus(200);
+
+        $edited_user = $new_user->toArray();
+        $edited_user['name'] = 'updated name';
+
+        // We cannot update to an existing email address
+        $edited_user['email'] = $this->admin_user->email;
+        $this->post($uri, $edited_user)
+            ->assertSessionHasErrorsIn('default', 'email');
+        $edited_user['email'] = 'notused@wallsauce.com';
+
+        $this->post($uri, $edited_user)
+            ->assertSessionHasNoErrors()
+            ->assertRedirect('/users');
+
+        $this->assertDatabaseHas('users', [
+            'id' => $edited_user['id'],
+            'name' => $edited_user['name'],
+            'email' => $edited_user['email'],
+            'role' => $edited_user['role']
+        ]);
+    }
+
+    /**
+     * @test
+     */
+    public function _an_admin_user_Cannot_update_their_own_role()
+    {
+        $this->signIn($this->admin_user);
+        $edited_user = $this->admin_user->toArray();
+
+        $edited_user['role'] = 'user';
+
+        $this->post('/users/'.$edited_user['id'].'/edit', $edited_user)
+            ->assertSessionHasNoErrors()
+            ->assertRedirect('/users');
+
+        $this->assertDatabaseHas('users', [
+            'id' => $edited_user['id'],
+            'name' => $edited_user['name'],
+            'email' => $edited_user['email'],
+            'role' => 'admin'
+        ]);
+    }
+
+    /**
+     * @test
+     */
     public function _a_user_must_have_a_name()
     {
         $this->signIn($this->admin_user);

@@ -25044,72 +25044,96 @@ var map = {
 	"./Admin/Users": [
 		"./resources/js/Pages/Admin/Users/index.vue",
 		0,
-		1
+		2
 	],
 	"./Admin/Users/": [
 		"./resources/js/Pages/Admin/Users/index.vue",
 		0,
-		1
+		2
+	],
+	"./Admin/Users/Components/userForm": [
+		"./resources/js/Pages/Admin/Users/Components/userForm.vue",
+		1,
+		9
+	],
+	"./Admin/Users/Components/userForm.vue": [
+		"./resources/js/Pages/Admin/Users/Components/userForm.vue",
+		1,
+		9
 	],
 	"./Admin/Users/create": [
 		"./resources/js/Pages/Admin/Users/create.vue",
 		0,
-		2
+		1,
+		3
 	],
 	"./Admin/Users/create.vue": [
 		"./resources/js/Pages/Admin/Users/create.vue",
 		0,
-		2
+		1,
+		3
 	],
 	"./Admin/Users/index": [
 		"./resources/js/Pages/Admin/Users/index.vue",
 		0,
-		1
+		2
 	],
 	"./Admin/Users/index.vue": [
 		"./resources/js/Pages/Admin/Users/index.vue",
 		0,
-		1
+		2
+	],
+	"./Admin/Users/update": [
+		"./resources/js/Pages/Admin/Users/update.vue",
+		0,
+		1,
+		4
+	],
+	"./Admin/Users/update.vue": [
+		"./resources/js/Pages/Admin/Users/update.vue",
+		0,
+		1,
+		4
 	],
 	"./Auth/Passwords/email": [
 		"./resources/js/Pages/Auth/Passwords/email.vue",
 		0,
-		3
+		5
 	],
 	"./Auth/Passwords/email.vue": [
 		"./resources/js/Pages/Auth/Passwords/email.vue",
 		0,
-		3
+		5
 	],
 	"./Auth/Passwords/reset": [
 		"./resources/js/Pages/Auth/Passwords/reset.vue",
 		0,
-		4
+		6
 	],
 	"./Auth/Passwords/reset.vue": [
 		"./resources/js/Pages/Auth/Passwords/reset.vue",
 		0,
-		4
+		6
 	],
 	"./Auth/login": [
 		"./resources/js/Pages/Auth/login.vue",
 		0,
-		5
+		7
 	],
 	"./Auth/login.vue": [
 		"./resources/js/Pages/Auth/login.vue",
 		0,
-		5
+		7
 	],
 	"./home": [
 		"./resources/js/Pages/home.vue",
 		0,
-		6
+		8
 	],
 	"./home.vue": [
 		"./resources/js/Pages/home.vue",
 		0,
-		6
+		8
 	]
 };
 function webpackAsyncContext(req) {
