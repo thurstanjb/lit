@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserRequest;
 use App\User;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 use Inertia\Inertia;
 
 class UserController extends Controller
@@ -39,38 +38,16 @@ class UserController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     * @param Request $request
+     * @param UserRequest $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
-        $valid = request()->validate([
-            'name' => 'required',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|string|min:8|confirmed',
-            'role' => 'string'
-        ]);
-
-        User::create([
-            'name' => $valid['name'],
-            'email' => $valid['email'],
-            'role' => $valid['role'],
-            'password' => Hash::make($valid['password'])
-        ]);
+        User::create($request->validated());
 
         return redirect()->route('users.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function show(User $user)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -93,26 +70,10 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, User $user)
+    public function update(UserRequest $request, User $user)
     {
-        $valid = request()->validate([
-            'name' => 'required',
-            'email' => 'required|email|unique:users,email,' . $user->id,
-            'password' => 'sometimes|string|min:8|confirmed',
-            'role' => 'string'
-        ]);
 
-        //Only update password, if has been set.
-        if(!empty($valid['password'])){
-            $valid['password'] = Hash::make($valid['password']);
-        }
-
-        //Prevent auth user from locking themselves out.
-        if(auth()->id() === $user->id){
-            $valid['role'] = $user->role;
-        }
-
-        $user->update($valid);
+        $user->update($request->validated());
 
         return redirect()->route('users.index');
     }
