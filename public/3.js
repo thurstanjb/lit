@@ -64,6 +64,11 @@ __webpack_require__.r(__webpack_exports__);
   layout: _Layouts_layout__WEBPACK_IMPORTED_MODULE_0__["default"],
   created: function created() {
     this.$parent.title = this.title;
+  },
+  methods: {
+    deleteUpload: function deleteUpload(id) {
+      this.$inertia["delete"]('/uploads/' + id);
+    }
   }
 });
 
@@ -139,7 +144,12 @@ var render = function() {
                     [
                       _c("font-awesome-icon", {
                         staticClass: "text-red-500 hover:text-red-700",
-                        attrs: { icon: "trash-alt" }
+                        attrs: { icon: "trash-alt" },
+                        on: {
+                          click: function($event) {
+                            return _vm.deleteUpload(upload.id)
+                          }
+                        }
                       })
                     ],
                     1

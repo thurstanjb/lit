@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Upload;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Http\UploadedFile;
@@ -16,6 +17,9 @@ class FileUploadTest extends TestCase
      */
     public function _an_authorised_user_can_visit_the_uploads_page()
     {
+        // Seed table
+        create(Upload::class, [], 5);
+
         $this->followingRedirects()->get('/uploads')
             ->assertInertia('Auth/login');
 
@@ -50,6 +54,37 @@ class FileUploadTest extends TestCase
 
         $this->assertDatabaseHas('uploads', [
            'filename' =>  $filename,
+            'folder' => $folder
+        ]);
+    }
+
+    /**
+     * @test
+     */
+    public function _an_authorised_user_can_delete_a_file()
+    {
+        $folder = 'test_folder';
+        $filename  = 'mountains.xls';
+        Storage::fake();
+
+        $this->signIn();
+        $this->post('/uploads/upload-file', [
+            'file' => UploadedFile::fake()->create($filename, 100),
+            'filename' => $filename,
+            'folder' => $folder
+        ])
+            ->assertRedirect('/uploads');
+
+        $new_upload = Upload::where('filename', $filename)
+            ->where('folder', $folder)->first();
+
+        $this->delete('/uploads/'.$new_upload->id)
+            ->assertRedirect('/uploads');
+
+        Storage::disk('public')->assertMissing($folder .'/'. $filename);
+
+        $this->assertDatabaseMissing('uploads', [
+            'filename' =>  $filename,
             'folder' => $folder
         ]);
     }

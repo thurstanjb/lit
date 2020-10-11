@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UploadFileRequest;
 use App\Upload;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 
 class UploadController extends Controller
@@ -34,4 +34,13 @@ class UploadController extends Controller
 
         return redirect()->route('uploads.index');
     }
+
+    public function destroy(Upload $upload){
+        Storage::disk('public')->delete($upload->storage_path);
+
+        $upload->delete();
+
+        return redirect()->route('uploads.index');
+    }
+
 }

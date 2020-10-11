@@ -26,7 +26,7 @@
                 <td class="border px-4 py-2">{{upload.user.name}}</td>
                 <td class="border px-4 py-2 text-center">
                     <a href="#">
-                        <font-awesome-icon class="text-red-500 hover:text-red-700" icon="trash-alt"/>
+                        <font-awesome-icon class="text-red-500 hover:text-red-700" icon="trash-alt" @click="deleteUpload(upload.id)"/>
                     </a>
                 </td>
             </tr>
@@ -58,6 +58,12 @@
         created() {
             this.$parent.title = this.title
         },
+
+        methods:{
+            deleteUpload(id){
+                this.$inertia.delete('/uploads/' + id);
+            }
+        }
     }
 </script>
 

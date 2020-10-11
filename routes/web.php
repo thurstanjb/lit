@@ -25,6 +25,7 @@ Route::prefix('/uploads')->as('uploads.')->middleware(['auth'])->group(function(
     Route::get('/', 'UploadController@index')->name('index');
     Route::get('/upload-file', 'UploadController@showUpload')->name('upload');
     Route::post('/upload-file', 'UploadController@uploadFile')->name('uploadFile');
+    Route::delete('/{upload}', 'UploadController@destroy')->name('destroy');
 });
 
 Route::prefix('/users')->as('users.')->middleware(['auth', 'admin'])->group(function(){
