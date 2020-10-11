@@ -75,19 +75,16 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticClass: "w-full px-1" }, [
     _c(
       "div",
-      { staticClass: "flex content-between bg-teal-400 rounded-t py-5 px-5" },
+      { staticClass: "tj-topbar" },
       [
-        _c("h1", { staticClass: "text-2xl flex-1" }, [_vm._v("Users")]),
+        _c("h1", { staticClass: "tj-topbar_heading" }, [_vm._v("Users")]),
         _vm._v(" "),
         _c(
           "inertia-link",
-          {
-            staticClass: "hover:text-white text-teal-700 font-bold pt-1",
-            attrs: { href: "/users/create" }
-          },
+          { staticClass: "tj-topbar_link", attrs: { href: "/users/create" } },
           [_c("font-awesome-icon", { attrs: { icon: "user-plus" } })],
           1
         )
@@ -95,7 +92,7 @@ var render = function() {
       1
     ),
     _vm._v(" "),
-    _c("table", { staticClass: "table-auto w-full" }, [
+    _c("table", { staticClass: "table-auto w-full table-responsive" }, [
       _vm._m(0),
       _vm._v(" "),
       _c(

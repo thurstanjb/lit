@@ -96,18 +96,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'user-form',
   props: {
@@ -157,7 +145,6 @@ __webpack_require__.r(__webpack_exports__);
       this.$inertia[method](uri, this.user);
     },
     deleteUser: function deleteUser() {
-      console.log('DeletingUser');
       this.$inertia["delete"]('/users/' + this.user.id);
     }
   }
@@ -180,21 +167,18 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "w-full" }, [
+  return _c("div", { staticClass: "w-full px-1" }, [
     _c(
       "div",
-      { staticClass: "flex content-between bg-teal-400 rounded-t py-5 px-5" },
+      { staticClass: "tj-topbar" },
       [
-        _c("h1", { staticClass: "text-2xl flex-1" }, [
+        _c("h1", { staticClass: "tj-topbar_heading" }, [
           _vm._v(_vm._s(_vm.heading) + " User")
         ]),
         _vm._v(" "),
         _c(
           "inertia-link",
-          {
-            staticClass: "hover:text-white text-teal-700 text-sm pt-1",
-            attrs: { href: "/users" }
-          },
+          { staticClass: "tj-topbar_link", attrs: { href: "/users" } },
           [_c("font-awesome-icon", { attrs: { icon: "undo-alt" } })],
           1
         )
@@ -205,7 +189,7 @@ var render = function() {
     _c(
       "form",
       {
-        staticClass: "w-full bg-white shadow-md rounded px-10 pt-6 pb-8 mb-4 ",
+        staticClass: "tj-form",
         on: {
           submit: function($event) {
             $event.preventDefault()
@@ -214,12 +198,11 @@ var render = function() {
         }
       },
       [
-        _c("div", { staticClass: "flex w-full mb-4" }, [
+        _c("div", { staticClass: "md:flex w-full mb-4" }, [
           _c(
             "label",
             {
-              staticClass:
-                "block text-gray-700 text-sm text-right font-bold mt-2 mr-5 md:w-1/12",
+              staticClass: "tj-form_label md:w-1/12 md:text-right",
               attrs: { for: "name" }
             },
             [_vm._v("\n                Name\n            ")]
@@ -235,8 +218,7 @@ var render = function() {
                   expression: "user.name"
                 }
               ],
-              staticClass:
-                "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline",
+              staticClass: "tj-form_input--text",
               attrs: { id: "name", type: "text", placeholder: "Name" },
               domProps: { value: _vm.user.name },
               on: {
@@ -251,19 +233,18 @@ var render = function() {
             _vm._v(" "),
             _vm.errors.name
               ? _c("p", {
-                  staticClass: "text-red-500 text-xs italic w-full",
+                  staticClass: "tj-form_error",
                   domProps: { innerHTML: _vm._s(_vm.errors.name[0]) }
                 })
               : _vm._e()
           ])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "flex w-full mb-4" }, [
+        _c("div", { staticClass: "md:flex w-full mb-4" }, [
           _c(
             "label",
             {
-              staticClass:
-                "block text-gray-700 text-sm text-right font-bold mt-2 mr-5 md:w-1/12",
+              staticClass: "tj-form_label md:w-1/12 md:text-right",
               attrs: { for: "role" }
             },
             [_vm._v("\n                Role\n            ")]
@@ -281,8 +262,7 @@ var render = function() {
                     expression: "user.role"
                   }
                 ],
-                staticClass:
-                  "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline",
+                staticClass: "tj-form_input--select",
                 attrs: { name: "role", id: "role" },
                 on: {
                   change: function($event) {
@@ -310,49 +290,41 @@ var render = function() {
               0
             ),
             _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass:
-                  "pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
-              },
-              [
-                _c(
-                  "svg",
-                  {
-                    staticClass: "fill-current h-4 w-4",
+            _c("div", { staticClass: "tj-form_input--select_icon" }, [
+              _c(
+                "svg",
+                {
+                  staticClass: "fill-current h-4 w-4",
+                  attrs: {
+                    xmlns: "http://www.w3.org/2000/svg",
+                    viewBox: "0 0 20 20"
+                  }
+                },
+                [
+                  _c("path", {
                     attrs: {
-                      xmlns: "http://www.w3.org/2000/svg",
-                      viewBox: "0 0 20 20"
+                      d:
+                        "M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
                     }
-                  },
-                  [
-                    _c("path", {
-                      attrs: {
-                        d:
-                          "M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
-                      }
-                    })
-                  ]
-                )
-              ]
-            ),
+                  })
+                ]
+              )
+            ]),
             _vm._v(" "),
             _vm.errors.role
               ? _c("p", {
-                  staticClass: "text-red-500 text-xs italic",
+                  staticClass: "tj-form_error",
                   domProps: { innerHTML: _vm._s(_vm.errors.role[0]) }
                 })
               : _vm._e()
           ])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "flex w-full mb-4" }, [
+        _c("div", { staticClass: "md:flex w-full mb-4" }, [
           _c(
             "label",
             {
-              staticClass:
-                "block text-gray-700 text-right text-sm font-bold mt-2 mr-5 md:w-1/12",
+              staticClass: "tj-form_label md:w-1/12 md:text-right",
               attrs: { for: "email" }
             },
             [_vm._v("\n                Email\n            ")]
@@ -368,8 +340,7 @@ var render = function() {
                   expression: "user.email"
                 }
               ],
-              staticClass:
-                "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline",
+              staticClass: "tj-form_input--text",
               attrs: { id: "email", type: "email", placeholder: "Email" },
               domProps: { value: _vm.user.email },
               on: {
@@ -384,19 +355,18 @@ var render = function() {
             _vm._v(" "),
             _vm.errors.email
               ? _c("p", {
-                  staticClass: "text-red-500 text-xs italic",
+                  staticClass: "tj-form_error",
                   domProps: { innerHTML: _vm._s(_vm.errors.email[0]) }
                 })
               : _vm._e()
           ])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "flex w-full mb-4" }, [
+        _c("div", { staticClass: "md:flex w-full mb-4" }, [
           _c(
             "label",
             {
-              staticClass:
-                "block text-gray-700 text-right text-sm font-bold mt-2 mr-5 md:w-1/12",
+              staticClass: "tj-form_label md:w-1/12 md:text-right",
               attrs: { for: "password" }
             },
             [_vm._v("\n                Password\n            ")]
@@ -412,8 +382,7 @@ var render = function() {
                   expression: "user.password"
                 }
               ],
-              staticClass:
-                "shadow appearance-none border rounded w-3/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline",
+              staticClass: "tj-form_input--text",
               attrs: {
                 id: "password",
                 type: "password",
@@ -432,19 +401,18 @@ var render = function() {
             _vm._v(" "),
             _vm.errors.password
               ? _c("p", {
-                  staticClass: "text-red-500 text-xs italic",
+                  staticClass: "tj-form_error",
                   domProps: { innerHTML: _vm._s(_vm.errors.password[0]) }
                 })
               : _vm._e()
           ])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "flex w-full mb-4" }, [
+        _c("div", { staticClass: "md:flex w-full mb-4" }, [
           _c(
             "label",
             {
-              staticClass:
-                "block text-gray-700 text-right text-sm font-bold mt-2 mr-5 md:w-1/12",
+              staticClass: "tj-form_label md:w-1/12 md:text-right",
               attrs: { for: "password_confirmation" }
             },
             [_vm._v("\n                Confirm\n            ")]
@@ -460,8 +428,7 @@ var render = function() {
                   expression: "user.password_confirmation"
                 }
               ],
-              staticClass:
-                "shadow appearance-none border rounded w-3/4 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline",
+              staticClass: "tj-form_input--text",
               attrs: {
                 id: "password_confirmation",
                 type: "password",
@@ -484,7 +451,7 @@ var render = function() {
             _vm._v(" "),
             _vm.errors.password_confirmation
               ? _c("p", {
-                  staticClass: "text-red-500 text-xs italic",
+                  staticClass: "tj-form_error",
                   domProps: {
                     innerHTML: _vm._s(_vm.errors.password_confirmation[0])
                   }

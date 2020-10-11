@@ -84,17 +84,17 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticClass: "w-full px-1" }, [
     _c(
       "div",
-      { staticClass: "flex content-between bg-teal-400 rounded-t py-5 px-5" },
+      { staticClass: "tj-topbar" },
       [
-        _c("h1", { staticClass: "text-2xl flex-1" }, [_vm._v("Uploads")]),
+        _c("h1", { staticClass: "tj-topbar_heading" }, [_vm._v("Uploads")]),
         _vm._v(" "),
         _c(
           "inertia-link",
           {
-            staticClass: "hover:text-white text-teal-700 font-bold pt-1",
+            staticClass: "tj-topbar_link",
             attrs: { href: "/uploads/upload-file" }
           },
           [_c("font-awesome-icon", { attrs: { icon: "upload" } })],
@@ -104,7 +104,7 @@ var render = function() {
       1
     ),
     _vm._v(" "),
-    _c("table", { staticClass: "table-auto w-full" }, [
+    _c("table", { staticClass: "table-auto w-full table-responsive" }, [
       _vm._m(0),
       _vm._v(" "),
       _vm.uploads.length > 0
@@ -125,18 +125,23 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("td", { staticClass: "border px-4 py-2" }, [
-                  _vm._v(_vm._s(upload.created_at))
+                  _vm._v(_vm._s(upload.upload_date))
                 ]),
                 _vm._v(" "),
                 _c("td", { staticClass: "border px-4 py-2" }, [
                   _vm._v(_vm._s(upload.user.name))
                 ]),
                 _vm._v(" "),
-                _c("td", { staticClass: "border px-4 py-2" }, [
+                _c("td", { staticClass: "border px-4 py-2 text-center" }, [
                   _c(
                     "a",
                     { attrs: { href: "#" } },
-                    [_c("font-awesome-icon", { attrs: { icon: "trash-alt" } })],
+                    [
+                      _c("font-awesome-icon", {
+                        staticClass: "text-red-500 hover:text-red-700",
+                        attrs: { icon: "trash-alt" }
+                      })
+                    ],
                     1
                   )
                 ])
@@ -163,7 +168,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { staticClass: "px-4 py-2" }, [_vm._v("Uploaded")]),
         _vm._v(" "),
-        _c("th", { staticClass: "px-4 py-2" }, [_vm._v("BY User")]),
+        _c("th", { staticClass: "px-4 py-2" }, [_vm._v("Uploaded By")]),
         _vm._v(" "),
         _c("th", { staticClass: "px-4 py-2" })
       ])

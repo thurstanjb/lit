@@ -86,10 +86,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "navbar",
   methods: {
@@ -222,16 +218,6 @@ var render = function() {
                       attrs: { href: "/uploads" }
                     },
                     [_vm._v("\n                Uploads\n            ")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    {
-                      staticClass:
-                        "block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white",
-                      attrs: { href: "#responsive-header" }
-                    },
-                    [_vm._v("\n                Blog\n            ")]
                   )
                 ],
                 1

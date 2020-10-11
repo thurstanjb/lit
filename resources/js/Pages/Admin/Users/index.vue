@@ -1,12 +1,12 @@
 <template>
-    <div>
-        <div class="flex content-between bg-teal-400 rounded-t py-5 px-5">
-            <h1 class="text-2xl flex-1">Users</h1>
-            <inertia-link href="/users/create" class="hover:text-white text-teal-700 font-bold pt-1">
+    <div class="w-full px-1">
+        <div class="tj-topbar">
+            <h1 class="tj-topbar_heading">Users</h1>
+            <inertia-link href="/users/create" class="tj-topbar_link">
                 <font-awesome-icon icon="user-plus" />
             </inertia-link>
         </div>
-        <table class="table-auto w-full">
+        <table class="table-auto w-full table-responsive">
             <thead class="border">
             <tr>
                 <th class="px-4 py-2">id</th>

@@ -1,19 +1,19 @@
 <template>
-    <div>
-        <div class="flex content-between bg-teal-400 rounded-t py-5 px-5">
-            <h1 class="text-2xl flex-1">Uploads</h1>
-            <inertia-link href="/uploads/upload-file" class="hover:text-white text-teal-700 font-bold pt-1">
+    <div class="w-full px-1">
+        <div class="tj-topbar">
+            <h1 class="tj-topbar_heading">Uploads</h1>
+            <inertia-link href="/uploads/upload-file" class="tj-topbar_link">
                 <font-awesome-icon icon="upload"/>
             </inertia-link>
         </div>
-        <table class="table-auto w-full">
+        <table class="table-auto w-full table-responsive">
             <thead class="border">
             <tr>
                 <th class="px-4 py-2">id</th>
                 <th class="px-4 py-2">Filename</th>
                 <th class="px-4 py-2">Folder</th>
                 <th class="px-4 py-2">Uploaded</th>
-                <th class="px-4 py-2">BY User</th>
+                <th class="px-4 py-2">Uploaded By</th>
                 <th class="px-4 py-2"></th>
             </tr>
             </thead>
@@ -22,11 +22,11 @@
                 <td class="border px-4 py-2">{{upload.id}}</td>
                 <td class="border px-4 py-2">{{upload.filename}}</td>
                 <td class="border px-4 py-2">{{upload.folder}}</td>
-                <td class="border px-4 py-2">{{upload.created_at}}</td>
+                <td class="border px-4 py-2">{{upload.upload_date}}</td>
                 <td class="border px-4 py-2">{{upload.user.name}}</td>
-                <td class="border px-4 py-2">
+                <td class="border px-4 py-2 text-center">
                     <a href="#">
-                        <font-awesome-icon icon="trash-alt"/>
+                        <font-awesome-icon class="text-red-500 hover:text-red-700" icon="trash-alt"/>
                     </a>
                 </td>
             </tr>

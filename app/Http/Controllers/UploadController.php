@@ -10,7 +10,9 @@ use Inertia\Inertia;
 class UploadController extends Controller
 {
     public function index(){
-        $uploads = Upload::with('user')->get();
+        $uploads = (Upload::with('user')->get())->each(function($upload) {
+            $upload->upload_date = $upload->created_at->format('d/m/Y H:i:s');
+        });
 
         return Inertia::render('Uploads/index',[
             'title' => 'Uploaded Files',

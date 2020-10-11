@@ -1,0 +1,48 @@
+.tj-form {
+    @apply w-full bg-white shadow-md rounded px-10 pt-6 pb-8 mb-4;
+
+    &_upload {
+        @apply flex w-full mb-4 items-center justify-center;
+
+        &--label {
+            @apply w-64 flex flex-col items-center px-4 py-6 bg-white text-teal-500 rounded-lg shadow-lg tracking-wide uppercase border border-teal-500 cursor-pointer;
+            &:hover {
+                @apply bg-teal-500 text-white;
+            }
+
+            &_text {
+                @apply mt-2 text-base leading-normal;
+            }
+        }
+    }
+
+    &_label {
+        @apply block text-gray-700 text-left w-full text-sm font-bold mt-2 mr-5;
+
+    }
+
+    &_input {
+        &--text {
+            @apply shadow appearance-none border rounded w-full py-2 px-3 text-gray-700;
+            &:focus {
+                @apply outline-none shadow-outline;
+            }
+        }
+
+        &--select{
+            @apply shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight;
+            &:focus{
+                @apply outline-none shadow-outline;
+            }
+
+            &_icon{
+                @apply pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700;
+            }
+
+        }
+    }
+
+    &_error {
+        @apply text-red-500 text-xs italic;
+    }
+}
