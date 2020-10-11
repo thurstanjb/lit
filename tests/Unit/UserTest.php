@@ -2,6 +2,7 @@
 
 namespace Tests\Unit;
 
+use App\Upload;
 use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
@@ -35,5 +36,17 @@ class UserTest extends TestCase
 
         $this->assertFalse($non_admin_user->isAdmin());
         $this->assertTrue($admin_user->isAdmin());
+    }
+
+    /**
+     * @test
+     */
+    public function _it_can_return_its_uploads()
+    {
+        $user = create(User::class);
+        $user_uploads = create(Upload::class, ['user_id' => $user->id], 3);
+        $random_uploads = create(Upload::class, [], 3);
+
+        $this->assertCount(count($user_uploads), $user->uploads);
     }
 }

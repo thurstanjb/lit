@@ -25054,24 +25054,24 @@ var map = {
 	"./Admin/Users/Components/userForm": [
 		"./resources/js/Pages/Admin/Users/Components/userForm.vue",
 		1,
-		9
+		11
 	],
 	"./Admin/Users/Components/userForm.vue": [
 		"./resources/js/Pages/Admin/Users/Components/userForm.vue",
 		1,
-		9
+		11
 	],
 	"./Admin/Users/create": [
 		"./resources/js/Pages/Admin/Users/create.vue",
 		0,
 		1,
-		3
+		4
 	],
 	"./Admin/Users/create.vue": [
 		"./resources/js/Pages/Admin/Users/create.vue",
 		0,
 		1,
-		3
+		4
 	],
 	"./Admin/Users/index": [
 		"./resources/js/Pages/Admin/Users/index.vue",
@@ -25087,53 +25087,83 @@ var map = {
 		"./resources/js/Pages/Admin/Users/update.vue",
 		0,
 		1,
-		4
+		5
 	],
 	"./Admin/Users/update.vue": [
 		"./resources/js/Pages/Admin/Users/update.vue",
 		0,
 		1,
-		4
+		5
 	],
 	"./Auth/Passwords/email": [
 		"./resources/js/Pages/Auth/Passwords/email.vue",
 		0,
-		5
+		6
 	],
 	"./Auth/Passwords/email.vue": [
 		"./resources/js/Pages/Auth/Passwords/email.vue",
 		0,
-		5
+		6
 	],
 	"./Auth/Passwords/reset": [
 		"./resources/js/Pages/Auth/Passwords/reset.vue",
 		0,
-		6
+		7
 	],
 	"./Auth/Passwords/reset.vue": [
 		"./resources/js/Pages/Auth/Passwords/reset.vue",
 		0,
-		6
+		7
 	],
 	"./Auth/login": [
 		"./resources/js/Pages/Auth/login.vue",
 		0,
-		7
+		8
 	],
 	"./Auth/login.vue": [
 		"./resources/js/Pages/Auth/login.vue",
 		0,
-		7
+		8
+	],
+	"./Uploads": [
+		"./resources/js/Pages/Uploads/index.vue",
+		0,
+		3
+	],
+	"./Uploads/": [
+		"./resources/js/Pages/Uploads/index.vue",
+		0,
+		3
+	],
+	"./Uploads/index": [
+		"./resources/js/Pages/Uploads/index.vue",
+		0,
+		3
+	],
+	"./Uploads/index.vue": [
+		"./resources/js/Pages/Uploads/index.vue",
+		0,
+		3
+	],
+	"./Uploads/uploadFile": [
+		"./resources/js/Pages/Uploads/uploadFile.vue",
+		0,
+		9
+	],
+	"./Uploads/uploadFile.vue": [
+		"./resources/js/Pages/Uploads/uploadFile.vue",
+		0,
+		9
 	],
 	"./home": [
 		"./resources/js/Pages/home.vue",
 		0,
-		8
+		10
 	],
 	"./home.vue": [
 		"./resources/js/Pages/home.vue",
 		0,
-		8
+		10
 	]
 };
 function webpackAsyncContext(req) {
@@ -25179,7 +25209,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_2__["library"].add(_fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faEject"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faUserPlus"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faUndoAlt"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faTrashAlt"]);
+_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_2__["library"].add(_fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faEject"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faUserPlus"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faUndoAlt"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faTrashAlt"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faUpload"]);
 vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('font-awesome-icon', _fortawesome_vue_fontawesome__WEBPACK_IMPORTED_MODULE_4__["FontAwesomeIcon"]);
 vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(_inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_0__["InertiaApp"]);
 var app = document.getElementById('app');
