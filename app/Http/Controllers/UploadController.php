@@ -10,7 +10,7 @@ use Inertia\Inertia;
 class UploadController extends Controller
 {
     public function index(){
-        $uploads = Upload::all();
+        $uploads = Upload::with('user')->get();
 
         return Inertia::render('Uploads/index',[
             'title' => 'Uploaded Files',
@@ -26,7 +26,6 @@ class UploadController extends Controller
 
     public function uploadFile(UploadFileRequest $request){
         $valid = $request->validated();
-
         $valid['storage_path'] = $request->file('file')->storeAs($valid['folder'],$valid['filename'], 'public');
 
         Upload::create($valid);

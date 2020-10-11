@@ -22,10 +22,6 @@
                    class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
                     Uploads
                 </inertia-link>
-                <a href="#responsive-header"
-                   class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
-                    Blog
-                </a>
             </div>
             <div>
                 <a class="text-teal-200 hover:text-white font-bold px-4 cursor-pointer" @click.prevent="logout" v-if="$page.auth.user">
