@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UploadFileRequest;
 use App\Upload;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -23,24 +24,13 @@ class UploadController extends Controller
         ]);
     }
 
-    public function uploadFile(Request $request){
-        $valid = $request->validate([
-            'filename' => 'required|string|max:255',
-            'folder' => 'required|string|max:100',
-            'file' => 'required|file'
-        ]);
+    public function uploadFile(UploadFileRequest $request){
+        $valid = $request->validated();
 
-        $storage_path = $request->file('file')->storeAs($valid['folder'],$valid['filename'], 'public');
+        $valid['storage_path'] = $request->file('file')->storeAs($valid['folder'],$valid['filename'], 'public');
 
-        Upload::create([
-            'filename' => $valid['filename'],
-            'folder' => $valid['folder'],
-            'storage_path' => $storage_path,
-            'user_id' => auth()->id()
-        ]);
+        Upload::create($valid);
 
         return redirect()->route('uploads.index');
     }
-
-
 }
