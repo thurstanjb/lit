@@ -33,18 +33,53 @@ class MountaineerAdminTest extends TestCase
      */
     public function _an_authorised_user_can_add_a_mountaineer()
     {
+        $new_mountaineer = make(Mountaineer::class);
+
         $this->signIn();
 
         $this->get('/mountaineers/create')
             ->assertInertia('Admin/Mountaineers/create');
 
-        $new_mountaineer = make(Mountaineer::class);
-
-        $this->post('/mountaineers/create', $new_mountaineer->toArray());
+        $this->followingRedirects()->post('/mountaineers/create', $new_mountaineer->toArray())
+            ->assertInertia('Admin/Mountaineers/index');
 
         $this->assertDatabaseHas('mountaineers', [
             'name' => $new_mountaineer->name,
             'slug' => Str::slug($new_mountaineer->name, '-')
         ]);
+
+    }
+
+    /**
+     * @test
+     */
+    public function _an_authorised_user_can_edit_a_mountaineer()
+    {
+        $mountaineer = create(Mountaineer::class);
+        $mountaineer->name = 'updated name';
+        $url = '/mountaineers/'. $mountaineer->slug.'/edit';
+
+        $this->signIn();
+
+        $this->get($url)
+            ->assertInertia('Admin/Mountaineers/update');
+
+        $this->followingRedirects()->put($url, $mountaineer->toArray())
+            ->assertInertia('Admin/Mountaineers/index');
+    }
+
+    /**
+     * @test
+     */
+    public function _a_mountaineer_must_have_a_unique_name()
+    {
+        $mountaineer = make(Mountaineer::class);
+
+        $this->signIn();
+        $this->followingRedirects()->post('/mountaineers/create', $mountaineer->toArray())
+            ->assertInertia('Admin/Mountaineers/index');
+
+        $this->post('/mountaineers/create', $mountaineer->toArray())
+            ->assertSessionHasErrorsIn('default', 'name');
     }
 }

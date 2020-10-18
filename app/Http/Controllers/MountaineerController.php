@@ -25,11 +25,34 @@ class MountaineerController extends Controller
 
     public function store(Request $request){
         $valid = $request->validate([
-            'name' => 'string|required'
+            'name' => 'string|required|unique:mountaineers,name'
         ]);
 
         $valid['slug'] = Str::slug($valid['name'], '-');
 
         Mountaineer::create($valid);
+
+        return redirect()->route('mountaineers.index');
+    }
+
+    public function edit(Mountaineer $mountaineer){
+
+        return Inertia::render('Admin/Mountaineers/update', [
+            'title' => 'Edit Mountaineer',
+            'mountaineer' => $mountaineer
+        ]);
+    }
+
+    public function update(Request $request, Mountaineer $mountaineer){
+
+        $valid = $request->validate([
+            'name' => 'string|required|unique:mountaineers,name,' . $mountaineer->id,
+        ]);
+
+        $valid['slug'] = Str::slug($valid['name'], '-');
+
+        $mountaineer->update($valid);
+
+        return redirect()->route('mountaineers.index');
     }
 }

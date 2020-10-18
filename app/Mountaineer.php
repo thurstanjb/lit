@@ -14,4 +14,8 @@ class Mountaineer extends Model
     protected $fillable = [
         'name', 'slug'
     ];
+
+    public $casts = [
+        'created_at' => 'date:d/m/Y'
+    ];
 }

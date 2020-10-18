@@ -25053,11 +25053,11 @@ var map = {
 	],
 	"./Admin/Mountaineers/Components/mountaineerForm": [
 		"./resources/js/Pages/Admin/Mountaineers/Components/mountaineerForm.vue",
-		6
+		7
 	],
 	"./Admin/Mountaineers/Components/mountaineerForm.vue": [
 		"./resources/js/Pages/Admin/Mountaineers/Components/mountaineerForm.vue",
-		6
+		7
 	],
 	"./Admin/Mountaineers/create": [
 		"./resources/js/Pages/Admin/Mountaineers/create.vue",
@@ -25079,6 +25079,16 @@ var map = {
 		0,
 		2
 	],
+	"./Admin/Mountaineers/update": [
+		"./resources/js/Pages/Admin/Mountaineers/update.vue",
+		0,
+		6
+	],
+	"./Admin/Mountaineers/update.vue": [
+		"./resources/js/Pages/Admin/Mountaineers/update.vue",
+		0,
+		6
+	],
 	"./Admin/Users": [
 		"./resources/js/Pages/Admin/Users/index.vue",
 		0,
@@ -25092,24 +25102,24 @@ var map = {
 	"./Admin/Users/Components/userForm": [
 		"./resources/js/Pages/Admin/Users/Components/userForm.vue",
 		1,
-		14
+		15
 	],
 	"./Admin/Users/Components/userForm.vue": [
 		"./resources/js/Pages/Admin/Users/Components/userForm.vue",
 		1,
-		14
+		15
 	],
 	"./Admin/Users/create": [
 		"./resources/js/Pages/Admin/Users/create.vue",
 		0,
 		1,
-		7
+		8
 	],
 	"./Admin/Users/create.vue": [
 		"./resources/js/Pages/Admin/Users/create.vue",
 		0,
 		1,
-		7
+		8
 	],
 	"./Admin/Users/index": [
 		"./resources/js/Pages/Admin/Users/index.vue",
@@ -25125,43 +25135,43 @@ var map = {
 		"./resources/js/Pages/Admin/Users/update.vue",
 		0,
 		1,
-		8
+		9
 	],
 	"./Admin/Users/update.vue": [
 		"./resources/js/Pages/Admin/Users/update.vue",
 		0,
 		1,
-		8
+		9
 	],
 	"./Auth/Passwords/email": [
 		"./resources/js/Pages/Auth/Passwords/email.vue",
 		0,
-		9
+		10
 	],
 	"./Auth/Passwords/email.vue": [
 		"./resources/js/Pages/Auth/Passwords/email.vue",
 		0,
-		9
+		10
 	],
 	"./Auth/Passwords/reset": [
 		"./resources/js/Pages/Auth/Passwords/reset.vue",
 		0,
-		10
+		11
 	],
 	"./Auth/Passwords/reset.vue": [
 		"./resources/js/Pages/Auth/Passwords/reset.vue",
 		0,
-		10
+		11
 	],
 	"./Auth/login": [
 		"./resources/js/Pages/Auth/login.vue",
 		0,
-		11
+		12
 	],
 	"./Auth/login.vue": [
 		"./resources/js/Pages/Auth/login.vue",
 		0,
-		11
+		12
 	],
 	"./Uploads": [
 		"./resources/js/Pages/Uploads/index.vue",
@@ -25186,22 +25196,22 @@ var map = {
 	"./Uploads/uploadFile": [
 		"./resources/js/Pages/Uploads/uploadFile.vue",
 		0,
-		12
+		13
 	],
 	"./Uploads/uploadFile.vue": [
 		"./resources/js/Pages/Uploads/uploadFile.vue",
 		0,
-		12
+		13
 	],
 	"./home": [
 		"./resources/js/Pages/home.vue",
 		0,
-		13
+		14
 	],
 	"./home.vue": [
 		"./resources/js/Pages/home.vue",
 		0,
-		13
+		14
 	]
 };
 function webpackAsyncContext(req) {

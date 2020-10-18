@@ -45,4 +45,6 @@ Route::prefix('/mountaineers')->as('mountaineers.')->middleware(['auth'])->group
    Route::get('/', 'MountaineerController@index')->name('index');
    Route::get('/create', 'MountaineerController@create')->name('create');
    Route::post('/create', 'MountaineerController@store')->name('store');
+   Route::get('/{mountaineer:slug}/edit', 'MountaineerController@edit')->name('edit');
+   Route::put('/{mountaineer:slug}/edit', 'MountaineerController@update')->name('update');
 });

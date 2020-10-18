@@ -122,7 +122,7 @@ var render = function() {
               _c(
                 "a",
                 {
-                  attrs: { href: "/mountaineers/" + mountaineer.id + "/edit" }
+                  attrs: { href: "/mountaineers/" + mountaineer.slug + "/edit" }
                 },
                 [_vm._v("Edit")]
               )
