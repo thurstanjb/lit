@@ -230,7 +230,12 @@ var render = function() {
                 "button",
                 {
                   staticClass: "delete-btn",
-                  on: { click: _vm.deleteMountaineer }
+                  on: {
+                    click: function($event) {
+                      $event.preventDefault()
+                      return _vm.deleteMountaineer($event)
+                    }
+                  }
                 },
                 [_c("font-awesome-icon", { attrs: { icon: "trash-alt" } })],
                 1

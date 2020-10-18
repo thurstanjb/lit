@@ -71,6 +71,28 @@ class MountaineerAdminTest extends TestCase
     /**
      * @test
      */
+    public function _an_authorised_user_can_soft_delete_a_mountaineer()
+    {
+        $mountaineer = create(Mountaineer::class);
+
+        $this->followingRedirects()->delete('/mountaineers/'.$mountaineer->slug)
+            ->assertInertia('Auth/login');
+
+        $this->signIn();
+
+        $this->followingRedirects()->delete('/mountaineers/'.$mountaineer->slug)
+            ->assertInertia('Admin/Mountaineers/index');
+
+        $this->assertSoftDeleted('mountaineers', [
+            'id' => $mountaineer->id,
+            'name' => $mountaineer->name,
+            'slug' => $mountaineer->slug
+        ]);
+    }
+
+    /**
+     * @test
+     */
     public function _a_mountaineer_must_have_a_unique_name()
     {
         $mountaineer = make(Mountaineer::class);

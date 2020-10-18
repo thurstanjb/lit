@@ -23,7 +23,7 @@
                 <button class="submit-btn" type="submit">
                     {{heading}} Mountaineer
                 </button>
-                <button class="delete-btn" v-if="editing " @click="deleteMountaineer">
+                <button class="delete-btn" v-if="editing" @click.prevent="deleteMountaineer">
                     <font-awesome-icon icon="trash-alt"/>
                 </button>
             </div>
