@@ -36,3 +36,13 @@ Route::prefix('/users')->as('users.')->middleware(['auth', 'admin'])->group(func
    Route::put('/{user}/edit', 'UserController@update')->name('update');
    Route::delete('/{user}', 'UserController@destroy')->name('destroy');
 });
+
+Route::prefix('/imports')->as('imports.')->middleware(['auth'])->group(function(){
+   Route::get('/test', 'ImportController@testImport')->name('test-import');
+});
+
+Route::prefix('/mountaineers')->as('mountaineers.')->middleware(['auth'])->group(function(){
+   Route::get('/', 'MountaineerController@index')->name('index');
+   Route::get('/create', 'MountaineerController@create')->name('create');
+   Route::post('/create', 'MountaineerController@store')->name('store');
+});
