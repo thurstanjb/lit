@@ -25,7 +25,7 @@
                 <td class="border px-4 py-2">{{user.role}}</td>
                 <td class="border px-4 py-2">{{user.joined}}</td>
                 <td class="border px-4 py-2">
-                    <a :href="'/users/' + user.id + '/edit'">Edit</a>
+                    <inertia-link :href="'/users/' + user.id + '/edit'">Edit</inertia-link>
                 </td>
             </tr>
             </tbody>

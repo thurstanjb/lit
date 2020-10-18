@@ -118,15 +118,22 @@ var render = function() {
               _vm._v(_vm._s(mountaineer.created_at))
             ]),
             _vm._v(" "),
-            _c("td", { staticClass: "border px-4 py-2" }, [
-              _c(
-                "a",
-                {
-                  attrs: { href: "/mountaineers/" + mountaineer.slug + "/edit" }
-                },
-                [_vm._v("Edit")]
-              )
-            ])
+            _c(
+              "td",
+              { staticClass: "border px-4 py-2" },
+              [
+                _c(
+                  "inertia-link",
+                  {
+                    attrs: {
+                      href: "/mountaineers/" + mountaineer.slug + "/edit"
+                    }
+                  },
+                  [_vm._v("Edit")]
+                )
+              ],
+              1
+            )
           ])
         }),
         0

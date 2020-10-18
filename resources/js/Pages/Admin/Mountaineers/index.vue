@@ -23,7 +23,7 @@
                 <td class="border px-4 py-2">{{mountaineer.slug}}</td>
                 <td class="border px-4 py-2">{{mountaineer.created_at}}</td>
                 <td class="border px-4 py-2">
-                    <a :href="'/mountaineers/' + mountaineer.slug + '/edit'">Edit</a>
+                    <inertia-link :href="'/mountaineers/' + mountaineer.slug + '/edit'">Edit</inertia-link>
                 </td>
             </tr>
             </tbody>
