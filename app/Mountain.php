@@ -11,4 +11,8 @@ class Mountain extends Model
     protected $fillable = [
         'name', 'height', 'book', 'slug'
     ];
+
+    public function ascents(){
+        return $this->hasMany(Ascent::class);
+    }
 }

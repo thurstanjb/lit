@@ -18,4 +18,8 @@ class Mountaineer extends Model
     public $casts = [
         'created_at' => 'date:d/m/Y'
     ];
+
+    public function ascents(){
+        return $this->hasMany(Ascent::class);
+    }
 }
