@@ -25044,174 +25044,228 @@ var map = {
 	"./Admin/Mountaineers": [
 		"./resources/js/Pages/Admin/Mountaineers/index.vue",
 		0,
-		2
+		3
 	],
 	"./Admin/Mountaineers/": [
 		"./resources/js/Pages/Admin/Mountaineers/index.vue",
 		0,
-		2
+		3
 	],
 	"./Admin/Mountaineers/Components/mountaineerForm": [
 		"./resources/js/Pages/Admin/Mountaineers/Components/mountaineerForm.vue",
-		7
+		9
 	],
 	"./Admin/Mountaineers/Components/mountaineerForm.vue": [
 		"./resources/js/Pages/Admin/Mountaineers/Components/mountaineerForm.vue",
-		7
+		9
 	],
 	"./Admin/Mountaineers/create": [
 		"./resources/js/Pages/Admin/Mountaineers/create.vue",
 		0,
-		5
+		7
 	],
 	"./Admin/Mountaineers/create.vue": [
 		"./resources/js/Pages/Admin/Mountaineers/create.vue",
 		0,
-		5
+		7
 	],
 	"./Admin/Mountaineers/index": [
 		"./resources/js/Pages/Admin/Mountaineers/index.vue",
 		0,
-		2
+		3
 	],
 	"./Admin/Mountaineers/index.vue": [
 		"./resources/js/Pages/Admin/Mountaineers/index.vue",
 		0,
-		2
+		3
 	],
 	"./Admin/Mountaineers/update": [
 		"./resources/js/Pages/Admin/Mountaineers/update.vue",
 		0,
-		6
+		8
 	],
 	"./Admin/Mountaineers/update.vue": [
 		"./resources/js/Pages/Admin/Mountaineers/update.vue",
 		0,
-		6
+		8
+	],
+	"./Admin/Mountains": [
+		"./resources/js/Pages/Admin/Mountains/index.vue",
+		0,
+		4
+	],
+	"./Admin/Mountains/": [
+		"./resources/js/Pages/Admin/Mountains/index.vue",
+		0,
+		4
+	],
+	"./Admin/Mountains/Components/mountainForm": [
+		"./resources/js/Pages/Admin/Mountains/Components/mountainForm.vue",
+		1,
+		19
+	],
+	"./Admin/Mountains/Components/mountainForm.vue": [
+		"./resources/js/Pages/Admin/Mountains/Components/mountainForm.vue",
+		1,
+		19
+	],
+	"./Admin/Mountains/create": [
+		"./resources/js/Pages/Admin/Mountains/create.vue",
+		0,
+		1,
+		10
+	],
+	"./Admin/Mountains/create.vue": [
+		"./resources/js/Pages/Admin/Mountains/create.vue",
+		0,
+		1,
+		10
+	],
+	"./Admin/Mountains/index": [
+		"./resources/js/Pages/Admin/Mountains/index.vue",
+		0,
+		4
+	],
+	"./Admin/Mountains/index.vue": [
+		"./resources/js/Pages/Admin/Mountains/index.vue",
+		0,
+		4
+	],
+	"./Admin/Mountains/update": [
+		"./resources/js/Pages/Admin/Mountains/update.vue",
+		0,
+		1,
+		11
+	],
+	"./Admin/Mountains/update.vue": [
+		"./resources/js/Pages/Admin/Mountains/update.vue",
+		0,
+		1,
+		11
 	],
 	"./Admin/Users": [
 		"./resources/js/Pages/Admin/Users/index.vue",
 		0,
-		3
+		5
 	],
 	"./Admin/Users/": [
 		"./resources/js/Pages/Admin/Users/index.vue",
 		0,
-		3
+		5
 	],
 	"./Admin/Users/Components/userForm": [
 		"./resources/js/Pages/Admin/Users/Components/userForm.vue",
-		1,
-		15
+		2,
+		20
 	],
 	"./Admin/Users/Components/userForm.vue": [
 		"./resources/js/Pages/Admin/Users/Components/userForm.vue",
-		1,
-		15
+		2,
+		20
 	],
 	"./Admin/Users/create": [
 		"./resources/js/Pages/Admin/Users/create.vue",
 		0,
-		1,
-		8
+		2,
+		12
 	],
 	"./Admin/Users/create.vue": [
 		"./resources/js/Pages/Admin/Users/create.vue",
 		0,
-		1,
-		8
+		2,
+		12
 	],
 	"./Admin/Users/index": [
 		"./resources/js/Pages/Admin/Users/index.vue",
 		0,
-		3
+		5
 	],
 	"./Admin/Users/index.vue": [
 		"./resources/js/Pages/Admin/Users/index.vue",
 		0,
-		3
+		5
 	],
 	"./Admin/Users/update": [
 		"./resources/js/Pages/Admin/Users/update.vue",
 		0,
-		1,
-		9
+		2,
+		13
 	],
 	"./Admin/Users/update.vue": [
 		"./resources/js/Pages/Admin/Users/update.vue",
 		0,
-		1,
-		9
+		2,
+		13
 	],
 	"./Auth/Passwords/email": [
 		"./resources/js/Pages/Auth/Passwords/email.vue",
 		0,
-		10
+		14
 	],
 	"./Auth/Passwords/email.vue": [
 		"./resources/js/Pages/Auth/Passwords/email.vue",
 		0,
-		10
+		14
 	],
 	"./Auth/Passwords/reset": [
 		"./resources/js/Pages/Auth/Passwords/reset.vue",
 		0,
-		11
+		15
 	],
 	"./Auth/Passwords/reset.vue": [
 		"./resources/js/Pages/Auth/Passwords/reset.vue",
 		0,
-		11
+		15
 	],
 	"./Auth/login": [
 		"./resources/js/Pages/Auth/login.vue",
 		0,
-		12
+		16
 	],
 	"./Auth/login.vue": [
 		"./resources/js/Pages/Auth/login.vue",
 		0,
-		12
+		16
 	],
 	"./Uploads": [
 		"./resources/js/Pages/Uploads/index.vue",
 		0,
-		4
+		6
 	],
 	"./Uploads/": [
 		"./resources/js/Pages/Uploads/index.vue",
 		0,
-		4
+		6
 	],
 	"./Uploads/index": [
 		"./resources/js/Pages/Uploads/index.vue",
 		0,
-		4
+		6
 	],
 	"./Uploads/index.vue": [
 		"./resources/js/Pages/Uploads/index.vue",
 		0,
-		4
+		6
 	],
 	"./Uploads/uploadFile": [
 		"./resources/js/Pages/Uploads/uploadFile.vue",
 		0,
-		13
+		17
 	],
 	"./Uploads/uploadFile.vue": [
 		"./resources/js/Pages/Uploads/uploadFile.vue",
 		0,
-		13
+		17
 	],
 	"./home": [
 		"./resources/js/Pages/home.vue",
 		0,
-		14
+		18
 	],
 	"./home.vue": [
 		"./resources/js/Pages/home.vue",
 		0,
-		14
+		18
 	]
 };
 function webpackAsyncContext(req) {

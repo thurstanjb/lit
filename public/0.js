@@ -90,6 +90,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "navbar",
   methods: {
@@ -232,6 +236,16 @@ var render = function() {
                       attrs: { href: "/mountaineers" }
                     },
                     [_vm._v("\n                Mountaineers\n            ")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "inertia-link",
+                    {
+                      staticClass:
+                        "block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4",
+                      attrs: { href: "/mountains" }
+                    },
+                    [_vm._v("\n                Mountains\n            ")]
                   )
                 ],
                 1

@@ -49,3 +49,13 @@ Route::prefix('/mountaineers')->as('mountaineers.')->middleware(['auth'])->group
    Route::put('/{mountaineer:slug}/edit', 'MountaineerController@update')->name('update');
    Route::delete('/{mountaineer:slug}', 'MountaineerController@destroy')->name('destroy');
 });
+
+Route::prefix('/mountains')->as('mountains.')->middleware(['auth'])->group(function(){
+   Route::get('/', 'MountainController@index')->name('index');
+   Route::get('/create', 'MountainController@create')->name('create');
+   Route::post('/create', 'MountainController@store')->name('store');
+   Route::get('/{mountain:slug}/edit', 'MountainController@edit')->name('edit');
+   Route::put('/{mountain:slug}/edit', 'MountainController@update')->name('update');
+    Route::delete('/{mountain:slug}', 'MountainController@destroy')->name('destroy');
+});
+

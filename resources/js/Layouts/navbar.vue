@@ -26,6 +26,10 @@
                               class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
                     Mountaineers
                 </inertia-link>
+                <inertia-link href="/mountains"
+                              class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+                    Mountains
+                </inertia-link>
             </div>
             <div>
                 <a class="text-teal-200 hover:text-white font-bold px-4 cursor-pointer" @click.prevent="logout" v-if="$page.auth.user">
