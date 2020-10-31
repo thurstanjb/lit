@@ -56,6 +56,13 @@ Route::prefix('/mountains')->as('mountains.')->middleware(['auth'])->group(funct
    Route::post('/create', 'MountainController@store')->name('store');
    Route::get('/{mountain:slug}/edit', 'MountainController@edit')->name('edit');
    Route::put('/{mountain:slug}/edit', 'MountainController@update')->name('update');
-    Route::delete('/{mountain:slug}', 'MountainController@destroy')->name('destroy');
+   Route::delete('/{mountain:slug}', 'MountainController@destroy')->name('destroy');
+});
+
+Route::prefix('/ascents')->as('ascents.')->middleware(['auth'])->group(function(){
+    Route::get('/', 'AscentController@index')->name('index');
+    Route::get('/create', 'AscentController@create')->name('create');
+    Route::post('/create', 'AscentController@store')->name('store');
+    Route::delete('/{ascent}', 'AscentController@destroy')->name('destroy');
 });
 

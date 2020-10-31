@@ -12,6 +12,10 @@ class Ascent extends Model
         'mountain_id', 'mountaineer_id', 'ascent_date'
     ];
 
+    public $casts = [
+        'ascent_date' => 'date:d/m/Y'
+    ];
+
     public function mountain(){
         return $this->belongsTo(Mountain::class);
     }

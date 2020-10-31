@@ -15,6 +15,6 @@ $factory->define(Ascent::class, function (Faker $faker) {
         'mountaineer_id' => function(){
             return create(Mountaineer::class);
         },
-        'ascent_date' => $faker->date( 'Y-m-d H:i:s')
+        'ascent_date' => $faker->date( 'Y-m-d')
     ];
 });
