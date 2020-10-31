@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Ascent;
+use App\Http\Requests\AscentRequest;
 use App\Mountain;
 use App\Mountaineer;
 use Illuminate\Http\Request;
@@ -38,17 +39,12 @@ class AscentController extends Controller
     }
 
     /**
-     * @param Request $request
+     * @param AscentRequest $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request){
-        $valid = $request->validate([
-            'mountain_id' => 'required',
-            'mountaineer_id' => 'required',
-            'ascent_date' => 'required|date_format:Y-m-d'
-        ]);
+    public function store(AscentRequest $request){
 
-        Ascent::create($valid);
+        Ascent::create($request->validated());
 
         return redirect()->route('ascents.index');
     }
