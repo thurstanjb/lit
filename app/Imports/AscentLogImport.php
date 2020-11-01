@@ -22,6 +22,7 @@ class AscentLogImport implements ToCollection
     private $datarow;
     private $mountaineer = null;
     private $mountain = null;
+    private $row = null;
 
     public function __construct($namerow = 16, $datarow = 21)
     {
@@ -37,64 +38,72 @@ class AscentLogImport implements ToCollection
     public function collection(Collection $rows)
     {
         foreach ($rows as $row_index => $row) {
+            $this->row = $row;
             if ($row_index == $this->namerow) {
-                $this->setMountaineer($row);
+                $this->setMountaineer();
             }
             if ($row_index >= $this->datarow) {
-                if($row[0]){
-                    $this->setMountain($row);
-                    $this->logAscents($row);
+                if ($row[0]) {
+                    $this->setMountain()
+                        ->logAscents();
                 }
             }
         }
     }
 
-    /**
-     * @param $row
-     */
-    protected function setMountaineer($row): void
+    protected function setMountaineer(): void
     {
         $this->mountaineer = Mountaineer::firstOrCreate([
-            'name' => $row[0],
-            'slug' => Str::slug($row[0], '-')
+            'name' => $this->row[0],
+            'slug' => Str::slug($this->row[0], '-')
         ]);
     }
 
     /**
      * @param $row
      */
-    protected function setMountain($row): void
+    protected function setMountain(): self
     {
         $this->mountain = Mountain::firstOrCreate([
-            'name' => $row[0],
-            'height' => $row[1],
-            'book' => Str::slug($row[2], '-'),
-            'slug' => Str::slug($row[0] . ' ' . $row[2], '-')
+            'name' => $this->row[0],
+            'height' => $this->row[1],
+            'book' => Str::slug($this->row[2], '-'),
+            'slug' => Str::slug($this->row[0] . ' ' . $this->row[2], '-')
         ]);
+
+        return $this;
     }
 
     /**
      * @param $row
      * @param int $start_col_index
      */
-    protected function logAscents($row, $start_col_index = 5): void
+    protected function logAscents($start_col_index = 5): void
     {
-        foreach ($row as $cell_index => $cell) {
-            if ($cell_index >= $start_col_index) {
-                if($cell){
-                    $date = ExcelDate::excelToDateTimeObject($row[$cell_index]);
-                    $epoch = date_create('1980-01-01');
-                    if($date < $epoch){
-                        date_add($date, date_interval_create_from_date_string('100 years'));
-                    }
-//                dd($date);
-                    Ascent::firstOrCreate([
-                        'mountain_id' => $this->mountain->id,
-                        'mountaineer_id' => $this->mountaineer->id,
-                        'ascent_date' => $date->format('Y-m-d H:i:s')
-                    ]);
-                }
+        foreach ($this->row as $cell_index => $cell) {
+            if ($cell_index >= $start_col_index && $cell) {
+
+                Ascent::firstOrCreate([
+                    'mountain_id' => $this->mountain->id,
+                    'mountaineer_id' => $this->mountaineer->id,
+                    'ascent_date' => $this->validateDate($cell)->format('Y-m-d H:i:s')
+                ]);
             }
         }
+    }
+
+    /**
+     * @param $date
+     * @return DateTime
+     */
+    protected function validateDate($date): DateTime
+    {
+        $date = ExcelDate::excelToDateTimeObject($date);
+
+        if ($date < date_create('1980-01-01')) {
+            date_add($date, date_interval_create_from_date_string('100 years'));
+        }
+
+        return $date;
     }
 }

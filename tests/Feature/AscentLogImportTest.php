@@ -20,7 +20,7 @@ class AscentLogImportTest extends TestCase
      */
     public function _an_authorised_user_can_import_ascent_logs()
     {
-        $upload = create(Upload::class, ['folder' => 'test_folder', 'filename' => 'ascentlogtest.xls']);
+        $upload = create(Upload::class, ['storage_path' => 'test_folder/ascentlogtest.xls']);
         $filepath = $upload->folder . '/' . $upload->filename;
 
         $this->post(route('imports.ascent-log', $upload))

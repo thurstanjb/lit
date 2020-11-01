@@ -15,8 +15,7 @@ class ImportController extends Controller
      * @param Upload $upload
      */
     public function ascentLog(Upload $upload){
-        $filepath = $upload->folder . '/' . $upload->filename;
 
-        (new AscentLogImport)->import($filepath, 'public');
+        (new AscentLogImport)->import($upload->storage_path, 'public');
     }
 }
