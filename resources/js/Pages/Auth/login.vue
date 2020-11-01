@@ -39,7 +39,7 @@
 
         props: {
             errors: {
-                type: Object,
+                type: Object|Array,
                 default: () => {}
             },
             title: String

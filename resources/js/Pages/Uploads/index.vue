@@ -20,7 +20,9 @@
             <tbody v-if="uploads.length > 0">
             <tr v-for="upload in uploads" :key="upload.id">
                 <td class="border px-4 py-2">{{upload.id}}</td>
-                <td class="border px-4 py-2">{{upload.filename}}</td>
+                <td class="border px-4 py-2">
+                    <inertia-link :href="'/uploads/' + upload.id" class="hover:underline"> {{upload.filename}} </inertia-link>
+                </td>
                 <td class="border px-4 py-2">{{upload.folder}}</td>
                 <td class="border px-4 py-2">{{upload.upload_date}}</td>
                 <td class="border px-4 py-2">{{upload.user.name}}</td>

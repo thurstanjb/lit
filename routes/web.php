@@ -23,8 +23,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::prefix('/uploads')->as('uploads.')->middleware(['auth'])->group(function(){
     Route::get('/', 'UploadController@index')->name('index');
-    Route::get('/upload-file', 'UploadController@showUpload')->name('upload');
+    Route::get('/upload-file', 'UploadController@create')->name('create');
     Route::post('/upload-file', 'UploadController@uploadFile')->name('uploadFile');
+    Route::get('/{upload}', 'UploadController@show')->name('show');
     Route::delete('/{upload}', 'UploadController@destroy')->name('destroy');
 });
 
@@ -38,7 +39,7 @@ Route::prefix('/users')->as('users.')->middleware(['auth', 'admin'])->group(func
 });
 
 Route::prefix('/imports')->as('imports.')->middleware(['auth'])->group(function(){
-   Route::get('/test', 'ImportController@testImport')->name('test-import');
+   Route::post('/ascent-log/{upload}', 'ImportController@ascentLog')->name('ascent-log');
 });
 
 Route::prefix('/mountaineers')->as('mountaineers.')->middleware(['auth'])->group(function(){

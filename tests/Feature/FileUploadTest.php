@@ -89,4 +89,20 @@ class FileUploadTest extends TestCase
         ]);
     }
 
+    /**
+     * @test
+     */
+    public function _an_authorised_user_can_view_an_upload()
+    {
+        $upload = create(Upload::class);
+
+        $this->followingRedirects()->get('uploads/' . $upload->id)
+            ->assertInertia('Auth/login');
+
+        $this->signIn();
+
+        $this->followingRedirects()->get('uploads/' . $upload->id)
+        ->assertInertia('Uploads/show');
+    }
+
 }

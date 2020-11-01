@@ -3,13 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Imports\AscentLogImport;
+use App\Upload;
 use Illuminate\Http\Request;
 
 class ImportController extends Controller
 {
-    public function testImport(){
-        $collection = (new AscentLogImport)->toCollection('mountains/wwrght18e.xls', 'public');
-        dd(\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject(32380));
-        dd($collection);
+
+    /**
+     * Fires the import process for the ascent logs
+     * TODO: move to event/job and queue
+     * @param Upload $upload
+     */
+    public function ascentLog(Upload $upload){
+        $filepath = $upload->folder . '/' . $upload->filename;
+
+        (new AscentLogImport)->import($filepath, 'public');
     }
 }

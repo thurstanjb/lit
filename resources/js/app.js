@@ -5,6 +5,9 @@ import {library} from '@fortawesome/fontawesome-svg-core';
 import {faEject, faUserPlus, faUndoAlt, faTrashAlt, faUpload} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
 
+window.axios = require('axios');
+window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+
 library.add(
     faEject, faUserPlus, faUndoAlt, faTrashAlt, faUpload
 );

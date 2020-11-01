@@ -20,7 +20,14 @@ class UploadController extends Controller
         ]);
     }
 
-    public function showUpload(){
+    public function show(Upload $upload){
+        return Inertia::render('Uploads/show', [
+            'title' => 'File Details',
+            'upload' => $upload
+        ]);
+    }
+
+    public function create(){
         return Inertia::render('Uploads/uploadFile',[
             'title' => 'File Upload'
         ]);

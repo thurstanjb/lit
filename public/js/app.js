@@ -25054,12 +25054,12 @@ var map = {
 	"./Admin/Ascents/Components/ascentForm": [
 		"./resources/js/Pages/Admin/Ascents/Components/ascentForm.vue",
 		3,
-		22
+		23
 	],
 	"./Admin/Ascents/Components/ascentForm.vue": [
 		"./resources/js/Pages/Admin/Ascents/Components/ascentForm.vue",
 		3,
-		22
+		23
 	],
 	"./Admin/Ascents/create": [
 		"./resources/js/Pages/Admin/Ascents/create.vue",
@@ -25144,12 +25144,12 @@ var map = {
 	"./Admin/Mountains/Components/mountainForm": [
 		"./resources/js/Pages/Admin/Mountains/Components/mountainForm.vue",
 		1,
-		23
+		24
 	],
 	"./Admin/Mountains/Components/mountainForm.vue": [
 		"./resources/js/Pages/Admin/Mountains/Components/mountainForm.vue",
 		1,
-		23
+		24
 	],
 	"./Admin/Mountains/create": [
 		"./resources/js/Pages/Admin/Mountains/create.vue",
@@ -25198,12 +25198,12 @@ var map = {
 	"./Admin/Users/Components/userForm": [
 		"./resources/js/Pages/Admin/Users/Components/userForm.vue",
 		2,
-		24
+		25
 	],
 	"./Admin/Users/Components/userForm.vue": [
 		"./resources/js/Pages/Admin/Users/Components/userForm.vue",
 		2,
-		24
+		25
 	],
 	"./Admin/Users/create": [
 		"./resources/js/Pages/Admin/Users/create.vue",
@@ -25289,25 +25289,35 @@ var map = {
 		0,
 		8
 	],
+	"./Uploads/show": [
+		"./resources/js/Pages/Uploads/show.vue",
+		0,
+		20
+	],
+	"./Uploads/show.vue": [
+		"./resources/js/Pages/Uploads/show.vue",
+		0,
+		20
+	],
 	"./Uploads/uploadFile": [
 		"./resources/js/Pages/Uploads/uploadFile.vue",
 		0,
-		20
+		21
 	],
 	"./Uploads/uploadFile.vue": [
 		"./resources/js/Pages/Uploads/uploadFile.vue",
 		0,
-		20
+		21
 	],
 	"./home": [
 		"./resources/js/Pages/home.vue",
 		0,
-		21
+		22
 	],
 	"./home.vue": [
 		"./resources/js/Pages/home.vue",
 		0,
-		21
+		22
 	]
 };
 function webpackAsyncContext(req) {
@@ -25353,6 +25363,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 _fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_2__["library"].add(_fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faEject"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faUserPlus"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faUndoAlt"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faTrashAlt"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faUpload"]);
 vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('font-awesome-icon', _fortawesome_vue_fontawesome__WEBPACK_IMPORTED_MODULE_4__["FontAwesomeIcon"]);
 vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(_inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_0__["InertiaApp"]);
