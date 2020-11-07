@@ -14,11 +14,11 @@ class MountainController extends Controller
      * @return \Inertia\Response
      */
     public function index(){
-        $mountains = Mountain::all();
+        $mountains = Mountain::paginate(30);
 
         return Inertia::render('Admin/Mountains/index', [
             'title' => 'Mountains',
-            'mountains' => $mountains
+            'mountains' => $mountains,
         ]);
     }
 
