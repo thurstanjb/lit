@@ -21,7 +21,7 @@
                 <th class="px-4 py-1"></th>
             </tr>
             </thead>
-            <tbody>
+            <tbody v-if="mountains.data.length > 0">
             <tr v-for="mountain in mountains.data" :key="mountain.id">
                 <td class="border px-4 py-1">{{mountain.id}}</td>
                 <td class="border px-4 py-1">{{mountain.name}}</td>
@@ -30,6 +30,13 @@
                 <td class="border px-4 py-1">{{mountain.slug}}</td>
                 <td class="border px-4 py-1">
                     <inertia-link :href="'/mountains/' + mountain.slug + '/edit'">Edit</inertia-link>
+                </td>
+            </tr>
+            </tbody>
+            <tbody v-else>
+            <tr>
+                <td colspan="6" class="text-center border px-4 py-1">
+                    No mountains available
                 </td>
             </tr>
             </tbody>

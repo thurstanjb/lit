@@ -2,6 +2,7 @@
     <div class="w-full px-1">
         <div class="tj-topbar">
             <h1 class="tj-topbar_heading">Uploads</h1>
+            <paginator class="mx-4" :page-data="page_data"></paginator>
             <inertia-link href="/uploads/upload-file" class="tj-topbar_link">
                 <font-awesome-icon icon="upload"/>
             </inertia-link>
@@ -9,24 +10,24 @@
         <table class="table-auto w-full table-responsive">
             <thead class="border">
             <tr>
-                <th class="px-4 py-2">id</th>
-                <th class="px-4 py-2">Filename</th>
-                <th class="px-4 py-2">Folder</th>
-                <th class="px-4 py-2">Uploaded</th>
-                <th class="px-4 py-2">Uploaded By</th>
-                <th class="px-4 py-2"></th>
+                <th class="px-4 py-1">id</th>
+                <th class="px-4 py-1">Filename</th>
+                <th class="px-4 py-1">Folder</th>
+                <th class="px-4 py-1">Uploaded</th>
+                <th class="px-4 py-1">Uploaded By</th>
+                <th class="px-4 py-1"></th>
             </tr>
             </thead>
-            <tbody v-if="uploads.length > 0">
-            <tr v-for="upload in uploads" :key="upload.id">
-                <td class="border px-4 py-2">{{upload.id}}</td>
-                <td class="border px-4 py-2">
+            <tbody v-if="uploads.data.length > 0">
+            <tr v-for="upload in uploads.data" :key="upload.id">
+                <td class="border px-4 py-1">{{upload.id}}</td>
+                <td class="border px-4 py-1">
                     <inertia-link :href="'/uploads/' + upload.id" class="hover:underline"> {{upload.filename}} </inertia-link>
                 </td>
-                <td class="border px-4 py-2">{{upload.folder}}</td>
-                <td class="border px-4 py-2">{{upload.upload_date}}</td>
-                <td class="border px-4 py-2">{{upload.user.name}}</td>
-                <td class="border px-4 py-2 text-center">
+                <td class="border px-4 py-1">{{upload.folder}}</td>
+                <td class="border px-4 py-1">{{upload.upload_date}}</td>
+                <td class="border px-4 py-1">{{upload.user.name}}</td>
+                <td class="border px-4 py-1 text-center">
                     <a href="#">
                         <font-awesome-icon class="text-red-500 hover:text-red-700" icon="trash-alt" @click="deleteUpload(upload.id)"/>
                     </a>
@@ -35,30 +36,42 @@
             </tbody>
             <tbody v-else>
             <tr>
-                <td colspan="6" class="text-center border px-4 py-2">
+                <td colspan="6" class="text-center border px-4 py-1">
                     No files available
                 </td>
             </tr>
             </tbody>
         </table>
+        <div class="tj-footer justify-items-center">
+            <paginator class="mx-4 justify-center" :page-data="page_data"></paginator>
+        </div>
     </div>
 </template>
 
 <script>
     import Layout from '../../Layouts/layout';
+    import Paginator from "../Components/paginator";
 
     export default {
         name: "upload-index",
-
+        components: {Paginator},
         props: {
             title: String,
             uploads: Array
         },
 
+        data(){
+            return{
+                page_data: null
+            }
+        },
+
         layout: Layout,
 
         created() {
-            this.$parent.title = this.title
+            this.$parent.title = this.title;
+            this.page_data = _.clone(this.uploads);
+            delete this.page_data.data
         },
 
         methods:{

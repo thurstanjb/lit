@@ -36,7 +36,7 @@ class AscentAdminTest extends TestCase
 
         $response = $this->get('/ascents');
 
-        $returned_ascent = $response->inertiaProps()['ascents'][0];
+        $returned_ascent = $response->inertiaProps()['ascents']['data'][0];
 
         $this->assertEquals($ascent->mountaineer->name, $returned_ascent['mountaineer']['name']);
         $this->assertEquals($ascent->mountain->name, $returned_ascent['mountain']['name']);

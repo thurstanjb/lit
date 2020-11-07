@@ -17,7 +17,7 @@ class AscentController extends Controller
     public function index(){
         $ascents = Ascent::with(['mountaineer', 'mountain'])
             ->orderBy('ascent_date', 'desc')
-            ->get();
+            ->paginate(30);
 
         return Inertia::render('Admin/Ascents/index', [
             'title' => 'Ascents',

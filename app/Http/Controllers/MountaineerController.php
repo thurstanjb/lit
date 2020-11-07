@@ -13,7 +13,7 @@ class MountaineerController extends Controller
      */
     public function index()
     {
-        $mountaineers = Mountaineer::all();
+        $mountaineers = Mountaineer::paginate(30);
         return Inertia::render('Admin/Mountaineers/index', [
             'title' => 'Mountaineers',
             'mountaineers' => $mountaineers

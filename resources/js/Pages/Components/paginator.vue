@@ -1,5 +1,5 @@
 <template>
-    <div class="flex">
+    <div class="flex" v-show="pageData.last_page > 1">
         <paginator-link class="page-btn--first" :link="pageData.first_page_url" :disabled="pageData.current_page === 1">
             <font-awesome-icon icon="angle-double-left" />
         </paginator-link>

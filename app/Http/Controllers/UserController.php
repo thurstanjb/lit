@@ -16,9 +16,12 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = (User::all())->each(function($user) {
+        $users = User::paginate(30);
+
+        $users->getCollection()->each(function($user) {
             $user->joined = $user->created_at->format('d/m/Y');
         });
+
         return Inertia::render('Admin/Users/index',[
             'title' => 'Users',
             'users' => $users
