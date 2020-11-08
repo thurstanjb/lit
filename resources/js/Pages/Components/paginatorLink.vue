@@ -15,6 +15,10 @@
             disabled:{
                 type: Boolean|null,
                 default: null
+            },
+            event:{
+                type: String|null,
+                default: null
             }
         },
 
@@ -33,7 +37,11 @@
         methods:{
             switchPage(){
                 if(!this.isDisabled){
-                    this.$inertia.visit(this.url);
+                    if(this.event !== null){
+                        this.$emit(this.event);
+                    }else{
+                        this.$inertia.visit(this.url);
+                    }
                 }
             }
         }

@@ -13,11 +13,11 @@
         <table class="table-auto w-full table-responsive text-sm">
             <thead class="border">
             <tr>
-                <th class="px-4 py-1">id</th>
-                <th class="px-4 py-1">Name</th>
-                <th class="px-4 py-1">Height</th>
-                <th class="px-4 py-1">Book</th>
-                <th class="px-4 py-1">slug</th>
+                <filtered-heading column="id" class="px-4 py-1">Id</filtered-heading>
+                <filtered-heading column="name" class="px-4 py-1">Name</filtered-heading>
+                <filtered-heading column="height" class="px-4 py-1">Height</filtered-heading>
+                <filtered-heading column="book" class="px-4 py-1">Book</filtered-heading>
+                <filtered-heading column="slug" class="px-4 py-1">slug</filtered-heading>
                 <th class="px-4 py-1"></th>
             </tr>
             </thead>
@@ -50,10 +50,12 @@
 <script>
     import Layout from '../../../Layouts/layout';
     import Paginator from "../../Components/paginator";
+    import FilteredHeading from "../../Components/filteredHeading";
+    import QueryManager from "../../Components/queryManager";
 
     export default {
         name: "admin-mountains-index",
-        components: {Paginator},
+        components: {FilteredHeading, Paginator},
         props: {
             title: String,
             mountains: Object
@@ -61,7 +63,8 @@
 
         data(){
             return{
-                page_data: {}
+                page_data: {},
+                query_manager: QueryManager
             }
         },
 
@@ -72,5 +75,9 @@
             this.page_data = _.clone(this.mountains);
             delete this.page_data.data;
         },
+
+        mounted(){
+            this.query_manager.init(this.$inertia);
+        }
     }
 </script>

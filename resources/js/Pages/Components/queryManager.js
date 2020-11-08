@@ -8,18 +8,25 @@ export default {
     $inertia: null,
 
     init(inertia){
+        this.queries = [];
         this.$inertia = inertia
         this.queries = this.buildQueryObjectArray(window.location.search)
+        console.dir(this.queries);
         this.processQuery();
     },
 
     buildQueryObjectArray(string){
         let query_array = [];
         let queries = string.replace('?', '').split('&');
-        queries.forEach((query) => {
-            let key_value = query.split('=');
-            query_array.push({key:key_value[0], value:key_value[1]})
-        })
+        console.log(queries);
+        if(queries.length > 0 && queries[0] !== ''){
+            queries.forEach((query) => {
+                let key_value = query.split('=');
+
+                console.log(key_value);
+                query_array.push({key:key_value[0], value:key_value[1]})
+            });
+        }
 
         return query_array;
     },
@@ -32,6 +39,9 @@ export default {
     setupListeners(){
         events.$on('qm-set-order', (params) => {
             this.setOrder(params.order, params.column)
+        });
+        events.$on('qm-set-page', (params) => {
+            this.setPage(params.page);
         })
     },
 
@@ -82,5 +92,20 @@ export default {
                 }
             })
         })
+    },
+
+    setPage(page_number){
+        this.clearPage();
+        this.queries.push({key: 'page', value: page_number});
+        this.fireLink();
+    },
+
+    clearPage(){
+        this.queries.forEach((query, index) => {
+            if(query.key === 'page'){
+                this.queries.splice(index, 1);
+            }
+        })
     }
+
 }

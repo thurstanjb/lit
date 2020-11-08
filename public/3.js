@@ -190,6 +190,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'paginator',
@@ -201,7 +205,25 @@ __webpack_require__.r(__webpack_exports__);
       type: Object
     }
   },
-  computed: {},
+  methods: {
+    firstPage: function firstPage() {
+      this.setPage(1);
+    },
+    lastPage: function lastPage() {
+      this.setPage(this.pageData.last_page);
+    },
+    prevPage: function prevPage() {
+      this.setPage(this.pageData.current_page - 1);
+    },
+    nextPage: function nextPage() {
+      this.setPage(this.pageData.current_page + 1);
+    },
+    setPage: function setPage(page_number) {
+      events.$emit('qm-set-page', {
+        page: page_number
+      });
+    }
+  },
   data: function data() {
     return {};
   },
@@ -234,6 +256,10 @@ __webpack_require__.r(__webpack_exports__);
     disabled: {
       type: Boolean | null,
       "default": null
+    },
+    event: {
+      type: String | null,
+      "default": null
     }
   },
   computed: {
@@ -251,7 +277,11 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     switchPage: function switchPage() {
       if (!this.isDisabled) {
-        this.$inertia.visit(this.url);
+        if (this.event !== null) {
+          this.$emit(this.event);
+        } else {
+          this.$inertia.visit(this.url);
+        }
       }
     }
   }
@@ -498,8 +528,10 @@ var render = function() {
           staticClass: "page-btn--first",
           attrs: {
             link: _vm.pageData.first_page_url,
-            disabled: _vm.pageData.current_page === 1
-          }
+            disabled: _vm.pageData.current_page === 1,
+            event: "firstPage"
+          },
+          on: { firstPage: _vm.firstPage }
         },
         [_c("font-awesome-icon", { attrs: { icon: "angle-double-left" } })],
         1
@@ -507,7 +539,10 @@ var render = function() {
       _vm._v(" "),
       _c(
         "paginator-link",
-        { attrs: { link: _vm.pageData.prev_page_url } },
+        {
+          attrs: { link: _vm.pageData.prev_page_url, event: "prevPage" },
+          on: { prevPage: _vm.prevPage }
+        },
         [_c("font-awesome-icon", { attrs: { icon: "angle-left" } })],
         1
       ),
@@ -524,7 +559,10 @@ var render = function() {
       _vm._v(" "),
       _c(
         "paginator-link",
-        { attrs: { link: _vm.pageData.next_page_url } },
+        {
+          attrs: { link: _vm.pageData.next_page_url, event: "nextPage" },
+          on: { nextPage: _vm.nextPage }
+        },
         [_c("font-awesome-icon", { attrs: { icon: "angle-right" } })],
         1
       ),
@@ -535,8 +573,10 @@ var render = function() {
           staticClass: "page-btn--last",
           attrs: {
             link: _vm.pageData.last_page_url,
-            disabled: _vm.pageData.current_page === _vm.pageData.last_page
-          }
+            disabled: _vm.pageData.current_page === _vm.pageData.last_page,
+            event: "lastPage"
+          },
+          on: { lastPage: _vm.lastPage }
         },
         [_c("font-awesome-icon", { attrs: { icon: "angle-double-right" } })],
         1
@@ -878,20 +918,28 @@ __webpack_require__.r(__webpack_exports__);
   order_keys: ['asc', 'desc'],
   $inertia: null,
   init: function init(inertia) {
+    this.queries = [];
     this.$inertia = inertia;
     this.queries = this.buildQueryObjectArray(window.location.search);
+    console.dir(this.queries);
     this.processQuery();
   },
   buildQueryObjectArray: function buildQueryObjectArray(string) {
     var query_array = [];
     var queries = string.replace('?', '').split('&');
-    queries.forEach(function (query) {
-      var key_value = query.split('=');
-      query_array.push({
-        key: key_value[0],
-        value: key_value[1]
+    console.log(queries);
+
+    if (queries.length > 0 && queries[0] !== '') {
+      queries.forEach(function (query) {
+        var key_value = query.split('=');
+        console.log(key_value);
+        query_array.push({
+          key: key_value[0],
+          value: key_value[1]
+        });
       });
-    });
+    }
+
     return query_array;
   },
   processQuery: function processQuery() {
@@ -903,6 +951,9 @@ __webpack_require__.r(__webpack_exports__);
 
     events.$on('qm-set-order', function (params) {
       _this.setOrder(params.order, params.column);
+    });
+    events.$on('qm-set-page', function (params) {
+      _this.setPage(params.page);
     });
   },
   notifyOrderComponents: function notifyOrderComponents() {
@@ -956,6 +1007,23 @@ __webpack_require__.r(__webpack_exports__);
           _this4.queries.splice(index, 1);
         }
       });
+    });
+  },
+  setPage: function setPage(page_number) {
+    this.clearPage();
+    this.queries.push({
+      key: 'page',
+      value: page_number
+    });
+    this.fireLink();
+  },
+  clearPage: function clearPage() {
+    var _this5 = this;
+
+    this.queries.forEach(function (query, index) {
+      if (query.key === 'page') {
+        _this5.queries.splice(index, 1);
+      }
     });
   }
 });

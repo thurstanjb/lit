@@ -19,4 +19,8 @@ class Upload extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+
+    public function scopeFilter($query, $filters){
+        return $filters->apply($query);
+    }
 }

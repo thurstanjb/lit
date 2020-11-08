@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Ascent;
+use App\Filters\AscentFilter;
 use App\Http\Requests\AscentRequest;
 use App\Mountain;
 use App\Mountaineer;
@@ -12,11 +13,11 @@ use Inertia\Inertia;
 class AscentController extends Controller
 {
     /**
+     * @param AscentFilter $filters
      * @return \Inertia\Response
      */
-    public function index(){
-        $ascents = Ascent::with(['mountaineer', 'mountain'])
-            ->orderBy('ascent_date', 'desc')
+    public function index(AscentFilter $filters){
+        $ascents = Ascent::filter($filters)->with(['mountaineer', 'mountain'])
             ->paginate(30);
 
         return Inertia::render('Admin/Ascents/index', [

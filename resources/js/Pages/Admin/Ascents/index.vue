@@ -10,10 +10,10 @@
         <table class="table-auto w-full table-responsive">
             <thead class="border">
             <tr>
-                <th class="px-4 py-1">id</th>
-                <th class="px-4 py-1">Mountaineer</th>
-                <th class="px-4 py-1">Mountain</th>
-                <th class="px-4 py-1">Ascent Date</th>
+                <filtered-heading column="id" class="px-4 py-1">Id</filtered-heading>
+                <filtered-heading column="mountaineer_id" class="px-4 py-1">Mountaineer</filtered-heading>
+                <filtered-heading column="mountain_id" class="px-4 py-1">Mountain</filtered-heading>
+                <filtered-heading column="ascent_date" class="px-4 py-1">Ascent Date</filtered-heading>
                 <th class="px-4 py-1"></th>
             </tr>
             </thead>
@@ -47,10 +47,12 @@
 <script>
     import Layout from '../../../Layouts/layout';
     import Paginator from "../../Components/paginator";
+    import QueryManager from "../../Components/queryManager"
+    import FilteredHeading from "../../Components/filteredHeading";
 
     export default {
         name: "admin-ascents-index",
-        components: {Paginator},
+        components: {FilteredHeading, Paginator},
         props: {
             title: String,
             ascents: Object
@@ -58,7 +60,8 @@
 
         data(){
             return{
-                page_data: null
+                page_data: null,
+                query_manager: QueryManager
             }
         },
 
@@ -68,6 +71,10 @@
             this.$parent.title = this.title;
             this.page_data = _.clone(this.ascents);
             delete this.page_data.data;
+        },
+
+        mounted(){
+            this.query_manager.init(this.$inertia);
         },
 
         methods:{

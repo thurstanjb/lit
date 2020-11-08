@@ -23,4 +23,8 @@ class Ascent extends Model
     public function mountaineer(){
         return $this->belongsTo(Mountaineer::class);
     }
+
+    public function scopeFilter($query, $filters){
+        return $filters->apply($query);
+    }
 }

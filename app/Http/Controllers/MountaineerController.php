@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Filters\MountaineerFilter;
 use App\Http\Requests\MountaineerRequest;
 use App\Mountaineer;
 use Inertia\Inertia;
@@ -9,11 +10,12 @@ use Inertia\Inertia;
 class MountaineerController extends Controller
 {
     /**
+     * @param MountaineerFilter $filters
      * @return \Inertia\Response
      */
-    public function index()
+    public function index(MountaineerFilter $filters)
     {
-        $mountaineers = Mountaineer::paginate(30);
+        $mountaineers = Mountaineer::filter($filters)->paginate(30);
         return Inertia::render('Admin/Mountaineers/index', [
             'title' => 'Mountaineers',
             'mountaineers' => $mountaineers

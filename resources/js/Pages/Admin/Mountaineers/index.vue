@@ -10,10 +10,10 @@
         <table class="table-auto w-full table-responsive">
             <thead class="border">
             <tr>
-                <th class="px-4 py-1">id</th>
-                <th class="px-4 py-1">Name</th>
-                <th class="px-4 py-1">Slug</th>
-                <th class="px-4 py-1">Created</th>
+                <filtered-heading column="id" class="px-4 py-1">Id</filtered-heading>
+                <filtered-heading column="name" class="px-4 py-1">Name</filtered-heading>
+                <filtered-heading column="slug" class="px-4 py-1">Slug</filtered-heading>
+                <filtered-heading column="created_at" class="px-4 py-1">Created</filtered-heading>
                 <th class="px-4 py-1"></th>
             </tr>
             </thead>
@@ -45,10 +45,12 @@
 <script>
     import Layout from '../../../Layouts/layout';
     import Paginator from "../../Components/paginator";
+    import QueryManager from "../../Components/queryManager"
+    import FilteredHeading from "../../Components/filteredHeading";
 
     export default {
         name: "admin-mountaineers-index",
-        components: {Paginator},
+        components: {FilteredHeading, Paginator},
         props: {
             title: String,
             mountaineers: Object,
@@ -57,6 +59,7 @@
         data(){
             return{
                 page_data: null,
+                query_manager: QueryManager
             }
         },
 
@@ -66,6 +69,10 @@
             this.$parent.title = this.title;
             this.page_data = _.clone(this.mountaineers);
             delete this.page_data.data;
+        },
+
+        mounted(){
+            this.query_manager.init(this.$inertia);
         }
     }
 </script>

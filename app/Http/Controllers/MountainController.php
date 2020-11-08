@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Filters\MountainFilter;
 use App\Http\Requests\MountainRequest;
 use App\Mountain;
 use Illuminate\Http\Request;
@@ -11,10 +12,11 @@ use Inertia\Inertia;
 class MountainController extends Controller
 {
     /**
+     * @param MountainFilter $filters
      * @return \Inertia\Response
      */
-    public function index(){
-        $mountains = Mountain::paginate(30);
+    public function index(MountainFilter $filters){
+        $mountains = Mountain::filter($filters)->paginate(30);
 
         return Inertia::render('Admin/Mountains/index', [
             'title' => 'Mountains',

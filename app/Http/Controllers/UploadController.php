@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Filters\UploadFilter;
 use App\Http\Requests\UploadFileRequest;
 use App\Upload;
 use Illuminate\Support\Facades\Storage;
@@ -9,9 +10,9 @@ use Inertia\Inertia;
 
 class UploadController extends Controller
 {
-    public function index()
+    public function index(UploadFilter $filters)
     {
-        $uploads = (Upload::with('user')->paginate(30));
+        $uploads = (Upload::filter($filters)->with('user')->paginate(30));
 
         $uploads->getCollection()->each(function ($upload) {
             $upload->upload_date = $upload->created_at->format('d/m/Y H:i:s');

@@ -15,4 +15,8 @@ class Mountain extends Model
     public function ascents(){
         return $this->hasMany(Ascent::class);
     }
+
+    public function scopeFilter($query, $filters){
+        return $filters->apply($query);
+    }
 }

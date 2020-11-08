@@ -10,11 +10,11 @@
         <table class="table-auto w-full table-responsive">
             <thead class="border">
             <tr>
-                <th class="px-4 py-1">id</th>
-                <th class="px-4 py-1">Filename</th>
-                <th class="px-4 py-1">Folder</th>
-                <th class="px-4 py-1">Uploaded</th>
-                <th class="px-4 py-1">Uploaded By</th>
+                <filtered-heading column="id" class="px-4 py-1">Id</filtered-heading>
+                <filtered-heading column="filename" class="px-4 py-1">Filename</filtered-heading>
+                <filtered-heading column="folder" class="px-4 py-1">Folder</filtered-heading>
+                <filtered-heading column="created_at" class="px-4 py-1">Uploaded</filtered-heading>
+                <filtered-heading column="user_id" class="px-4 py-1">Uploaded By</filtered-heading>
                 <th class="px-4 py-1"></th>
             </tr>
             </thead>
@@ -51,18 +51,21 @@
 <script>
     import Layout from '../../Layouts/layout';
     import Paginator from "../Components/paginator";
+    import FilteredHeading from "../Components/filteredHeading";
+    import QueryManager from "../Components/queryManager"
 
     export default {
         name: "upload-index",
-        components: {Paginator},
+        components: {FilteredHeading, Paginator},
         props: {
             title: String,
-            uploads: Array
+            uploads: Object
         },
 
         data(){
             return{
-                page_data: null
+                page_data: null,
+                query_manager: QueryManager
             }
         },
 
@@ -72,6 +75,10 @@
             this.$parent.title = this.title;
             this.page_data = _.clone(this.uploads);
             delete this.page_data.data
+        },
+
+        mounted(){
+            this.query_manager.init(this.$inertia);
         },
 
         methods:{
