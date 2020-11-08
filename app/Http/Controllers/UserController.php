@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Filters\UserFilter;
 use App\Http\Requests\UserRequest;
 use App\User;
 use Inertia\Inertia;
@@ -12,11 +13,12 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param UserFilter $filters
      * @return \Inertia\Response
      */
-    public function index()
+    public function index(UserFilter $filters)
     {
-        $users = User::paginate(30);
+        $users = User::filter($filters)->paginate(30);
 
         $users->getCollection()->each(function($user) {
             $user->joined = $user->created_at->format('d/m/Y');

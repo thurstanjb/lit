@@ -50,4 +50,8 @@ class User extends Authenticatable
     public function uploads(){
         return $this->hasMany(Upload::class);
     }
+
+    public function scopeFilter($query, $filters){
+        return $filters->apply($query);
+    }
 }
