@@ -42251,25 +42251,25 @@ var map = {
 	],
 	"./Admin/Ascents/Components/ascentForm": [
 		"./resources/js/Pages/Admin/Ascents/Components/ascentForm.vue",
-		3,
-		23
+		8,
+		27
 	],
 	"./Admin/Ascents/Components/ascentForm.vue": [
 		"./resources/js/Pages/Admin/Ascents/Components/ascentForm.vue",
-		3,
-		23
+		8,
+		27
 	],
 	"./Admin/Ascents/create": [
 		"./resources/js/Pages/Admin/Ascents/create.vue",
 		0,
-		3,
-		12
+		8,
+		15
 	],
 	"./Admin/Ascents/create.vue": [
 		"./resources/js/Pages/Admin/Ascents/create.vue",
 		0,
-		3,
-		12
+		8,
+		15
 	],
 	"./Admin/Ascents/index": [
 		"./resources/js/Pages/Admin/Ascents/index.vue",
@@ -42293,21 +42293,21 @@ var map = {
 	],
 	"./Admin/Mountaineers/Components/mountaineerForm": [
 		"./resources/js/Pages/Admin/Mountaineers/Components/mountaineerForm.vue",
-		11
+		12
 	],
 	"./Admin/Mountaineers/Components/mountaineerForm.vue": [
 		"./resources/js/Pages/Admin/Mountaineers/Components/mountaineerForm.vue",
-		11
+		12
 	],
 	"./Admin/Mountaineers/create": [
 		"./resources/js/Pages/Admin/Mountaineers/create.vue",
 		0,
-		9
+		10
 	],
 	"./Admin/Mountaineers/create.vue": [
 		"./resources/js/Pages/Admin/Mountaineers/create.vue",
 		0,
-		9
+		10
 	],
 	"./Admin/Mountaineers/index": [
 		"./resources/js/Pages/Admin/Mountaineers/index.vue",
@@ -42322,12 +42322,12 @@ var map = {
 	"./Admin/Mountaineers/update": [
 		"./resources/js/Pages/Admin/Mountaineers/update.vue",
 		0,
-		10
+		11
 	],
 	"./Admin/Mountaineers/update.vue": [
 		"./resources/js/Pages/Admin/Mountaineers/update.vue",
 		0,
-		10
+		11
 	],
 	"./Admin/Mountains": [
 		"./resources/js/Pages/Admin/Mountains/index.vue",
@@ -42342,24 +42342,24 @@ var map = {
 	"./Admin/Mountains/Components/mountainForm": [
 		"./resources/js/Pages/Admin/Mountains/Components/mountainForm.vue",
 		1,
-		24
+		28
 	],
 	"./Admin/Mountains/Components/mountainForm.vue": [
 		"./resources/js/Pages/Admin/Mountains/Components/mountainForm.vue",
 		1,
-		24
+		28
 	],
 	"./Admin/Mountains/create": [
 		"./resources/js/Pages/Admin/Mountains/create.vue",
 		0,
 		1,
-		13
+		16
 	],
 	"./Admin/Mountains/create.vue": [
 		"./resources/js/Pages/Admin/Mountains/create.vue",
 		0,
 		1,
-		13
+		16
 	],
 	"./Admin/Mountains/index": [
 		"./resources/js/Pages/Admin/Mountains/index.vue",
@@ -42375,163 +42375,179 @@ var map = {
 		"./resources/js/Pages/Admin/Mountains/update.vue",
 		0,
 		1,
-		14
+		17
 	],
 	"./Admin/Mountains/update.vue": [
 		"./resources/js/Pages/Admin/Mountains/update.vue",
 		0,
 		1,
-		14
+		17
 	],
 	"./Admin/Users": [
 		"./resources/js/Pages/Admin/Users/index.vue",
 		0,
-		7
+		3
 	],
 	"./Admin/Users/": [
 		"./resources/js/Pages/Admin/Users/index.vue",
 		0,
-		7
+		3
 	],
 	"./Admin/Users/Components/userForm": [
 		"./resources/js/Pages/Admin/Users/Components/userForm.vue",
 		2,
-		25
+		29
 	],
 	"./Admin/Users/Components/userForm.vue": [
 		"./resources/js/Pages/Admin/Users/Components/userForm.vue",
 		2,
-		25
+		29
 	],
 	"./Admin/Users/create": [
 		"./resources/js/Pages/Admin/Users/create.vue",
 		0,
 		2,
-		15
+		18
 	],
 	"./Admin/Users/create.vue": [
 		"./resources/js/Pages/Admin/Users/create.vue",
 		0,
 		2,
-		15
+		18
 	],
 	"./Admin/Users/index": [
 		"./resources/js/Pages/Admin/Users/index.vue",
 		0,
-		7
+		3
 	],
 	"./Admin/Users/index.vue": [
 		"./resources/js/Pages/Admin/Users/index.vue",
 		0,
-		7
+		3
 	],
 	"./Admin/Users/update": [
 		"./resources/js/Pages/Admin/Users/update.vue",
 		0,
 		2,
-		16
+		19
 	],
 	"./Admin/Users/update.vue": [
 		"./resources/js/Pages/Admin/Users/update.vue",
 		0,
 		2,
-		16
+		19
 	],
 	"./Auth/Passwords/email": [
 		"./resources/js/Pages/Auth/Passwords/email.vue",
 		0,
-		17
+		20
 	],
 	"./Auth/Passwords/email.vue": [
 		"./resources/js/Pages/Auth/Passwords/email.vue",
 		0,
-		17
+		20
 	],
 	"./Auth/Passwords/reset": [
 		"./resources/js/Pages/Auth/Passwords/reset.vue",
 		0,
-		18
+		21
 	],
 	"./Auth/Passwords/reset.vue": [
 		"./resources/js/Pages/Auth/Passwords/reset.vue",
 		0,
-		18
+		21
 	],
 	"./Auth/login": [
 		"./resources/js/Pages/Auth/login.vue",
 		0,
-		19
+		22
 	],
 	"./Auth/login.vue": [
 		"./resources/js/Pages/Auth/login.vue",
 		0,
-		19
+		22
+	],
+	"./Components/filteredHeading": [
+		"./resources/js/Pages/Components/filteredHeading.vue",
+		13
+	],
+	"./Components/filteredHeading.vue": [
+		"./resources/js/Pages/Components/filteredHeading.vue",
+		13
 	],
 	"./Components/paginator": [
 		"./resources/js/Pages/Components/paginator.vue",
-		26
+		9
 	],
 	"./Components/paginator.vue": [
 		"./resources/js/Pages/Components/paginator.vue",
-		26
+		9
 	],
 	"./Components/paginatorLink": [
 		"./resources/js/Pages/Components/paginatorLink.vue",
-		27
+		14
 	],
 	"./Components/paginatorLink.vue": [
 		"./resources/js/Pages/Components/paginatorLink.vue",
-		27
+		14
+	],
+	"./Components/queryManager": [
+		"./resources/js/Pages/Components/queryManager.js",
+		26
+	],
+	"./Components/queryManager.js": [
+		"./resources/js/Pages/Components/queryManager.js",
+		26
 	],
 	"./Uploads": [
 		"./resources/js/Pages/Uploads/index.vue",
 		0,
-		8
+		7
 	],
 	"./Uploads/": [
 		"./resources/js/Pages/Uploads/index.vue",
 		0,
-		8
+		7
 	],
 	"./Uploads/index": [
 		"./resources/js/Pages/Uploads/index.vue",
 		0,
-		8
+		7
 	],
 	"./Uploads/index.vue": [
 		"./resources/js/Pages/Uploads/index.vue",
 		0,
-		8
+		7
 	],
 	"./Uploads/show": [
 		"./resources/js/Pages/Uploads/show.vue",
 		0,
-		20
+		23
 	],
 	"./Uploads/show.vue": [
 		"./resources/js/Pages/Uploads/show.vue",
 		0,
-		20
+		23
 	],
 	"./Uploads/uploadFile": [
 		"./resources/js/Pages/Uploads/uploadFile.vue",
 		0,
-		21
+		24
 	],
 	"./Uploads/uploadFile.vue": [
 		"./resources/js/Pages/Uploads/uploadFile.vue",
 		0,
-		21
+		24
 	],
 	"./home": [
 		"./resources/js/Pages/home.vue",
 		0,
-		22
+		25
 	],
 	"./home.vue": [
 		"./resources/js/Pages/home.vue",
 		0,
-		22
+		25
 	]
 };
 function webpackAsyncContext(req) {
@@ -42580,7 +42596,8 @@ __webpack_require__.r(__webpack_exports__);
 window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
-_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_2__["library"].add(_fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faEject"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faUserPlus"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faUndoAlt"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faTrashAlt"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faUpload"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faPlus"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faAngleDoubleLeft"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faAngleDoubleRight"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faAngleLeft"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faAngleRight"]);
+window.events = new vue__WEBPACK_IMPORTED_MODULE_1___default.a();
+_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_2__["library"].add(_fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faEject"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faUserPlus"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faUndoAlt"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faTrashAlt"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faUpload"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faPlus"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faAngleDoubleLeft"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faAngleDoubleRight"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faAngleLeft"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faAngleRight"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faAngleUp"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faAngleDown"]);
 vue__WEBPACK_IMPORTED_MODULE_1___default.a.component('font-awesome-icon', _fortawesome_vue_fontawesome__WEBPACK_IMPORTED_MODULE_4__["FontAwesomeIcon"]);
 vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(_inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_0__["InertiaApp"]);
 var app = document.getElementById('app');

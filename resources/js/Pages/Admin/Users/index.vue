@@ -10,11 +10,11 @@
         <table class="table-auto w-full table-responsive">
             <thead class="border">
             <tr>
-                <th class="px-4 py-1">id</th>
-                <th class="px-4 py-1">Name</th>
-                <th class="px-4 py-1">Email</th>
-                <th class="px-4 py-1">Role</th>
-                <th class="px-4 py-1">Joined</th>
+                <filtered-heading class="px-4 py-1" column="id">Id</filtered-heading>
+                <filtered-heading class="px-4 py-1" column="name">Name</filtered-heading>
+                <filtered-heading class="px-4 py-1" column="email">Email</filtered-heading>
+                <filtered-heading class="px-4 py-1" column="role">Role</filtered-heading>
+                <filtered-heading class="px-4 py-1" column="created_at">Joined</filtered-heading>
                 <th class="px-4 py-1"></th>
             </tr>
             </thead>
@@ -47,10 +47,12 @@
 <script>
     import Layout from '../../../Layouts/layout';
     import Paginator from "../../Components/paginator";
+    import FilteredHeading from "../../Components/filteredHeading";
+    import QueryManager from "../../Components/queryManager";
 
     export default {
         name: "admin-users-index",
-        components: {Paginator},
+        components: {FilteredHeading, Paginator},
         props: {
             title: String,
             users: Object
@@ -58,7 +60,8 @@
 
         data() {
             return {
-                page_data: null
+                page_data: null,
+                query_manager: QueryManager
             }
         },
 
@@ -69,6 +72,11 @@
             this.page_data = _.clone(this.users);
             delete this.page_data.data;
         },
+
+        mounted(){
+            this.query_manager.init(this.$inertia);
+        }
+
     }
 </script>
 
