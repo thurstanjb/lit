@@ -2,6 +2,7 @@
     <div class="w-full px-1">
         <div class="tj-topbar">
             <h1 class="tj-topbar_heading">Uploads</h1>
+            <div class="md:flex flex-1"></div>
             <paginator class="mx-4" :page-data="page_data"></paginator>
             <inertia-link href="/uploads/upload-file" class="tj-topbar_link">
                 <font-awesome-icon icon="upload"/>

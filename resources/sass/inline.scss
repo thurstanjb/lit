@@ -1,0 +1,74 @@
+
+.inline-btn {
+    @apply bg-teal-500 text-white font-bold py-1 px-2 m-0 border-r border-l border-teal-400 text-sm inline-block align-middle;
+
+    &--first {
+        a {
+            @apply rounded-bl rounded-tl;
+        }
+        button {
+            @apply rounded-bl rounded-tl;
+        }
+    }
+
+    &--last {
+        a {
+            @apply rounded-br rounded-tr;
+        }
+        button {
+            @apply rounded-br rounded-tr;
+        }
+    }
+
+    &--display {
+        @apply bg-teal-200 text-gray-700 py-2 px-2 m-0 border-r border-l border-teal-400 text-sm inline-block align-middle;
+    }
+
+    &--filtered{
+        @apply bg-indigo-500 text-white font-bold py-1 px-2 m-0 border-r border-l border-teal-400 text-sm inline-block align-middle;
+
+        &:hover{
+            @apply bg-indigo-700;
+        }
+    }
+
+    &:disabled{
+        @apply bg-teal-500 text-gray-400 pointer-events-none;
+    }
+
+    &:hover {
+        @apply bg-teal-700;
+    }
+
+    &:focus {
+        @apply outline-none shadow-outline;
+    }
+}
+
+.inline-input {
+    @apply  bg-teal-100 text-gray-700 py-1 px-2 m-0 border-r border-l border-teal-400 text-sm inline-block align-middle;
+
+    &--first {
+        input {
+            @apply rounded-bl rounded-tl;
+        }
+    }
+
+    &:focus {
+        @apply outline-none;
+    }
+}
+
+.inline-select{
+    @apply bg-teal-100 text-gray-700 py-1 px-2 m-0 rounded w-full border-r border-l border-teal-400 text-sm inline-block align-middle;
+
+    &--init-text{
+        @apply bg-teal-200 text-gray-500;
+    }
+    &--norm-text{
+        @apply bg-teal-100 text-gray-700;
+    }
+    &:focus {
+        @apply outline-none;
+    }
+}

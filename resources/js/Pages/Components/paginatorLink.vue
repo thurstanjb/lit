@@ -1,6 +1,6 @@
 <template>
     <div class="flex">
-        <button class="page-btn" :disabled="isDisabled" @click="switchPage">
+        <button class="inline-btn" :disabled="isDisabled" @click="switchPage">
             <slot />
         </button>
     </div>

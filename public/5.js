@@ -57,6 +57,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -311,6 +312,8 @@ var render = function() {
           _vm._v("Mountaineers")
         ]),
         _vm._v(" "),
+        _c("div", { staticClass: "md:flex flex-1" }),
+        _vm._v(" "),
         _c("paginator", {
           staticClass: "mx-4",
           attrs: { "page-data": _vm.page_data }
@@ -522,7 +525,7 @@ var render = function() {
       _c(
         "paginator-link",
         {
-          staticClass: "page-btn--first",
+          staticClass: "inline-btn--first",
           attrs: {
             link: _vm.pageData.first_page_url,
             disabled: _vm.pageData.current_page === 1,
@@ -544,7 +547,7 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "page-btn--display" }, [
+      _c("div", { staticClass: "inline-btn--display" }, [
         _vm._v(
           "\n        " +
             _vm._s(_vm.pageData.current_page) +
@@ -567,7 +570,7 @@ var render = function() {
       _c(
         "paginator-link",
         {
-          staticClass: "page-btn--last",
+          staticClass: "inline-btn--last",
           attrs: {
             link: _vm.pageData.last_page_url,
             disabled: _vm.pageData.current_page === _vm.pageData.last_page,
@@ -608,7 +611,7 @@ var render = function() {
     _c(
       "button",
       {
-        staticClass: "page-btn",
+        staticClass: "inline-btn",
         attrs: { disabled: _vm.isDisabled },
         on: { click: _vm.switchPage }
       },
@@ -918,18 +921,15 @@ __webpack_require__.r(__webpack_exports__);
     this.queries = [];
     this.$inertia = inertia;
     this.queries = this.buildQueryObjectArray(window.location.search);
-    console.dir(this.queries);
     this.processQuery();
   },
   buildQueryObjectArray: function buildQueryObjectArray(string) {
     var query_array = [];
     var queries = string.replace('?', '').split('&');
-    console.log(queries);
 
     if (queries.length > 0 && queries[0] !== '') {
       queries.forEach(function (query) {
         var key_value = query.split('=');
-        console.log(key_value);
         query_array.push({
           key: key_value[0],
           value: key_value[1]
@@ -952,18 +952,23 @@ __webpack_require__.r(__webpack_exports__);
     events.$on('qm-set-page', function (params) {
       _this.setPage(params.page);
     });
+    events.$on('qm-set-filter', function (params) {
+      _this.setFilter(params.column, params.value);
+    });
   },
   notifyOrderComponents: function notifyOrderComponents() {
     var _this2 = this;
 
     this.queries.forEach(function (query) {
-      console.log(query.key, _this2.order_keys.includes(query.key));
-
       if (_this2.order_keys.includes(query.key)) {
-        console.log('emitting event');
         events.$emit('set-order', {
           order: query.key,
           column: query.value
+        });
+      } else {
+        events.$emit('set-filter', {
+          value: query.value,
+          column: query.key
         });
       }
     });
@@ -974,8 +979,12 @@ __webpack_require__.r(__webpack_exports__);
   buildLink: function buildLink() {
     var _this3 = this;
 
-    var base_string = window.location.pathname + '?';
+    var base_string = window.location.pathname;
     this.queries.forEach(function (query, index) {
+      if (index === 0) {
+        base_string += '?';
+      }
+
       base_string += query.key + '=' + query.value;
 
       if (index < _this3.queries.length - 1) {
@@ -1020,6 +1029,29 @@ __webpack_require__.r(__webpack_exports__);
     this.queries.forEach(function (query, index) {
       if (query.key === 'page') {
         _this5.queries.splice(index, 1);
+      }
+    });
+  },
+  setFilter: function setFilter(key, value) {
+    this.clearFilter(key);
+    this.clearOrder();
+    this.clearPage();
+
+    if (value !== null) {
+      this.queries.push({
+        key: key,
+        value: value
+      });
+    }
+
+    this.fireLink();
+  },
+  clearFilter: function clearFilter(key) {
+    var _this6 = this;
+
+    this.queries.forEach(function (query, index) {
+      if (query.key === key) {
+        _this6.queries.splice(index, 1);
       }
     });
   }

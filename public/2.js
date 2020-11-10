@@ -96,6 +96,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'user-form',
   props: {
@@ -175,6 +176,8 @@ var render = function() {
         _c("h1", { staticClass: "tj-topbar_heading" }, [
           _vm._v(_vm._s(_vm.heading) + " User")
         ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "md:flex flex-1" }),
         _vm._v(" "),
         _c(
           "inertia-link",

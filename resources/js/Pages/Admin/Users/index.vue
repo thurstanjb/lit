@@ -1,7 +1,12 @@
 <template>
     <div class="w-full px-1">
         <div class="tj-topbar">
-            <h1 class="tj-topbar_heading">Users</h1>
+            <h1 class="tj-topbar_heading mr-10">Users</h1>
+            <div class="md:flex flex-1">
+                <search-bar column="name" class="mr-2"></search-bar>
+                <search-bar column="email" class="mr-2"></search-bar>
+                <filter-ddown column="role" :options="role_options"></filter-ddown>
+            </div>
             <paginator :page-data="page_data" class="mx-4"></paginator>
             <inertia-link href="/users/create" class="tj-topbar_link">
                 <font-awesome-icon icon="user-plus"/>
@@ -49,10 +54,12 @@
     import Paginator from "../../Components/paginator";
     import FilteredHeading from "../../Components/filteredHeading";
     import QueryManager from "../../Components/queryManager";
+    import SearchBar from "../../Components/searchBar";
+    import FilterDdown from "../../Components/filterDdown";
 
     export default {
         name: "admin-users-index",
-        components: {FilteredHeading, Paginator},
+        components: {FilterDdown, SearchBar, FilteredHeading, Paginator},
         props: {
             title: String,
             users: Object
@@ -61,7 +68,11 @@
         data() {
             return {
                 page_data: null,
-                query_manager: QueryManager
+                query_manager: QueryManager,
+                role_options: [
+                    {text: 'Admin', value:'admin'},
+                    {text: 'User', value:'user'}
+                    ]
             }
         },
 

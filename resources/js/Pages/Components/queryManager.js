@@ -11,19 +11,15 @@ export default {
         this.queries = [];
         this.$inertia = inertia
         this.queries = this.buildQueryObjectArray(window.location.search)
-        console.dir(this.queries);
         this.processQuery();
     },
 
     buildQueryObjectArray(string){
         let query_array = [];
         let queries = string.replace('?', '').split('&');
-        console.log(queries);
         if(queries.length > 0 && queries[0] !== ''){
             queries.forEach((query) => {
                 let key_value = query.split('=');
-
-                console.log(key_value);
                 query_array.push({key:key_value[0], value:key_value[1]})
             });
         }
@@ -42,17 +38,23 @@ export default {
         });
         events.$on('qm-set-page', (params) => {
             this.setPage(params.page);
-        })
+        });
+        events.$on('qm-set-filter', (params) => {
+            this.setFilter(params.column, params.value);
+        });
     },
 
     notifyOrderComponents(){
       this.queries.forEach(query => {
-          console.log(query.key, this.order_keys.includes(query.key));
           if(this.order_keys.includes(query.key)){
-              console.log('emitting event');
               events.$emit('set-order', {
                   order: query.key,
                   column: query.value
+              });
+          }else{
+              events.$emit('set-filter', {
+                  value: query.value,
+                  column: query.key
               });
           }
       })
@@ -63,8 +65,11 @@ export default {
     },
 
     buildLink(){
-        let base_string = window.location.pathname + '?';
+        let base_string = window.location.pathname;
         this.queries.forEach((query, index) => {
+            if(index === 0){
+                base_string += '?';
+            }
             base_string += query.key + '=' + query.value;
             if(index < this.queries.length -1){
                 base_string += '&'
@@ -103,6 +108,25 @@ export default {
     clearPage(){
         this.queries.forEach((query, index) => {
             if(query.key === 'page'){
+                this.queries.splice(index, 1);
+            }
+        })
+    },
+
+    setFilter(key, value){
+        this.clearFilter(key);
+        this.clearOrder();
+        this.clearPage();
+
+        if(value !== null){
+            this.queries.push({key: key, value: value});
+        }
+        this.fireLink();
+    },
+
+    clearFilter(key){
+        this.queries.forEach((query, index) => {
+            if(query.key === key){
                 this.queries.splice(index, 1);
             }
         })

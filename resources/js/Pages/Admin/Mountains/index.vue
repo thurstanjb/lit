@@ -2,9 +2,7 @@
     <div class="w-full px-1">
         <div class="tj-topbar">
             <h1 class="tj-topbar_heading">Mountains</h1>
-            <div class="flex-1">
-                Filters
-            </div>
+            <div class="md:flex flex-1"></div>
             <paginator class="mx-4" :page-data="page_data"></paginator>
             <inertia-link href="/mountains/create" class="tj-topbar_link">
                 <font-awesome-icon icon="plus" />

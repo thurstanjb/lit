@@ -3,7 +3,7 @@ import {InertiaApp} from '@inertiajs/inertia-vue';
 import Vue from 'vue';
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {faEject, faUserPlus, faUndoAlt, faTrashAlt, faUpload, faPlus, faAngleDoubleLeft, faAngleDoubleRight,
-    faAngleLeft, faAngleRight, faAngleUp, faAngleDown} from '@fortawesome/free-solid-svg-icons';
+    faAngleLeft, faAngleRight, faAngleUp, faAngleDown, faSearch} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
 
 window.axios = require('axios');
@@ -15,7 +15,7 @@ window.events = new Vue();
 
 library.add(
     faEject, faUserPlus, faUndoAlt, faTrashAlt, faUpload, faPlus, faAngleDoubleLeft, faAngleDoubleRight,
-    faAngleLeft, faAngleRight, faAngleUp, faAngleDown
+    faAngleLeft, faAngleRight, faAngleUp, faAngleDown, faSearch
 );
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);

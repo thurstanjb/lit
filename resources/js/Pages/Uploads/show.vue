@@ -2,6 +2,7 @@
     <div class="w-full px-1">
         <div class="tj-topbar">
             <h1 class="tj-topbar_heading">{{upload.filename}}</h1>
+            <div class="md:flex flex-1"></div>
             <inertia-link href="/uploads" class="tj-topbar_link">
                 <font-awesome-icon icon="undo-alt"/>
             </inertia-link>

@@ -78,4 +78,56 @@ class UserFilterTest extends TestCase
         $this->assertCount(3, $results);
     }
 
+    /**
+     * @test
+     */
+    public function _users_can_be_filtered_by_their_email()
+    {
+        $user1 = create(User::class, ['email' => 'jeff@aol.com', 'role' => 'admin']);
+        $user2 = create(User::class, ['email' => 'dave@aol.com', 'role' => 'user']);
+        $user3 = create(User::class, ['email' => 'jeff@outlook.com', 'role' => 'user']);
+        $user4 = create(User::class, ['email' => 'steve@outlook.com', 'role' => 'user']);
+        $user5 = create(User::class, ['email' => 'ronda@bt.co.uk', 'role' => 'user']);
+
+        $this->signIn($user1);
+
+        $response = $this->get('/users?email=ronda');
+        $results = $response->inertiaProps()['users']['data'];
+        $this->assertCount(1, $results);
+
+        $response = $this->get('/users?email=aol.com');
+        $results = $response->inertiaProps()['users']['data'];
+        $this->assertCount(2, $results);
+
+        $response = $this->get('/users?email=ve@');
+        $results = $response->inertiaProps()['users']['data'];
+        $this->assertCount(2, $results);
+    }
+
+    /**
+     * @test
+     */
+    public function _a_user_can_be_filtered_by_role()
+    {
+        $user1 = create(User::class, ['email' => 'jeff@aol.com', 'role' => 'admin']);
+        $user2 = create(User::class, ['email' => 'dave@aol.com', 'role' => 'user']);
+        $user3 = create(User::class, ['email' => 'jeff@outlook.com', 'role' => 'admin']);
+        $user4 = create(User::class, ['email' => 'steve@outlook.com', 'role' => 'user']);
+        $user5 = create(User::class, ['email' => 'ronda@bt.co.uk', 'role' => 'browser']);
+
+        $this->signIn($user1);
+
+        $response = $this->get('/users?role=admin');
+        $results = $response->inertiaProps()['users']['data'];
+        $this->assertCount(2, $results);
+
+        $response = $this->get('/users?role=browser');
+        $results = $response->inertiaProps()['users']['data'];
+        $this->assertCount(1, $results);
+
+        $response = $this->get('/users?role=ser');
+        $results = $response->inertiaProps()['users']['data'];
+        $this->assertCount(3, $results);
+    }
+
 }
