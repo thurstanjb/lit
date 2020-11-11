@@ -42242,12 +42242,12 @@ var map = {
 	"./Admin/Ascents": [
 		"./resources/js/Pages/Admin/Ascents/index.vue",
 		0,
-		4
+		5
 	],
 	"./Admin/Ascents/": [
 		"./resources/js/Pages/Admin/Ascents/index.vue",
 		0,
-		4
+		5
 	],
 	"./Admin/Ascents/Components/ascentForm": [
 		"./resources/js/Pages/Admin/Ascents/Components/ascentForm.vue",
@@ -42274,22 +42274,22 @@ var map = {
 	"./Admin/Ascents/index": [
 		"./resources/js/Pages/Admin/Ascents/index.vue",
 		0,
-		4
+		5
 	],
 	"./Admin/Ascents/index.vue": [
 		"./resources/js/Pages/Admin/Ascents/index.vue",
 		0,
-		4
+		5
 	],
 	"./Admin/Mountaineers": [
 		"./resources/js/Pages/Admin/Mountaineers/index.vue",
 		0,
-		5
+		6
 	],
 	"./Admin/Mountaineers/": [
 		"./resources/js/Pages/Admin/Mountaineers/index.vue",
 		0,
-		5
+		6
 	],
 	"./Admin/Mountaineers/Components/mountaineerForm": [
 		"./resources/js/Pages/Admin/Mountaineers/Components/mountaineerForm.vue",
@@ -42312,12 +42312,12 @@ var map = {
 	"./Admin/Mountaineers/index": [
 		"./resources/js/Pages/Admin/Mountaineers/index.vue",
 		0,
-		5
+		6
 	],
 	"./Admin/Mountaineers/index.vue": [
 		"./resources/js/Pages/Admin/Mountaineers/index.vue",
 		0,
-		5
+		6
 	],
 	"./Admin/Mountaineers/update": [
 		"./resources/js/Pages/Admin/Mountaineers/update.vue",
@@ -42332,12 +42332,12 @@ var map = {
 	"./Admin/Mountains": [
 		"./resources/js/Pages/Admin/Mountains/index.vue",
 		0,
-		6
+		3
 	],
 	"./Admin/Mountains/": [
 		"./resources/js/Pages/Admin/Mountains/index.vue",
 		0,
-		6
+		3
 	],
 	"./Admin/Mountains/Components/mountainForm": [
 		"./resources/js/Pages/Admin/Mountains/Components/mountainForm.vue",
@@ -42364,12 +42364,12 @@ var map = {
 	"./Admin/Mountains/index": [
 		"./resources/js/Pages/Admin/Mountains/index.vue",
 		0,
-		6
+		3
 	],
 	"./Admin/Mountains/index.vue": [
 		"./resources/js/Pages/Admin/Mountains/index.vue",
 		0,
-		6
+		3
 	],
 	"./Admin/Mountains/update": [
 		"./resources/js/Pages/Admin/Mountains/update.vue",
@@ -42386,12 +42386,12 @@ var map = {
 	"./Admin/Users": [
 		"./resources/js/Pages/Admin/Users/index.vue",
 		0,
-		3
+		4
 	],
 	"./Admin/Users/": [
 		"./resources/js/Pages/Admin/Users/index.vue",
 		0,
-		3
+		4
 	],
 	"./Admin/Users/Components/userForm": [
 		"./resources/js/Pages/Admin/Users/Components/userForm.vue",
@@ -42418,12 +42418,12 @@ var map = {
 	"./Admin/Users/index": [
 		"./resources/js/Pages/Admin/Users/index.vue",
 		0,
-		3
+		4
 	],
 	"./Admin/Users/index.vue": [
 		"./resources/js/Pages/Admin/Users/index.vue",
 		0,
-		3
+		4
 	],
 	"./Admin/Users/update": [
 		"./resources/js/Pages/Admin/Users/update.vue",

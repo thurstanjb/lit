@@ -74,7 +74,8 @@
             editing: {
                 type: Boolean,
                 default: false
-            }
+            },
+            books: Array
         },
 
         computed: {
@@ -85,16 +86,7 @@
 
         data() {
             return {
-                mountain: this.mountainData,
-                books:[
-                    {value: 'northern', text: 'Northern'},
-                    {value: 'eastern', text: 'Eastern'},
-                    {value: 'far-eastern', text: 'Far Eastern'},
-                    {value: 'southern', text: 'Southern'},
-                    {value: 'central', text: 'Central'},
-                    {value: 'western', text: 'Western'},
-                    {value: 'north-western', text: 'North Western'}
-                ]
+                mountain: this.mountainData
             }
         },
 

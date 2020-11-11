@@ -1,8 +1,11 @@
 <template>
     <div class="w-full px-1">
         <div class="tj-topbar">
-            <h1 class="tj-topbar_heading">Mountains</h1>
-            <div class="md:flex flex-1"></div>
+            <h1 class="tj-topbar_heading mr-10">Mountains</h1>
+            <div class="md:flex flex-1">
+                <search-bar column="name" class="mr-2"></search-bar>
+                <filter-ddown column="book" :options="books"></filter-ddown>
+            </div>
             <paginator class="mx-4" :page-data="page_data"></paginator>
             <inertia-link href="/mountains/create" class="tj-topbar_link">
                 <font-awesome-icon icon="plus" />
@@ -50,13 +53,16 @@
     import Paginator from "../../Components/paginator";
     import FilteredHeading from "../../Components/filteredHeading";
     import QueryManager from "../../Components/queryManager";
+    import SearchBar from "../../Components/searchBar";
+    import FilterDdown from "../../Components/filterDdown";
 
     export default {
         name: "admin-mountains-index",
-        components: {FilteredHeading, Paginator},
+        components: {FilterDdown, SearchBar, FilteredHeading, Paginator},
         props: {
             title: String,
-            mountains: Object
+            mountains: Object,
+            books: Array
         },
 
         data(){

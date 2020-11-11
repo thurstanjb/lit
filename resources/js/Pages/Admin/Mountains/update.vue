@@ -1,5 +1,5 @@
 <template>
-    <mountain-form :errors="errors" :mountain-data="mountain" :editing="true"></mountain-form>
+    <mountain-form :errors="errors" :mountain-data="mountain" :books="books" :editing="true"></mountain-form>
 </template>
 
 <script>
@@ -14,7 +14,8 @@
         props: {
             title: String,
             errors: Object|Array,
-            mountain: Object
+            mountain: Object,
+            books: Array
         },
 
         layout: Layout,

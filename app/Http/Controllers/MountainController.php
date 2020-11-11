@@ -21,6 +21,7 @@ class MountainController extends Controller
         return Inertia::render('Admin/Mountains/index', [
             'title' => 'Mountains',
             'mountains' => $mountains,
+            'books' => config('globals.books')
         ]);
     }
 
@@ -29,7 +30,8 @@ class MountainController extends Controller
      */
     public function create(){
         return Inertia::render('Admin/Mountains/create', [
-            'title' => 'Add Mountain'
+            'title' => 'Add Mountain',
+            'books' => config('globals.books')
         ]);
     }
 
@@ -51,7 +53,8 @@ class MountainController extends Controller
     public function edit(Mountain $mountain){
         return Inertia::render('Admin/Mountains/update', [
             'title' => 'Edit Mountain',
-            'mountain' => $mountain
+            'mountain' => $mountain,
+            'books' => config('globals.books')
         ]);
     }
 
