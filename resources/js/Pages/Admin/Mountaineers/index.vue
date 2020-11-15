@@ -1,8 +1,10 @@
 <template>
     <div class="w-full px-1">
         <div class="tj-topbar">
-            <h1 class="tj-topbar_heading">Mountaineers</h1>
-            <div class="md:flex flex-1"></div>
+            <h1 class="tj-topbar_heading mr-10">Mountaineers</h1>
+            <div class="md:flex flex-1">
+                <search-bar column="name" class="mr-2"></search-bar>
+            </div>
             <paginator class="mx-4" :page-data="page_data"></paginator>
             <inertia-link href="/mountaineers/create" class="tj-topbar_link">
                 <font-awesome-icon icon="user-plus" />
@@ -48,10 +50,11 @@
     import Paginator from "../../Components/paginator";
     import QueryManager from "../../Components/queryManager"
     import FilteredHeading from "../../Components/filteredHeading";
+    import SearchBar from "../../Components/searchBar";
 
     export default {
         name: "admin-mountaineers-index",
-        components: {FilteredHeading, Paginator},
+        components: {SearchBar, FilteredHeading, Paginator},
         props: {
             title: String,
             mountaineers: Object,
