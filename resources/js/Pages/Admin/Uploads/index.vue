@@ -53,12 +53,12 @@
 </template>
 
 <script>
-    import Layout from '../../Layouts/layout';
-    import Paginator from "../Components/paginator";
-    import FilteredHeading from "../Components/filteredHeading";
-    import QueryManager from "../Components/queryManager"
-    import SearchBar from "../Components/searchBar";
-    import FilterDdown from "../Components/filterDdown";
+    import Layout from '../../../Layouts/layout';
+    import Paginator from "../../Components/paginator";
+    import FilteredHeading from "../../Components/filteredHeading";
+    import QueryManager from "../../Components/queryManager"
+    import SearchBar from "../../Components/searchBar";
+    import FilterDdown from "../../Components/filterDdown";
 
     export default {
         name: "upload-index",

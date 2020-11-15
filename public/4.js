@@ -298,11 +298,7 @@ __webpack_require__.r(__webpack_exports__);
         page: page_number
       });
     }
-  },
-  data: function data() {
-    return {};
-  },
-  created: function created() {}
+  }
 });
 
 /***/ }),

@@ -26,7 +26,9 @@ class AscentLogImport implements ToCollection
 
     public function __construct($namerow = 16, $datarow = 21)
     {
-        ini_set('max_execution_time', 60);
+        if(env('APP_ENV', '') !== 'testing'){
+            ini_set('max_execution_time', 60);
+        }
         $this->namerow = $namerow;
         $this->datarow = $datarow;
     }

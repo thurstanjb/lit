@@ -24,7 +24,7 @@
 </template>
 
 <script>
-    import Layout from '../../Layouts/layout';
+    import Layout from '../../../Layouts/layout';
 
     export default {
         name: "upload-index",

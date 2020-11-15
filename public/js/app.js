@@ -42383,15 +42383,55 @@ var map = {
 		1,
 		19
 	],
+	"./Admin/Uploads": [
+		"./resources/js/Pages/Admin/Uploads/index.vue",
+		0,
+		5
+	],
+	"./Admin/Uploads/": [
+		"./resources/js/Pages/Admin/Uploads/index.vue",
+		0,
+		5
+	],
+	"./Admin/Uploads/index": [
+		"./resources/js/Pages/Admin/Uploads/index.vue",
+		0,
+		5
+	],
+	"./Admin/Uploads/index.vue": [
+		"./resources/js/Pages/Admin/Uploads/index.vue",
+		0,
+		5
+	],
+	"./Admin/Uploads/show": [
+		"./resources/js/Pages/Admin/Uploads/show.vue",
+		0,
+		20
+	],
+	"./Admin/Uploads/show.vue": [
+		"./resources/js/Pages/Admin/Uploads/show.vue",
+		0,
+		20
+	],
+	"./Admin/Uploads/uploadFile": [
+		"./resources/js/Pages/Admin/Uploads/uploadFile.vue",
+		0,
+		21
+	],
+	"./Admin/Uploads/uploadFile.vue": [
+		"./resources/js/Pages/Admin/Uploads/uploadFile.vue",
+		0,
+		21
+	],
 	"./Admin/Users": [
 		"./resources/js/Pages/Admin/Users/index.vue",
 		0,
-		5
+		6
 	],
 	"./Admin/Users/": [
 		"./resources/js/Pages/Admin/Users/index.vue",
 		0,
-		5
+		6
 	],
 	"./Admin/Users/Components/userForm": [
 		"./resources/js/Pages/Admin/Users/Components/userForm.vue",
@@ -42407,65 +42447,65 @@ var map = {
 		"./resources/js/Pages/Admin/Users/create.vue",
 		0,
 		2,
-		20
+		22
 	],
 	"./Admin/Users/create.vue": [
 		"./resources/js/Pages/Admin/Users/create.vue",
 		0,
 		2,
-		20
+		22
 	],
 	"./Admin/Users/index": [
 		"./resources/js/Pages/Admin/Users/index.vue",
 		0,
-		5
+		6
 	],
 	"./Admin/Users/index.vue": [
 		"./resources/js/Pages/Admin/Users/index.vue",
 		0,
-		5
+		6
 	],
 	"./Admin/Users/update": [
 		"./resources/js/Pages/Admin/Users/update.vue",
 		0,
 		2,
-		21
+		23
 	],
 	"./Admin/Users/update.vue": [
 		"./resources/js/Pages/Admin/Users/update.vue",
 		0,
 		2,
-		21
+		23
 	],
 	"./Auth/Passwords/email": [
 		"./resources/js/Pages/Auth/Passwords/email.vue",
 		0,
-		22
+		24
 	],
 	"./Auth/Passwords/email.vue": [
 		"./resources/js/Pages/Auth/Passwords/email.vue",
 		0,
-		22
+		24
 	],
 	"./Auth/Passwords/reset": [
 		"./resources/js/Pages/Auth/Passwords/reset.vue",
 		0,
-		23
+		25
 	],
 	"./Auth/Passwords/reset.vue": [
 		"./resources/js/Pages/Auth/Passwords/reset.vue",
 		0,
-		23
+		25
 	],
 	"./Auth/login": [
 		"./resources/js/Pages/Auth/login.vue",
 		0,
-		24
+		26
 	],
 	"./Auth/login.vue": [
 		"./resources/js/Pages/Auth/login.vue",
 		0,
-		24
+		26
 	],
 	"./Components/filterDdown": [
 		"./resources/js/Pages/Components/filterDdown.vue",
@@ -42514,46 +42554,6 @@ var map = {
 	"./Components/searchBar.vue": [
 		"./resources/js/Pages/Components/searchBar.vue",
 		16
-	],
-	"./Uploads": [
-		"./resources/js/Pages/Uploads/index.vue",
-		0,
-		6
-	],
-	"./Uploads/": [
-		"./resources/js/Pages/Uploads/index.vue",
-		0,
-		6
-	],
-	"./Uploads/index": [
-		"./resources/js/Pages/Uploads/index.vue",
-		0,
-		6
-	],
-	"./Uploads/index.vue": [
-		"./resources/js/Pages/Uploads/index.vue",
-		0,
-		6
-	],
-	"./Uploads/show": [
-		"./resources/js/Pages/Uploads/show.vue",
-		0,
-		25
-	],
-	"./Uploads/show.vue": [
-		"./resources/js/Pages/Uploads/show.vue",
-		0,
-		25
-	],
-	"./Uploads/uploadFile": [
-		"./resources/js/Pages/Uploads/uploadFile.vue",
-		0,
-		26
-	],
-	"./Uploads/uploadFile.vue": [
-		"./resources/js/Pages/Uploads/uploadFile.vue",
-		0,
-		26
 	],
 	"./home": [
 		"./resources/js/Pages/home.vue",

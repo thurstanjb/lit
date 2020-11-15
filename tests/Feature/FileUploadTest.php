@@ -25,11 +25,11 @@ class FileUploadTest extends TestCase
 
         $this->signIn();
         $this->get('/uploads')
-            ->assertInertia('Uploads/index')
+            ->assertInertia('Admin/Uploads/index')
             ->assertStatus(200);
 
         $this->get('/uploads/upload-file')
-            ->assertInertia('Uploads/uploadFile')
+            ->assertInertia('Admin/Uploads/uploadFile')
             ->assertStatus(200);
     }
 
@@ -102,7 +102,7 @@ class FileUploadTest extends TestCase
         $this->signIn();
 
         $this->followingRedirects()->get('uploads/' . $upload->id)
-        ->assertInertia('Uploads/show');
+        ->assertInertia('Admin/Uploads/show');
     }
 
 }

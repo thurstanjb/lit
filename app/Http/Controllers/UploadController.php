@@ -28,7 +28,7 @@ class UploadController extends Controller
             $upload->upload_date = $upload->created_at->format('d/m/Y H:i:s');
         });
 
-        return Inertia::render('Uploads/index', [
+        return Inertia::render('Admin/Uploads/index', [
             'title' => 'Uploaded Files',
             'uploads' => $uploads,
             'folders' => config('globals.folders')
@@ -43,7 +43,7 @@ class UploadController extends Controller
      */
     public function show(Upload $upload): Response
     {
-        return Inertia::render('Uploads/show', [
+        return Inertia::render('Admin/Uploads/show', [
             'title' => 'File Details',
             'upload' => $upload
         ]);
@@ -56,7 +56,7 @@ class UploadController extends Controller
      */
     public function create(): Response
     {
-        return Inertia::render('Uploads/uploadFile', [
+        return Inertia::render('Admin/Uploads/uploadFile', [
             'title' => 'File Upload',
             'folders' => config('globals.folders')
         ]);
