@@ -26,4 +26,16 @@ class Mountaineer extends Model
     public function scopeFilter($query, $filters){
         return $filters->apply($query);
     }
+
+    /**
+     * Return the mountaineers as an array to be used in a ddown
+     *
+     * @param $query
+     * @return mixed
+     */
+    public function scopeDdown($query)
+    {
+        return $query->get(['mountaineers.name AS text', 'mountaineers.id AS value'])
+            ->toArray();
+    }
 }

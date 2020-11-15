@@ -37,4 +37,24 @@ class MountaineerTest extends TestCase
 
         $this->assertCount(2, $mountaineer->ascents);
     }
+
+    /**
+     * @test
+     */
+    public function _it_can_return_a_ddown_safe_array_of_all_mountaineers()
+    {
+        $m1 = create(Mountaineer::class);
+        $m2 = create(Mountaineer::class);
+        $m3 = create(Mountaineer::class);
+
+        $ddown_array = Mountaineer::ddown();
+
+        $this->assertCount(3, $ddown_array);
+
+        $this->assertEquals($m1->name, $ddown_array[0]['text']);
+        $this->assertEquals($m1->id, $ddown_array[0]['value']);
+
+        $this->assertEquals($m3->name, $ddown_array[2]['text']);
+        $this->assertEquals($m3->id, $ddown_array[2]['value']);
+    }
 }

@@ -53,7 +53,7 @@ export default {
               });
           }else{
               events.$emit('set-filter', {
-                  value: query.value,
+                  value: decodeURI(query.value),
                   column: query.key
               });
           }
@@ -115,7 +115,6 @@ export default {
 
     setFilter(key, value){
         this.clearFilter(key);
-        this.clearOrder();
         this.clearPage();
 
         if(value !== null){

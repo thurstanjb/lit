@@ -27,7 +27,10 @@ class AscentController extends Controller
 
         return Inertia::render('Admin/Ascents/index', [
             'title' => 'Ascents',
-            'ascents' => $ascents
+            'ascents' => $ascents,
+            'mountaineers' => Mountaineer::ddown(),
+            'books' => config('globals.books'),
+            'years' => config('globals.years')
         ]);
     }
 

@@ -1,9 +1,9 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[3],{
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Admin/Mountains/index.vue?vue&type=script&lang=js&":
-/*!***************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Admin/Mountains/index.vue?vue&type=script&lang=js& ***!
-  \***************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Admin/Ascents/index.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Admin/Ascents/index.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -11,10 +11,12 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Layouts_layout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../Layouts/layout */ "./resources/js/Layouts/layout.vue");
 /* harmony import */ var _Components_paginator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Components/paginator */ "./resources/js/Pages/Components/paginator.vue");
-/* harmony import */ var _Components_filteredHeading__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Components/filteredHeading */ "./resources/js/Pages/Components/filteredHeading.vue");
-/* harmony import */ var _Components_queryManager__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../Components/queryManager */ "./resources/js/Pages/Components/queryManager.js");
-/* harmony import */ var _Components_searchBar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../Components/searchBar */ "./resources/js/Pages/Components/searchBar.vue");
-/* harmony import */ var _Components_filterDdown__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../Components/filterDdown */ "./resources/js/Pages/Components/filterDdown.vue");
+/* harmony import */ var _Components_queryManager__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Components/queryManager */ "./resources/js/Pages/Components/queryManager.js");
+/* harmony import */ var _Components_filteredHeading__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../Components/filteredHeading */ "./resources/js/Pages/Components/filteredHeading.vue");
+/* harmony import */ var _Components_filterDdown__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../Components/filterDdown */ "./resources/js/Pages/Components/filterDdown.vue");
+/* harmony import */ var _Components_searchBar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../Components/searchBar */ "./resources/js/Pages/Components/searchBar.vue");
+//
+//
 //
 //
 //
@@ -72,32 +74,39 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "admin-mountains-index",
+  name: "admin-ascents-index",
   components: {
-    FilterDdown: _Components_filterDdown__WEBPACK_IMPORTED_MODULE_5__["default"],
-    SearchBar: _Components_searchBar__WEBPACK_IMPORTED_MODULE_4__["default"],
-    FilteredHeading: _Components_filteredHeading__WEBPACK_IMPORTED_MODULE_2__["default"],
+    SearchBar: _Components_searchBar__WEBPACK_IMPORTED_MODULE_5__["default"],
+    FilterDdown: _Components_filterDdown__WEBPACK_IMPORTED_MODULE_4__["default"],
+    FilteredHeading: _Components_filteredHeading__WEBPACK_IMPORTED_MODULE_3__["default"],
     Paginator: _Components_paginator__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   props: {
     title: String,
-    mountains: Object,
-    books: Array
+    ascents: Object,
+    mountaineers: Array,
+    books: Array,
+    years: Array
   },
   data: function data() {
     return {
-      page_data: {},
-      query_manager: _Components_queryManager__WEBPACK_IMPORTED_MODULE_3__["default"]
+      page_data: null,
+      query_manager: _Components_queryManager__WEBPACK_IMPORTED_MODULE_2__["default"]
     };
   },
   layout: _Layouts_layout__WEBPACK_IMPORTED_MODULE_0__["default"],
   created: function created() {
     this.$parent.title = this.title;
-    this.page_data = _.clone(this.mountains);
+    this.page_data = _.clone(this.ascents);
     delete this.page_data.data;
   },
   mounted: function mounted() {
     this.query_manager.init(this.$inertia);
+  },
+  methods: {
+    deleteAscent: function deleteAscent(id) {
+      this.$inertia["delete"]('/ascents/' + id);
+    }
   }
 });
 
@@ -431,10 +440,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Admin/Mountains/index.vue?vue&type=template&id=f83fb060&":
-/*!*******************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Admin/Mountains/index.vue?vue&type=template&id=f83fb060& ***!
-  \*******************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Admin/Ascents/index.vue?vue&type=template&id=26ec19ba&":
+/*!*****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Admin/Ascents/index.vue?vue&type=template&id=26ec19ba& ***!
+  \*****************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -452,20 +461,30 @@ var render = function() {
       { staticClass: "tj-topbar" },
       [
         _c("h1", { staticClass: "tj-topbar_heading mr-10" }, [
-          _vm._v("Mountains")
+          _vm._v("Ascents")
         ]),
         _vm._v(" "),
         _c(
           "div",
           { staticClass: "md:flex flex-1" },
           [
+            _c("filter-ddown", {
+              staticClass: "mr-2",
+              attrs: { column: "mountaineer", options: _vm.mountaineers }
+            }),
+            _vm._v(" "),
             _c("search-bar", {
               staticClass: "mr-2",
-              attrs: { column: "name" }
+              attrs: { column: "mountain" }
             }),
             _vm._v(" "),
             _c("filter-ddown", {
+              staticClass: "mr-2",
               attrs: { column: "book", options: _vm.books }
+            }),
+            _vm._v(" "),
+            _c("filter-ddown", {
+              attrs: { column: "year", options: _vm.years }
             })
           ],
           1
@@ -478,10 +497,7 @@ var render = function() {
         _vm._v(" "),
         _c(
           "inertia-link",
-          {
-            staticClass: "tj-topbar_link",
-            attrs: { href: "/mountains/create" }
-          },
+          { staticClass: "tj-topbar_link", attrs: { href: "/ascents/create" } },
           [_c("font-awesome-icon", { attrs: { icon: "plus" } })],
           1
         )
@@ -489,39 +505,29 @@ var render = function() {
       1
     ),
     _vm._v(" "),
-    _c("table", { staticClass: "table-auto w-full table-responsive text-sm" }, [
+    _c("table", { staticClass: "table-auto w-full table-responsive" }, [
       _c("thead", { staticClass: "border" }, [
         _c(
           "tr",
           [
+            _c("th", [_vm._v("Index")]),
+            _vm._v(" "),
             _c(
               "filtered-heading",
-              { staticClass: "px-4 py-1", attrs: { column: "id" } },
-              [_vm._v("Id")]
+              { staticClass: "px-4 py-1", attrs: { column: "mountaineer_id" } },
+              [_vm._v("Mountaineer")]
             ),
             _vm._v(" "),
             _c(
               "filtered-heading",
-              { staticClass: "px-4 py-1", attrs: { column: "name" } },
-              [_vm._v("Name")]
+              { staticClass: "px-4 py-1", attrs: { column: "mountain_id" } },
+              [_vm._v("Mountain")]
             ),
             _vm._v(" "),
             _c(
               "filtered-heading",
-              { staticClass: "px-4 py-1", attrs: { column: "height" } },
-              [_vm._v("Height")]
-            ),
-            _vm._v(" "),
-            _c(
-              "filtered-heading",
-              { staticClass: "px-4 py-1", attrs: { column: "book" } },
-              [_vm._v("Book")]
-            ),
-            _vm._v(" "),
-            _c(
-              "filtered-heading",
-              { staticClass: "px-4 py-1", attrs: { column: "slug" } },
-              [_vm._v("slug")]
+              { staticClass: "px-4 py-1", attrs: { column: "ascent_date" } },
+              [_vm._v("Ascent Date")]
             ),
             _vm._v(" "),
             _c("th", { staticClass: "px-4 py-1" })
@@ -530,45 +536,45 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _vm.mountains.data.length > 0
+      _vm.ascents.data.length > 0
         ? _c(
             "tbody",
-            _vm._l(_vm.mountains.data, function(mountain) {
-              return _c("tr", { key: mountain.id }, [
+            _vm._l(_vm.ascents.data, function(ascent, index) {
+              return _c("tr", { key: ascent.id }, [
                 _c("td", { staticClass: "border px-4 py-1" }, [
-                  _vm._v(_vm._s(mountain.id))
+                  _vm._v(_vm._s(_vm.ascents.from + index))
                 ]),
                 _vm._v(" "),
                 _c("td", { staticClass: "border px-4 py-1" }, [
-                  _vm._v(_vm._s(mountain.name))
+                  _vm._v(_vm._s(ascent.mountaineer.name))
                 ]),
                 _vm._v(" "),
                 _c("td", { staticClass: "border px-4 py-1" }, [
-                  _vm._v(_vm._s(mountain.height))
+                  _vm._v(_vm._s(ascent.mountain.name))
                 ]),
                 _vm._v(" "),
                 _c("td", { staticClass: "border px-4 py-1" }, [
-                  _vm._v(_vm._s(mountain.book))
+                  _vm._v(_vm._s(ascent.ascent_date))
                 ]),
                 _vm._v(" "),
                 _c("td", { staticClass: "border px-4 py-1" }, [
-                  _vm._v(_vm._s(mountain.slug))
-                ]),
-                _vm._v(" "),
-                _c(
-                  "td",
-                  { staticClass: "border px-4 py-1" },
-                  [
-                    _c(
-                      "inertia-link",
-                      {
-                        attrs: { href: "/mountains/" + mountain.slug + "/edit" }
-                      },
-                      [_vm._v("Edit")]
-                    )
-                  ],
-                  1
-                )
+                  _c(
+                    "a",
+                    { attrs: { href: "#" } },
+                    [
+                      _c("font-awesome-icon", {
+                        staticClass: "text-red-500 hover:text-red-700",
+                        attrs: { icon: "trash-alt" },
+                        on: {
+                          click: function($event) {
+                            return _vm.deleteAscent(ascent.id)
+                          }
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ])
               ])
             }),
             0
@@ -601,7 +607,7 @@ var staticRenderFns = [
           staticClass: "text-center border px-4 py-1",
           attrs: { colspan: "6" }
         },
-        [_vm._v("\n                No mountains available\n            ")]
+        [_vm._v("\n                No ascents available\n            ")]
       )
     ])
   }
@@ -924,17 +930,17 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./resources/js/Pages/Admin/Mountains/index.vue":
-/*!******************************************************!*\
-  !*** ./resources/js/Pages/Admin/Mountains/index.vue ***!
-  \******************************************************/
+/***/ "./resources/js/Pages/Admin/Ascents/index.vue":
+/*!****************************************************!*\
+  !*** ./resources/js/Pages/Admin/Ascents/index.vue ***!
+  \****************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _index_vue_vue_type_template_id_f83fb060___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.vue?vue&type=template&id=f83fb060& */ "./resources/js/Pages/Admin/Mountains/index.vue?vue&type=template&id=f83fb060&");
-/* harmony import */ var _index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.vue?vue&type=script&lang=js& */ "./resources/js/Pages/Admin/Mountains/index.vue?vue&type=script&lang=js&");
+/* harmony import */ var _index_vue_vue_type_template_id_26ec19ba___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.vue?vue&type=template&id=26ec19ba& */ "./resources/js/Pages/Admin/Ascents/index.vue?vue&type=template&id=26ec19ba&");
+/* harmony import */ var _index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.vue?vue&type=script&lang=js& */ "./resources/js/Pages/Admin/Ascents/index.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -945,8 +951,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
   _index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _index_vue_vue_type_template_id_f83fb060___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _index_vue_vue_type_template_id_f83fb060___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _index_vue_vue_type_template_id_26ec19ba___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _index_vue_vue_type_template_id_26ec19ba___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -956,38 +962,38 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/Pages/Admin/Mountains/index.vue"
+component.options.__file = "resources/js/Pages/Admin/Ascents/index.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/Pages/Admin/Mountains/index.vue?vue&type=script&lang=js&":
-/*!*******************************************************************************!*\
-  !*** ./resources/js/Pages/Admin/Mountains/index.vue?vue&type=script&lang=js& ***!
-  \*******************************************************************************/
+/***/ "./resources/js/Pages/Admin/Ascents/index.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/Pages/Admin/Ascents/index.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./index.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Admin/Mountains/index.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./index.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Admin/Ascents/index.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/Pages/Admin/Mountains/index.vue?vue&type=template&id=f83fb060&":
-/*!*************************************************************************************!*\
-  !*** ./resources/js/Pages/Admin/Mountains/index.vue?vue&type=template&id=f83fb060& ***!
-  \*************************************************************************************/
+/***/ "./resources/js/Pages/Admin/Ascents/index.vue?vue&type=template&id=26ec19ba&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/Pages/Admin/Ascents/index.vue?vue&type=template&id=26ec19ba& ***!
+  \***********************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_f83fb060___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./index.vue?vue&type=template&id=f83fb060& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Admin/Mountains/index.vue?vue&type=template&id=f83fb060&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_f83fb060___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_26ec19ba___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./index.vue?vue&type=template&id=26ec19ba& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Admin/Ascents/index.vue?vue&type=template&id=26ec19ba&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_26ec19ba___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_f83fb060___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_26ec19ba___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -1333,7 +1339,7 @@ __webpack_require__.r(__webpack_exports__);
         });
       } else {
         events.$emit('set-filter', {
-          value: query.value,
+          value: decodeURI(query.value),
           column: query.key
         });
       }
@@ -1400,7 +1406,6 @@ __webpack_require__.r(__webpack_exports__);
   },
   setFilter: function setFilter(key, value) {
     this.clearFilter(key);
-    this.clearOrder();
     this.clearPage();
 
     if (value !== null) {
