@@ -20,7 +20,8 @@ class UploadController extends Controller
 
         return Inertia::render('Uploads/index', [
             'title' => 'Uploaded Files',
-            'uploads' => $uploads
+            'uploads' => $uploads,
+            'folders' => config('globals.folders')
         ]);
     }
 
@@ -35,7 +36,8 @@ class UploadController extends Controller
     public function create()
     {
         return Inertia::render('Uploads/uploadFile', [
-            'title' => 'File Upload'
+            'title' => 'File Upload',
+            'folders' => config('globals.folders')
         ]);
     }
 

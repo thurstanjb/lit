@@ -42242,12 +42242,12 @@ var map = {
 	"./Admin/Ascents": [
 		"./resources/js/Pages/Admin/Ascents/index.vue",
 		0,
-		5
+		6
 	],
 	"./Admin/Ascents/": [
 		"./resources/js/Pages/Admin/Ascents/index.vue",
 		0,
-		5
+		6
 	],
 	"./Admin/Ascents/Components/ascentForm": [
 		"./resources/js/Pages/Admin/Ascents/Components/ascentForm.vue",
@@ -42274,22 +42274,22 @@ var map = {
 	"./Admin/Ascents/index": [
 		"./resources/js/Pages/Admin/Ascents/index.vue",
 		0,
-		5
+		6
 	],
 	"./Admin/Ascents/index.vue": [
 		"./resources/js/Pages/Admin/Ascents/index.vue",
 		0,
-		5
+		6
 	],
 	"./Admin/Mountaineers": [
 		"./resources/js/Pages/Admin/Mountaineers/index.vue",
 		0,
-		6
+		7
 	],
 	"./Admin/Mountaineers/": [
 		"./resources/js/Pages/Admin/Mountaineers/index.vue",
 		0,
-		6
+		7
 	],
 	"./Admin/Mountaineers/Components/mountaineerForm": [
 		"./resources/js/Pages/Admin/Mountaineers/Components/mountaineerForm.vue",
@@ -42312,12 +42312,12 @@ var map = {
 	"./Admin/Mountaineers/index": [
 		"./resources/js/Pages/Admin/Mountaineers/index.vue",
 		0,
-		6
+		7
 	],
 	"./Admin/Mountaineers/index.vue": [
 		"./resources/js/Pages/Admin/Mountaineers/index.vue",
 		0,
-		6
+		7
 	],
 	"./Admin/Mountaineers/update": [
 		"./resources/js/Pages/Admin/Mountaineers/update.vue",
@@ -42518,22 +42518,22 @@ var map = {
 	"./Uploads": [
 		"./resources/js/Pages/Uploads/index.vue",
 		0,
-		7
+		5
 	],
 	"./Uploads/": [
 		"./resources/js/Pages/Uploads/index.vue",
 		0,
-		7
+		5
 	],
 	"./Uploads/index": [
 		"./resources/js/Pages/Uploads/index.vue",
 		0,
-		7
+		5
 	],
 	"./Uploads/index.vue": [
 		"./resources/js/Pages/Uploads/index.vue",
 		0,
-		7
+		5
 	],
 	"./Uploads/show": [
 		"./resources/js/Pages/Uploads/show.vue",

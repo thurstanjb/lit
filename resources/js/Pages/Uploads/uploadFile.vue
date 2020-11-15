@@ -66,6 +66,7 @@
         props: {
             title: String,
             errors: Object|Array,
+            folders: Array
         },
 
         data(){
@@ -74,13 +75,7 @@
                     filename: '',
                     folder: 'mountains'
                 },
-                formData: null,
-                folders:[
-                    {value: 'mountains', text: 'Mountains'},
-                    {value: 'mountaineers', text: 'Mountaineers'},
-                    {value: 'routes', text: 'Routes'},
-                    {value: 'misc', text: 'Miscellaneous'},
-                ]
+                formData: null
             }
         },
 

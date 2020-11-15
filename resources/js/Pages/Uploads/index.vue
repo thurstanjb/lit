@@ -1,8 +1,11 @@
 <template>
     <div class="w-full px-1">
         <div class="tj-topbar">
-            <h1 class="tj-topbar_heading">Uploads</h1>
-            <div class="md:flex flex-1"></div>
+            <h1 class="tj-topbar_heading mr-10">Uploads</h1>
+            <div class="md:flex flex-1">
+                <search-bar column="filename" class="mr-2"></search-bar>
+                <filter-ddown column="folder" :options="folders"></filter-ddown>
+            </div>
             <paginator class="mx-4" :page-data="page_data"></paginator>
             <inertia-link href="/uploads/upload-file" class="tj-topbar_link">
                 <font-awesome-icon icon="upload"/>
@@ -54,13 +57,16 @@
     import Paginator from "../Components/paginator";
     import FilteredHeading from "../Components/filteredHeading";
     import QueryManager from "../Components/queryManager"
+    import SearchBar from "../Components/searchBar";
+    import FilterDdown from "../Components/filterDdown";
 
     export default {
         name: "upload-index",
-        components: {FilteredHeading, Paginator},
+        components: {FilterDdown, SearchBar, FilteredHeading, Paginator},
         props: {
             title: String,
-            uploads: Object
+            uploads: Object,
+            folders: Array
         },
 
         data(){
