@@ -8,6 +8,7 @@ use App\Upload;
 use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\ValidationException;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -66,6 +67,7 @@ class UploadController extends Controller
      *
      * @param UploadFileRequest $request
      * @return RedirectResponse
+     * @throws ValidationException
      */
     public function uploadFile(UploadFileRequest $request): RedirectResponse
     {

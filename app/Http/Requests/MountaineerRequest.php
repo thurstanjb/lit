@@ -5,6 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Illuminate\Validation\ValidationException;
 
 class MountaineerRequest extends FormRequest
 {
@@ -36,7 +37,14 @@ class MountaineerRequest extends FormRequest
         ];
     }
 
-    public function validated(){
+    /**
+     * Set the slug to the validated data response
+     *
+     * @return array
+     * @throws ValidationException
+     */
+    public function validated(): array
+    {
         $valid = $this->validator->validated();
 
         $valid['slug'] = Str::slug($valid['name'], '-');

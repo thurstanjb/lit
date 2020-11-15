@@ -6,6 +6,7 @@ use App\Filters\MountaineerFilter;
 use App\Http\Requests\MountaineerRequest;
 use App\Mountaineer;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Validation\ValidationException;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -39,8 +40,10 @@ class MountaineerController extends Controller
 
     /**
      * Store the validated data to create a Mountaineer
+     *
      * @param MountaineerRequest $request
      * @return RedirectResponse
+     * @throws ValidationException
      */
     public function store(MountaineerRequest $request): RedirectResponse
     {
@@ -68,6 +71,7 @@ class MountaineerController extends Controller
      * @param MountaineerRequest $request
      * @param Mountaineer $mountaineer
      * @return RedirectResponse
+     * @throws ValidationException
      */
     public function update(MountaineerRequest $request, Mountaineer $mountaineer): RedirectResponse
     {

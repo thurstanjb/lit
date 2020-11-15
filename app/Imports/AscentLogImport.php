@@ -33,7 +33,9 @@ class AscentLogImport implements ToCollection
 
 
     /**
-     * @param Collection $collection
+     * Iterate over the rows retrieved from the document
+     *
+     * @param Collection $rows
      */
     public function collection(Collection $rows)
     {
@@ -51,6 +53,9 @@ class AscentLogImport implements ToCollection
         }
     }
 
+    /**
+     * See if we have the mountaineer. If not, create
+     */
     protected function setMountaineer(): void
     {
         $this->mountaineer = Mountaineer::firstOrCreate([
@@ -60,7 +65,10 @@ class AscentLogImport implements ToCollection
     }
 
     /**
-     * @param $row
+     * See if we have the mountain. If not, create.
+     * Return fluently
+     *
+     * @return AscentLogImport
      */
     protected function setMountain(): self
     {
@@ -75,7 +83,8 @@ class AscentLogImport implements ToCollection
     }
 
     /**
-     * @param $row
+     * Iterate over the dated cells and setup new ascents accordingly.
+     *
      * @param int $start_col_index
      */
     protected function logAscents($start_col_index = 5): void
@@ -93,6 +102,10 @@ class AscentLogImport implements ToCollection
     }
 
     /**
+     * Validate a legitimate date.  Due to an exel bug in the 2000's some dates set as ie: 01
+     * are being interpreted as 1901 instead of 2001.  Check for this issue and update
+     * when required. No date should be pre 1980.
+     *
      * @param $date
      * @return DateTime
      */

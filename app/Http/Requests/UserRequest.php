@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\ValidationException;
 
 class UserRequest extends FormRequest
 {
@@ -41,7 +42,14 @@ class UserRequest extends FormRequest
         ];
     }
 
-    public function validated(){
+    /**
+     * Set the password hash to the validated data response, if provided
+     *
+     * @return array
+     * @throws ValidationException
+     */
+    public function validated(): array
+    {
         $valid = $this->validator->validated();
 
         //Prevent auth user from locking themselves out.

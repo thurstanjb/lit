@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\ValidationException;
 
 class UploadFileRequest extends FormRequest
 {
@@ -30,7 +31,13 @@ class UploadFileRequest extends FormRequest
         ];
     }
 
-    public function validated()
+    /**
+     * Set the user_id and cleaned up filename to the validated data response
+     *
+     * @return array
+     * @throws ValidationException
+     */
+    public function validated(): array
     {
         $valid = $this->validator->validated();
         $valid['user_id'] = auth()->id();
