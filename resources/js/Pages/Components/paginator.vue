@@ -8,8 +8,7 @@
         <paginator-link :link="pageData.prev_page_url" event="prevPage" @prevPage="prevPage">
             <font-awesome-icon icon="angle-left" />
         </paginator-link>
-        <div class="inline-btn--display">
-            {{pageData.current_page}} of {{pageData.last_page}}
+        <div class="inline-btn--display" v-html="displayText">
         </div>
         <paginator-link :link="pageData.next_page_url" event="nextPage" @nextPage="nextPage">
             <font-awesome-icon icon="angle-right" />
@@ -30,6 +29,12 @@
         props: {
             'page-data': {
                 type: Object
+            }
+        },
+
+        computed: {
+            displayText(){
+                return this.pageData.current_page + ' of ' + this.pageData.last_page;
             }
         },
 

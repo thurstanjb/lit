@@ -273,7 +273,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'paginator',
@@ -283,6 +282,11 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     'page-data': {
       type: Object
+    }
+  },
+  computed: {
+    displayText: function displayText() {
+      return this.pageData.current_page + ' of ' + this.pageData.last_page;
     }
   },
   methods: {
@@ -793,15 +797,10 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "inline-btn--display" }, [
-        _vm._v(
-          "\n        " +
-            _vm._s(_vm.pageData.current_page) +
-            " of " +
-            _vm._s(_vm.pageData.last_page) +
-            "\n    "
-        )
-      ]),
+      _c("div", {
+        staticClass: "inline-btn--display",
+        domProps: { innerHTML: _vm._s(_vm.displayText) }
+      }),
       _vm._v(" "),
       _c(
         "paginator-link",
