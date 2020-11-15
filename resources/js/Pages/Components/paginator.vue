@@ -58,16 +58,6 @@
             setPage(page_number){
                 events.$emit('qm-set-page', {page: page_number})
             }
-        },
-
-        data(){
-            return{
-
-            }
-        },
-
-        created(){
-
         }
     }
 </script>
