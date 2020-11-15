@@ -5,12 +5,21 @@ namespace App\Http\Controllers;
 use App\Filters\UploadFilter;
 use App\Http\Requests\UploadFileRequest;
 use App\Upload;
+use Exception;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
+use Inertia\Response;
 
 class UploadController extends Controller
 {
-    public function index(UploadFilter $filters)
+    /**
+     * Return a paginated list of uploads.  Can be filtered.
+     *
+     * @param UploadFilter $filters
+     * @return Response
+     */
+    public function index(UploadFilter $filters): Response
     {
         $uploads = (Upload::filter($filters)->with('user')->paginate(30));
 
@@ -25,7 +34,13 @@ class UploadController extends Controller
         ]);
     }
 
-    public function show(Upload $upload)
+    /**
+     * Show the details for the selected upload
+     *
+     * @param Upload $upload
+     * @return Response
+     */
+    public function show(Upload $upload): Response
     {
         return Inertia::render('Uploads/show', [
             'title' => 'File Details',
@@ -33,7 +48,12 @@ class UploadController extends Controller
         ]);
     }
 
-    public function create()
+    /**
+     * Return the form to upload files
+     *
+     * @return Response
+     */
+    public function create(): Response
     {
         return Inertia::render('Uploads/uploadFile', [
             'title' => 'File Upload',
@@ -41,7 +61,13 @@ class UploadController extends Controller
         ]);
     }
 
-    public function uploadFile(UploadFileRequest $request)
+    /**
+     * Store the uploads file. Add returned path to Upload object before storing
+     *
+     * @param UploadFileRequest $request
+     * @return RedirectResponse
+     */
+    public function uploadFile(UploadFileRequest $request): RedirectResponse
     {
         $valid = $request->validated();
         $valid['storage_path'] = $request->file('file')->storeAs($valid['folder'], $valid['filename'], 'public');
@@ -51,10 +77,16 @@ class UploadController extends Controller
         return redirect()->route('uploads.index');
     }
 
-    public function destroy(Upload $upload)
+    /**
+     * Destroy the provided upload and remove from db
+     *
+     * @param Upload $upload
+     * @return RedirectResponse
+     * @throws Exception
+     */
+    public function destroy(Upload $upload): RedirectResponse
     {
         Storage::disk('public')->delete($upload->storage_path);
-
         $upload->delete();
 
         return redirect()->route('uploads.index');

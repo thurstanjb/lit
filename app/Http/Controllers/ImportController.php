@@ -14,7 +14,8 @@ class ImportController extends Controller
      * TODO: move to event/job and queue
      * @param Upload $upload
      */
-    public function ascentLog(Upload $upload){
+    public function ascentLog(Upload $upload): void
+    {
 
         (new AscentLogImport)->import($upload->storage_path, 'public');
     }

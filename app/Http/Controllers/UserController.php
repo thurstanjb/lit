@@ -5,26 +5,28 @@ namespace App\Http\Controllers;
 use App\Filters\UserFilter;
 use App\Http\Requests\UserRequest;
 use App\User;
+use Illuminate\Http\RedirectResponse;
 use Inertia\Inertia;
+use Inertia\Response;
 
 class UserController extends Controller
 {
 
     /**
-     * Display a listing of the resource.
+     * Return a paginated list of users. Can be filtered
      *
      * @param UserFilter $filters
-     * @return \Inertia\Response
+     * @return Response
      */
-    public function index(UserFilter $filters)
+    public function index(UserFilter $filters): Response
     {
         $users = User::filter($filters)->paginate(30);
 
-        $users->getCollection()->each(function($user) {
+        $users->getCollection()->each(function ($user) {
             $user->joined = $user->created_at->format('d/m/Y');
         });
 
-        return Inertia::render('Admin/Users/index',[
+        return Inertia::render('Admin/Users/index', [
             'title' => 'Users',
             'users' => $users
         ]);
@@ -33,9 +35,9 @@ class UserController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Inertia\Response
+     * @return Response
      */
-    public function create()
+    public function create(): Response
     {
         return Inertia::render('Admin/Users/create', [
             'title' => 'Add User'
@@ -45,9 +47,9 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      * @param UserRequest $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
-    public function store(UserRequest $request)
+    public function store(UserRequest $request): RedirectResponse
     {
         User::create($request->validated());
 
@@ -58,10 +60,10 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\User $user
-     * @return \Inertia\Response
+     * @param User $user
+     * @return Response
      */
-    public function edit(User $user)
+    public function edit(User $user): Response
     {
         return Inertia::render('Admin/Users/update', [
             'title' => 'Edit User',
@@ -72,11 +74,11 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\User  $user
-     * @return \Illuminate\Http\RedirectResponse
+     * @param UserRequest $request
+     * @param User $user
+     * @return RedirectResponse
      */
-    public function update(UserRequest $request, User $user)
+    public function update(UserRequest $request, User $user): RedirectResponse
     {
 
         $user->update($request->validated());
@@ -87,11 +89,11 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\User $user
-     * @return \Illuminate\Http\RedirectResponse
+     * @param User $user
+     * @return RedirectResponse
      * @throws \Exception
      */
-    public function destroy(User $user)
+    public function destroy(User $user): RedirectResponse
     {
         $user->delete();
 

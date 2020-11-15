@@ -5,15 +5,19 @@ namespace App\Http\Controllers;
 use App\Filters\MountaineerFilter;
 use App\Http\Requests\MountaineerRequest;
 use App\Mountaineer;
+use Illuminate\Http\RedirectResponse;
 use Inertia\Inertia;
+use Inertia\Response;
 
 class MountaineerController extends Controller
 {
     /**
+     * Return a paginated list of mountaineers. Can be filtered
+     *
      * @param MountaineerFilter $filters
-     * @return \Inertia\Response
+     * @return Response
      */
-    public function index(MountaineerFilter $filters)
+    public function index(MountaineerFilter $filters): Response
     {
         $mountaineers = Mountaineer::filter($filters)->paginate(30);
         return Inertia::render('Admin/Mountaineers/index', [
@@ -23,9 +27,10 @@ class MountaineerController extends Controller
     }
 
     /**
-     * @return \Inertia\Response
+     * Show the form for creating a Mountaineer
+     * @return Response
      */
-    public function create()
+    public function create(): Response
     {
         return Inertia::render('Admin/Mountaineers/create', [
             'title' => 'Add Mountaineer'
@@ -33,10 +38,11 @@ class MountaineerController extends Controller
     }
 
     /**
+     * Store the validated data to create a Mountaineer
      * @param MountaineerRequest $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
-    public function store(MountaineerRequest $request)
+    public function store(MountaineerRequest $request): RedirectResponse
     {
         Mountaineer::create($request->validated());
 
@@ -44,10 +50,11 @@ class MountaineerController extends Controller
     }
 
     /**
+     * Return the form to edit a mountaineer
      * @param Mountaineer $mountaineer
-     * @return \Inertia\Response
+     * @return Response
      */
-    public function edit(Mountaineer $mountaineer)
+    public function edit(Mountaineer $mountaineer): Response
     {
         return Inertia::render('Admin/Mountaineers/update', [
             'title' => 'Edit Mountaineer',
@@ -56,11 +63,13 @@ class MountaineerController extends Controller
     }
 
     /**
+     * Store the validated updated data for a mountaineer
+     *
      * @param MountaineerRequest $request
      * @param Mountaineer $mountaineer
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
-    public function update(MountaineerRequest $request, Mountaineer $mountaineer)
+    public function update(MountaineerRequest $request, Mountaineer $mountaineer): RedirectResponse
     {
         $mountaineer->update($request->validated());
 
@@ -68,11 +77,13 @@ class MountaineerController extends Controller
     }
 
     /**
+     * Destroy the provided mountaineer model and remove from db
+     *
      * @param Mountaineer $mountaineer
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      * @throws \Exception
      */
-    public function destroy(Mountaineer $mountaineer)
+    public function destroy(Mountaineer $mountaineer): RedirectResponse
     {
         $mountaineer->delete();
 
