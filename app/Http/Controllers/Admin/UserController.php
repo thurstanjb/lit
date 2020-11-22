@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Filters\UserFilter;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
 use App\User;
 use Illuminate\Http\RedirectResponse;
@@ -53,7 +54,7 @@ class UserController extends Controller
     {
         User::create($request->validated());
 
-        return redirect()->route('users.index');
+        return redirect()->route('admin.users.index');
     }
 
 
@@ -83,7 +84,7 @@ class UserController extends Controller
 
         $user->update($request->validated());
 
-        return redirect()->route('users.index');
+        return redirect()->route('admin.users.index');
     }
 
     /**
@@ -97,6 +98,6 @@ class UserController extends Controller
     {
         $user->delete();
 
-        return redirect()->route('users.index');
+        return redirect()->route('admin.users.index');
     }
 }

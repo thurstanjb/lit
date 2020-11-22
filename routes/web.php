@@ -23,6 +23,15 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::namespace('Admin')->prefix('/admin')->as('admin.')->middleware(['auth'])->group(function(){
    Route::get('/', 'AdminController@dashboard')->name('dashboard');
+
+    Route::prefix('/users')->as('users.')->middleware(['admin'])->group(function(){
+        Route::get('/', 'UserController@index')->name('index');
+        Route::get('/create', 'UserController@create')->name('create');
+        Route::post('/create', 'UserController@store')->name('store');
+        Route::get('/{user}/edit', 'UserController@edit')->name('edit');
+        Route::put('/{user}/edit', 'UserController@update')->name('update');
+        Route::delete('/{user}', 'UserController@destroy')->name('destroy');
+    });
 });
 
 Route::prefix('/uploads')->as('uploads.')->middleware(['auth'])->group(function(){
@@ -31,15 +40,6 @@ Route::prefix('/uploads')->as('uploads.')->middleware(['auth'])->group(function(
     Route::post('/upload-file', 'UploadController@uploadFile')->name('uploadFile');
     Route::get('/{upload}', 'UploadController@show')->name('show');
     Route::delete('/{upload}', 'UploadController@destroy')->name('destroy');
-});
-
-Route::prefix('/users')->as('users.')->middleware(['auth', 'admin'])->group(function(){
-   Route::get('/', 'UserController@index')->name('index');
-   Route::get('/create', 'UserController@create')->name('create');
-   Route::post('/create', 'UserController@store')->name('store');
-   Route::get('/{user}/edit', 'UserController@edit')->name('edit');
-   Route::put('/{user}/edit', 'UserController@update')->name('update');
-   Route::delete('/{user}', 'UserController@destroy')->name('destroy');
 });
 
 Route::prefix('/imports')->as('imports.')->middleware(['auth'])->group(function(){

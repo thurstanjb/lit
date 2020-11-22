@@ -3,7 +3,7 @@
         <div class="tj-topbar">
             <h1 class="tj-topbar_heading">{{heading}} User</h1>
             <div class="md:flex flex-1"></div>
-            <inertia-link href="/users" class="tj-topbar_link">
+            <inertia-link href="/admin/users" class="tj-topbar_link">
                 <font-awesome-icon icon="undo-alt"/>
             </inertia-link>
         </div>
@@ -125,11 +125,11 @@
 
         methods: {
             processUser() {
-                let uri = '/users/create';
+                let uri = '/admin/users/create';
                 let method = 'post';
 
                 if (this.editing) {
-                    uri = '/users/' + this.user.id + '/edit'
+                    uri = '/admin/users/' + this.user.id + '/edit'
                     method = 'put'
                 }
 
@@ -137,7 +137,7 @@
             },
 
             deleteUser() {
-                this.$inertia.delete('/users/' + this.user.id);
+                this.$inertia.delete('/admin/users/' + this.user.id);
             }
         }
     }

@@ -135,18 +135,18 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     processUser: function processUser() {
-      var uri = '/users/create';
+      var uri = '/admin/users/create';
       var method = 'post';
 
       if (this.editing) {
-        uri = '/users/' + this.user.id + '/edit';
+        uri = '/admin/users/' + this.user.id + '/edit';
         method = 'put';
       }
 
       this.$inertia[method](uri, this.user);
     },
     deleteUser: function deleteUser() {
-      this.$inertia["delete"]('/users/' + this.user.id);
+      this.$inertia["delete"]('/admin/users/' + this.user.id);
     }
   }
 });
@@ -181,7 +181,7 @@ var render = function() {
         _vm._v(" "),
         _c(
           "inertia-link",
-          { staticClass: "tj-topbar_link", attrs: { href: "/users" } },
+          { staticClass: "tj-topbar_link", attrs: { href: "/admin/users" } },
           [_c("font-awesome-icon", { attrs: { icon: "undo-alt" } })],
           1
         )

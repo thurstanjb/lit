@@ -222,7 +222,7 @@ var render = function() {
                         {
                           staticClass:
                             "block mt-4 lg:inline-block lg:mt-0 text-primary-200 hover:text-white mr-4",
-                          attrs: { href: "/users" }
+                          attrs: { href: "/admin/users" }
                         },
                         [_vm._v("\n                Users\n            ")]
                       )

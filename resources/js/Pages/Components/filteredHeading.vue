@@ -42,10 +42,6 @@
                 }
             },
 
-            buildQuery(){
-                return '/users?' + this.current_state + '=' + this.column;
-            },
-
             fireLink(){
                 this.setState();
                 if(this.current_state !== null) {

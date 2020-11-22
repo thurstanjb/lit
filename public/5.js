@@ -212,9 +212,6 @@ __webpack_require__.r(__webpack_exports__);
         this.current_state = 'asc';
       }
     },
-    buildQuery: function buildQuery() {
-      return '/users?' + this.current_state + '=' + this.column;
-    },
     fireLink: function fireLink() {
       this.setState();
 

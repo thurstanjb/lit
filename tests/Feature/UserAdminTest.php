@@ -37,19 +37,21 @@ class UserAdminTest extends TestCase
     /** @test */
     public function _an_admin_user_can_create_a_new_user()
     {
+        $this->withoutExceptionHandling();
+
         $this->signIn();
-        $this->followingRedirects()->get('/users/create')
+        $this->followingRedirects()->get('/admin/users/create')
             ->assertInertia('home');
 
         $this->signIn($this->admin_user);
-        $this->get('/users/create')
+        $this->get('/admin/users/create')
             ->assertInertia('Admin/Users/create')
             ->assertStatus(200);
 
 
-        $this->post('/users/create', $this->new_user)
+        $this->post('/admin/users/create', $this->new_user)
             ->assertSessionHasNoErrors()
-            ->assertRedirect('/users');
+            ->assertRedirect('/admin/users');
 
         $this->assertDatabaseHas('users', [
             'name' => $this->new_user['name'],
@@ -66,7 +68,7 @@ class UserAdminTest extends TestCase
         $this->signIn($this->admin_user);
         $this->new_user['name'] = null;
 
-        $this->post('/users/create', $this->new_user)
+        $this->post('/admin/users/create', $this->new_user)
             ->assertSessionHasErrorsIn('default', 'name');
     }
 
@@ -78,15 +80,15 @@ class UserAdminTest extends TestCase
         $this->signIn($this->admin_user);
 
         $this->new_user['email'] = null;
-        $this->post('/users/create', $this->new_user)
+        $this->post('/admin/users/create', $this->new_user)
             ->assertSessionHasErrorsIn('default', 'email');
 
         $this->new_user['email'] = 'not.an.email';
-        $this->post('/users/create', $this->new_user)
+        $this->post('/admin/users/create', $this->new_user)
             ->assertSessionHasErrorsIn('default', 'email');
 
         $this->new_user['email'] = 'like.an@email.com';
-        $this->post('/users/create', $this->new_user)
+        $this->post('/admin/users/create', $this->new_user)
             ->assertSessionHasNoErrors();
     }
 
@@ -98,22 +100,22 @@ class UserAdminTest extends TestCase
         $this->signIn($this->admin_user);
 
         $this->new_user['password'] = '';
-        $this->post('/users/create', $this->new_user)
+        $this->post('/admin/users/create', $this->new_user)
             ->assertSessionHasErrorsIn('default', 'password');
 
         $this->new_user['password'] = 'test';
         $this->new_user['password_confirmation'] = 'test';
-        $this->post('/users/create', $this->new_user)
+        $this->post('/admin/users/create', $this->new_user)
             ->assertSessionHasErrorsIn('default', 'password');
 
         $this->new_user['password'] = 'morethan8chars';
         $this->new_user['password_confirmation'] = 'test';
-        $this->post('/users/create', $this->new_user)
+        $this->post('/admin/users/create', $this->new_user)
             ->assertSessionHasErrorsIn('default', 'password');
 
         $this->new_user['password'] = 'morethan8chars';
         $this->new_user['password_confirmation'] = 'morethan8chars';
-        $this->post('/users/create', $this->new_user)
+        $this->post('/admin/users/create', $this->new_user)
             ->assertSessionHasNoErrors();
     }
 
@@ -124,7 +126,7 @@ class UserAdminTest extends TestCase
     {
         $this->signIn();
         $new_user = create(User::class);
-        $uri = '/users/'.$new_user->id.'/edit';
+        $uri = '/admin/users/'.$new_user->id.'/edit';
 
         $this->followingRedirects()->get($uri)
             ->assertInertia('home');
@@ -145,7 +147,7 @@ class UserAdminTest extends TestCase
 
         $this->put($uri, $edited_user)
             ->assertSessionHasNoErrors()
-            ->assertRedirect('/users');
+            ->assertRedirect('/admin/users');
 
         $this->assertDatabaseHas('users', [
             'id' => $edited_user['id'],
@@ -165,9 +167,9 @@ class UserAdminTest extends TestCase
 
         $edited_user['role'] = 'user';
 
-        $this->put('/users/'.$edited_user['id'].'/edit', $edited_user)
+        $this->put('/admin/users/'.$edited_user['id'].'/edit', $edited_user)
             ->assertSessionHasNoErrors()
-            ->assertRedirect('/users');
+            ->assertRedirect('/admin/users');
 
         $this->assertDatabaseHas('users', [
             'id' => $edited_user['id'],
@@ -188,9 +190,9 @@ class UserAdminTest extends TestCase
         $edited_user['password'] = 'newpassword';
         $edited_user['password_confirmation'] = 'newpassword';
 
-        $this->put('/users/'.$edited_user['id'].'/edit', $edited_user)
+        $this->put('/admin/users/'.$edited_user['id'].'/edit', $edited_user)
             ->assertSessionHasNoErrors()
-            ->assertRedirect('/users');
+            ->assertRedirect('/admin/users');
 
         $this->assertTrue(Hash::check($edited_user['password'], $new_user->fresh()->password));
     }
@@ -202,7 +204,7 @@ class UserAdminTest extends TestCase
     {
         $this->signin();
         $doomed_user = create(User::class);
-        $uri = '/users/' . $doomed_user->id;
+        $uri = '/admin/users/' . $doomed_user->id;
 
         $this->followingRedirects()->delete($uri)
             ->assertInertia('home');
@@ -210,7 +212,7 @@ class UserAdminTest extends TestCase
         $this->signIn($this->admin_user);
         $this->delete($uri)
             ->assertSessionHasNoErrors()
-            ->assertRedirect('/users');
+            ->assertRedirect('/admin/users');
 
         $this->assertDatabaseMissing('users', [
             'id' => $doomed_user->id

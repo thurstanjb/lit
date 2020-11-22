@@ -8,7 +8,7 @@
                 <filter-ddown column="role" :options="role_options"></filter-ddown>
             </div>
             <paginator :page-data="page_data" class="mx-4"></paginator>
-            <inertia-link href="/users/create" class="tj-topbar_link">
+            <inertia-link href="/admin/users/create" class="tj-topbar_link">
                 <font-awesome-icon icon="user-plus"/>
             </inertia-link>
         </div>
@@ -31,7 +31,7 @@
                 <td class="border px-4 py-1">{{user.role}}</td>
                 <td class="border px-4 py-1">{{user.joined}}</td>
                 <td class="border px-4 py-1">
-                    <inertia-link :href="'/users/' + user.id + '/edit'">Edit</inertia-link>
+                    <inertia-link :href="'/admin/users/' + user.id + '/edit'">Edit</inertia-link>
                 </td>
             </tr>
             </tbody>
