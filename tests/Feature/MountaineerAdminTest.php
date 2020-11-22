@@ -18,12 +18,12 @@ class MountaineerAdminTest extends TestCase
      */
     public function _an_authorised_user_can_view_mountaineers()
     {
-        $this->followingRedirects()->get('/mountaineers')
+        $this->followingRedirects()->get('/admin/mountaineers')
             ->assertInertia('Auth/login');
 
         $this->signIn();
 
-        $this->get('/mountaineers')
+        $this->get('/admin/mountaineers')
             ->assertInertia('Admin/Mountaineers/index')
             ->assertStatus(200);
     }
@@ -37,10 +37,10 @@ class MountaineerAdminTest extends TestCase
 
         $this->signIn();
 
-        $this->get('/mountaineers/create')
+        $this->get('/admin/mountaineers/create')
             ->assertInertia('Admin/Mountaineers/create');
 
-        $this->followingRedirects()->post('/mountaineers/create', $new_mountaineer->toArray())
+        $this->followingRedirects()->post('/admin/mountaineers/create', $new_mountaineer->toArray())
             ->assertInertia('Admin/Mountaineers/index');
 
         $this->assertDatabaseHas('mountaineers', [
@@ -57,7 +57,7 @@ class MountaineerAdminTest extends TestCase
     {
         $mountaineer = create(Mountaineer::class);
         $mountaineer->name = 'updated name';
-        $url = '/mountaineers/'. $mountaineer->slug.'/edit';
+        $url = '/admin/mountaineers/'. $mountaineer->slug.'/edit';
 
         $this->signIn();
 
@@ -75,12 +75,12 @@ class MountaineerAdminTest extends TestCase
     {
         $mountaineer = create(Mountaineer::class);
 
-        $this->followingRedirects()->delete('/mountaineers/'.$mountaineer->slug)
+        $this->followingRedirects()->delete('/admin/mountaineers/'.$mountaineer->slug)
             ->assertInertia('Auth/login');
 
         $this->signIn();
 
-        $this->followingRedirects()->delete('/mountaineers/'.$mountaineer->slug)
+        $this->followingRedirects()->delete('/admin/mountaineers/'.$mountaineer->slug)
             ->assertInertia('Admin/Mountaineers/index');
 
         $this->assertSoftDeleted('mountaineers', [
@@ -98,10 +98,10 @@ class MountaineerAdminTest extends TestCase
         $mountaineer = make(Mountaineer::class);
 
         $this->signIn();
-        $this->followingRedirects()->post('/mountaineers/create', $mountaineer->toArray())
+        $this->followingRedirects()->post('/admin/mountaineers/create', $mountaineer->toArray())
             ->assertInertia('Admin/Mountaineers/index');
 
-        $this->post('/mountaineers/create', $mountaineer->toArray())
+        $this->post('/admin/mountaineers/create', $mountaineer->toArray())
             ->assertSessionHasErrorsIn('default', 'name');
     }
 }

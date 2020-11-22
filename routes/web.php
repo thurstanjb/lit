@@ -49,6 +49,15 @@ Route::namespace('Admin')->prefix('/admin')->as('admin.')->middleware(['auth'])-
         Route::delete('/{mountain:slug}', 'MountainController@destroy')->name('destroy');
     });
 
+    Route::prefix('/mountaineers')->as('mountaineers.')->middleware(['auth'])->group(function(){
+        Route::get('/', 'MountaineerController@index')->name('index');
+        Route::get('/create', 'MountaineerController@create')->name('create');
+        Route::post('/create', 'MountaineerController@store')->name('store');
+        Route::get('/{mountaineer:slug}/edit', 'MountaineerController@edit')->name('edit');
+        Route::put('/{mountaineer:slug}/edit', 'MountaineerController@update')->name('update');
+        Route::delete('/{mountaineer:slug}', 'MountaineerController@destroy')->name('destroy');
+    });
+
     Route::prefix('/imports')->as('imports.')->middleware(['auth'])->group(function(){
         Route::post('/ascent-log/{upload}', 'ImportController@ascentLog')->name('ascent-log');
     });
@@ -62,14 +71,7 @@ Route::prefix('/uploads')->as('uploads.')->middleware(['auth'])->group(function(
     Route::delete('/{upload}', 'UploadController@destroy')->name('destroy');
 });
 
-Route::prefix('/mountaineers')->as('mountaineers.')->middleware(['auth'])->group(function(){
-   Route::get('/', 'MountaineerController@index')->name('index');
-   Route::get('/create', 'MountaineerController@create')->name('create');
-   Route::post('/create', 'MountaineerController@store')->name('store');
-   Route::get('/{mountaineer:slug}/edit', 'MountaineerController@edit')->name('edit');
-   Route::put('/{mountaineer:slug}/edit', 'MountaineerController@update')->name('update');
-   Route::delete('/{mountaineer:slug}', 'MountaineerController@destroy')->name('destroy');
-});
+
 
 
 

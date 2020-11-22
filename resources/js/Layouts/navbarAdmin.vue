@@ -22,7 +22,7 @@
                    class="block mt-4 lg:inline-block lg:mt-0 text-primary-200 hover:text-white mr-4">
                     Uploads
                 </inertia-link>
-                <inertia-link href="/mountaineers"
+                <inertia-link href="/admin/mountaineers"
                               class="block mt-4 lg:inline-block lg:mt-0 text-primary-200 hover:text-white mr-4">
                     Mountaineers
                 </inertia-link>

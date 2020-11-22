@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Filters\MountaineerFilter;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\MountaineerRequest;
 use App\Mountaineer;
 use Illuminate\Http\RedirectResponse;
@@ -49,7 +50,7 @@ class MountaineerController extends Controller
     {
         Mountaineer::create($request->validated());
 
-        return redirect()->route('mountaineers.index');
+        return redirect()->route('admin.mountaineers.index');
     }
 
     /**
@@ -77,7 +78,7 @@ class MountaineerController extends Controller
     {
         $mountaineer->update($request->validated());
 
-        return redirect()->route('mountaineers.index');
+        return redirect()->route('admin.mountaineers.index');
     }
 
     /**
@@ -91,6 +92,6 @@ class MountaineerController extends Controller
     {
         $mountaineer->delete();
 
-        return redirect()->route('mountaineers.index');
+        return redirect()->route('admin.mountaineers.index');
     }
 }

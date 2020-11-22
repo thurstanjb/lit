@@ -6,7 +6,7 @@
                 <search-bar column="name" class="mr-2"></search-bar>
             </div>
             <paginator class="mx-4" :page-data="page_data"></paginator>
-            <inertia-link href="/mountaineers/create" class="tj-topbar_link">
+            <inertia-link href="/admin/mountaineers/create" class="tj-topbar_link">
                 <font-awesome-icon icon="user-plus" />
             </inertia-link>
         </div>
@@ -27,7 +27,7 @@
                 <td class="border px-4 py-1">{{mountaineer.slug}}</td>
                 <td class="border px-4 py-1">{{mountaineer.created_at}}</td>
                 <td class="border px-4 py-1">
-                    <inertia-link :href="'/mountaineers/' + mountaineer.slug + '/edit'">Edit</inertia-link>
+                    <inertia-link :href="'/admin/mountaineers/' + mountaineer.slug + '/edit'">Edit</inertia-link>
                 </td>
             </tr>
             </tbody>
