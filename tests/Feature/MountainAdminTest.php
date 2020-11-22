@@ -17,12 +17,12 @@ class MountainAdminTest extends TestCase
      */
     public function _an_authorised_user_can_view_mountain_index()
     {
-        $this->followingRedirects()->get('/mountains')
+        $this->followingRedirects()->get('/admin/mountains')
             ->assertInertia('Auth/login');
 
         $this->signIn();
 
-        $this->get('/mountains')
+        $this->get('/admin/mountains')
             ->assertInertia('Admin/Mountains/index');
     }
 
@@ -33,15 +33,15 @@ class MountainAdminTest extends TestCase
     {
         $mountain = make(Mountain::class);
 
-        $this->followingRedirects()->get('/mountains/create')
+        $this->followingRedirects()->get('/admin/mountains/create')
             ->assertInertia('Auth/login');
 
         $this->signIn();
 
-        $this->get('/mountains/create')
+        $this->get('/admin/mountains/create')
             ->assertInertia('Admin/Mountains/create');
 
-        $this->followingRedirects()->post('/mountains/create', $mountain->toArray())
+        $this->followingRedirects()->post('/admin/mountains/create', $mountain->toArray())
             ->assertInertia('Admin/Mountains/index');
 
         $this->assertDatabaseHas('mountains', [
@@ -58,7 +58,7 @@ class MountainAdminTest extends TestCase
     {
         $mountain = create(Mountain::class);
         $mountain->name = 'updated name';
-        $url = '/mountains/' . $mountain->slug . '/edit';
+        $url = '/admin/mountains/' . $mountain->slug . '/edit';
 
         $this->signIn();
 
@@ -84,7 +84,7 @@ class MountainAdminTest extends TestCase
 
         $this->signIn();
 
-        $this->followingRedirects()->delete('/mountains/' . $mountain->slug)
+        $this->followingRedirects()->delete('/admin/mountains/' . $mountain->slug)
             ->assertInertia('Admin/Mountains/index');
 
         $this->assertDatabaseMissing('mountains', [
@@ -99,7 +99,7 @@ class MountainAdminTest extends TestCase
     {
         $mountain = make(Mountain::class);
         $dupe_mountain = $mountain;
-        $url = '/mountains/create';
+        $url = '/admin/mountains/create';
 
         $this->signIn();
 
@@ -128,12 +128,12 @@ class MountainAdminTest extends TestCase
 
         $this->signIn();
 
-        $this->put('/mountains/' . $mountain2->slug . '/edit', $mountain2->toArray())
+        $this->put('/admin/mountains/' . $mountain2->slug . '/edit', $mountain2->toArray())
             ->assertSessionHasErrorsIn('default', 'name');
 
         $mountain2->book = 'random book';
 
-        $this->followingRedirects()->put('/mountains/' . $mountain2->slug . '/edit', $mountain2->toArray())
+        $this->followingRedirects()->put('/admin/mountains/' . $mountain2->slug . '/edit', $mountain2->toArray())
             ->assertInertia('Admin/Mountains/index');
     }
 
@@ -146,7 +146,7 @@ class MountainAdminTest extends TestCase
 
         $this->signIn();
 
-        $this->post('/mountains/create', $mountain->toArray())
+        $this->post('/admin/mountains/create', $mountain->toArray())
             ->assertSessionHasErrorsIn('default', 'name');
     }
 
@@ -159,17 +159,17 @@ class MountainAdminTest extends TestCase
 
         $this->signIn();
 
-        $this->post('/mountains/create', $mountain->toArray())
+        $this->post('/admin/mountains/create', $mountain->toArray())
             ->assertSessionHasErrorsIn('default', 'height');
 
         $mountain->height = 'not a number';
 
-        $this->post('/mountains/create', $mountain->toArray())
+        $this->post('/admin/mountains/create', $mountain->toArray())
             ->assertSessionHasErrorsIn('default', 'height');
 
         $mountain->height = 1234;
 
-        $this->followingRedirects()->post('/mountains/create', $mountain->toArray())
+        $this->followingRedirects()->post('/admin/mountains/create', $mountain->toArray())
             ->assertInertia('Admin/Mountains/index');
     }
 
@@ -182,7 +182,7 @@ class MountainAdminTest extends TestCase
 
         $this->signIn();
 
-        $this->post('/mountains/create', $mountain->toArray())
+        $this->post('/admin/mountains/create', $mountain->toArray())
             ->assertSessionHasErrorsIn('default', 'book');
     }
 }

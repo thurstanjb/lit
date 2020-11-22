@@ -253,7 +253,7 @@ var render = function() {
                     {
                       staticClass:
                         "block mt-4 lg:inline-block lg:mt-0 text-primary-200 hover:text-white mr-4",
-                      attrs: { href: "/mountains" }
+                      attrs: { href: "/admin/mountains" }
                     },
                     [_vm._v("\n                Mountains\n            ")]
                   ),

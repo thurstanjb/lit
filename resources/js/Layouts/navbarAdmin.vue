@@ -26,7 +26,7 @@
                               class="block mt-4 lg:inline-block lg:mt-0 text-primary-200 hover:text-white mr-4">
                     Mountaineers
                 </inertia-link>
-                <inertia-link href="/mountains"
+                <inertia-link href="/admin/mountains"
                               class="block mt-4 lg:inline-block lg:mt-0 text-primary-200 hover:text-white mr-4">
                     Mountains
                 </inertia-link>

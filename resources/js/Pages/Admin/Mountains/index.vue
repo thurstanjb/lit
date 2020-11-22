@@ -7,7 +7,7 @@
                 <filter-ddown column="book" :options="books"></filter-ddown>
             </div>
             <paginator class="mx-4" :page-data="page_data"></paginator>
-            <inertia-link href="/mountains/create" class="tj-topbar_link">
+            <inertia-link href="/admin/mountains/create" class="tj-topbar_link">
                 <font-awesome-icon icon="plus" />
             </inertia-link>
         </div>
@@ -30,7 +30,7 @@
                 <td class="border px-4 py-1">{{mountain.book}}</td>
                 <td class="border px-4 py-1">{{mountain.slug}}</td>
                 <td class="border px-4 py-1">
-                    <inertia-link :href="'/mountains/' + mountain.slug + '/edit'">Edit</inertia-link>
+                    <inertia-link :href="'/admin/mountains/' + mountain.slug + '/edit'">Edit</inertia-link>
                 </td>
             </tr>
             </tbody>

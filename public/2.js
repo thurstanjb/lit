@@ -101,18 +101,18 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     processMountain: function processMountain() {
-      var uri = '/mountains/create';
+      var uri = '/admin/mountains/create';
       var method = 'post';
 
       if (this.editing) {
-        uri = '/mountains/' + this.mountain.slug + '/edit';
+        uri = '/admin/mountains/' + this.mountain.slug + '/edit';
         method = 'put';
       }
 
       this.$inertia[method](uri, this.mountain);
     },
     deleteMountain: function deleteMountain() {
-      this.$inertia["delete"]('/mountains/' + this.mountain.slug);
+      this.$inertia["delete"]('/admin/mountains/' + this.mountain.slug);
     }
   }
 });
@@ -147,7 +147,10 @@ var render = function() {
         _vm._v(" "),
         _c(
           "inertia-link",
-          { staticClass: "tj-topbar_link", attrs: { href: "/mountains" } },
+          {
+            staticClass: "tj-topbar_link",
+            attrs: { href: "/admin/mountains" }
+          },
           [_c("font-awesome-icon", { attrs: { icon: "undo-alt" } })],
           1
         )

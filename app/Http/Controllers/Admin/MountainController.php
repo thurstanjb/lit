@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Filters\MountainFilter;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\MountainRequest;
 use App\Mountain;
 use Illuminate\Http\RedirectResponse;
@@ -55,7 +56,7 @@ class MountainController extends Controller
     {
         Mountain::create($request->validated());
 
-        return redirect()->route('mountains.index');
+        return redirect()->route('admin.mountains.index');
     }
 
     /**
@@ -84,7 +85,7 @@ class MountainController extends Controller
     {
         $mountain->update($request->validated());
 
-        return redirect()->route('mountains.index');
+        return redirect()->route('admin.mountains.index');
     }
 
     /**
@@ -99,6 +100,6 @@ class MountainController extends Controller
 
         $mountain->delete();
 
-        return redirect()->route('mountains.index');
+        return redirect()->route('admin.mountains.index');
     }
 }

@@ -479,7 +479,7 @@ var render = function() {
           "inertia-link",
           {
             staticClass: "tj-topbar_link",
-            attrs: { href: "/mountains/create" }
+            attrs: { href: "/admin/mountains/create" }
           },
           [_c("font-awesome-icon", { attrs: { icon: "plus" } })],
           1
@@ -561,7 +561,9 @@ var render = function() {
                     _c(
                       "inertia-link",
                       {
-                        attrs: { href: "/mountains/" + mountain.slug + "/edit" }
+                        attrs: {
+                          href: "/admin/mountains/" + mountain.slug + "/edit"
+                        }
                       },
                       [_vm._v("Edit")]
                     )

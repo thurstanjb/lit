@@ -3,7 +3,7 @@
         <div class="tj-topbar">
             <h1 class="tj-topbar_heading">{{heading}} Mountain</h1>
             <div class="md:flex flex-1"></div>
-            <inertia-link href="/mountains" class="tj-topbar_link">
+            <inertia-link href="/admin/mountains" class="tj-topbar_link">
                 <font-awesome-icon icon="undo-alt"/>
             </inertia-link>
         </div>
@@ -92,11 +92,11 @@
 
         methods: {
             processMountain() {
-                let uri = '/mountains/create';
+                let uri = '/admin/mountains/create';
                 let method = 'post';
 
                 if (this.editing) {
-                    uri = '/mountains/' + this.mountain.slug + '/edit'
+                    uri = '/admin/mountains/' + this.mountain.slug + '/edit'
                     method = 'put'
                 }
 
@@ -104,7 +104,7 @@
             },
 
             deleteMountain() {
-                this.$inertia.delete('/mountains/' + this.mountain.slug);
+                this.$inertia.delete('/admin/mountains/' + this.mountain.slug);
             }
         }
     }
