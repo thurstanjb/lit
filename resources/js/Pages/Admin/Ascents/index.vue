@@ -9,7 +9,7 @@
                 <filter-ddown column="year" :options="years"></filter-ddown>
             </div>
             <paginator class="mx-4" :page-data="page_data"></paginator>
-            <inertia-link href="/ascents/create" class="tj-topbar_link">
+            <inertia-link href="/admin/ascents/create" class="tj-topbar_link">
                 <font-awesome-icon icon="plus" />
             </inertia-link>
         </div>
@@ -90,7 +90,7 @@
 
         methods:{
             deleteAscent(id){
-                this.$inertia.delete('/ascents/' + id);
+                this.$inertia.delete('/admin/ascents/' + id);
             }
         }
     }

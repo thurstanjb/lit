@@ -3,7 +3,7 @@
         <div class="tj-topbar">
             <h1 class="tj-topbar_heading">{{heading}} Ascent</h1>
             <div class="md:flex flex-1"></div>
-            <inertia-link href="/ascents" class="tj-topbar_link">
+            <inertia-link href="/admin/ascents" class="tj-topbar_link">
                 <font-awesome-icon icon="undo-alt"/>
             </inertia-link>
         </div>
@@ -106,7 +106,7 @@
 
         methods: {
             processAscent() {
-                let uri = '/ascents/create';
+                let uri = '/admin/ascents/create';
                 let method = 'post';
 
                 this.$inertia[method](uri, this.ascent);

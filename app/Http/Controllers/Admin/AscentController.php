@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Ascent;
 use App\Filters\AscentFilter;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\AscentRequest;
 use App\Mountain;
 use App\Mountaineer;
@@ -61,7 +62,7 @@ class AscentController extends Controller
 
         Ascent::create($request->validated());
 
-        return redirect()->route('ascents.index');
+        return redirect()->route('admin.ascents.index');
     }
 
     /**
@@ -75,6 +76,6 @@ class AscentController extends Controller
     {
         $ascent->delete();
 
-        return redirect()->route('ascents.index');
+        return redirect()->route('admin.ascents.index');
     }
 }

@@ -105,7 +105,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     deleteAscent: function deleteAscent(id) {
-      this.$inertia["delete"]('/ascents/' + id);
+      this.$inertia["delete"]('/admin/ascents/' + id);
     }
   }
 });
@@ -496,7 +496,10 @@ var render = function() {
         _vm._v(" "),
         _c(
           "inertia-link",
-          { staticClass: "tj-topbar_link", attrs: { href: "/ascents/create" } },
+          {
+            staticClass: "tj-topbar_link",
+            attrs: { href: "/admin/ascents/create" }
+          },
           [_c("font-awesome-icon", { attrs: { icon: "plus" } })],
           1
         )

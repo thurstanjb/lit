@@ -30,7 +30,7 @@
                               class="block mt-4 lg:inline-block lg:mt-0 text-primary-200 hover:text-white mr-4">
                     Mountains
                 </inertia-link>
-                <inertia-link href="/ascents"
+                <inertia-link href="/admin/ascents"
                               class="block mt-4 lg:inline-block lg:mt-0 text-primary-200 hover:text-white mr-4">
                     Ascents
                 </inertia-link>

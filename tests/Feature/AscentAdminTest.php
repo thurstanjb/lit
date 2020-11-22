@@ -16,12 +16,12 @@ class AscentAdminTest extends TestCase
      */
     public function _an_authorised_user_can_view_ascent_index()
     {
-        $this->followingRedirects()->get('/ascents')
+        $this->followingRedirects()->get('/admin/ascents')
             ->assertInertia('Auth/login');
 
         $this->signIn();
 
-        $this->followingRedirects()->get('/ascents')
+        $this->followingRedirects()->get('/admin/ascents')
             ->assertInertia('Admin/Ascents/index');
     }
 
@@ -34,7 +34,7 @@ class AscentAdminTest extends TestCase
 
         $this->signIn();
 
-        $response = $this->get('/ascents');
+        $response = $this->get('/admin/ascents');
 
         $returned_ascent = $response->inertiaProps()['ascents']['data'][0];
 
@@ -51,7 +51,7 @@ class AscentAdminTest extends TestCase
         $ascent = make(Ascent::class)->toArray();
         $ascent['ascent_date'] = '2020-01-01';
 
-        $this->followingRedirects()->get('/ascents/create')
+        $this->followingRedirects()->get('/admin/ascents/create')
             ->assertInertia('Auth/login');
 
         $this->withoutExceptionHandling();
@@ -59,9 +59,9 @@ class AscentAdminTest extends TestCase
 
         $this->signIn();
 
-        $this->followingRedirects()->get('/ascents/create')
+        $this->followingRedirects()->get('/admin/ascents/create')
             ->assertInertia('Admin/Ascents/create');
-        $this->followingRedirects()->post('/ascents/create', $ascent)
+        $this->followingRedirects()->post('/admin/ascents/create', $ascent)
             ->assertInertia('Admin/Ascents/index');
 
         $this->assertDatabaseHas('ascents', [
@@ -78,12 +78,12 @@ class AscentAdminTest extends TestCase
     {
         $ascent = create(Ascent::class);
 
-        $this->followingRedirects()->delete('/ascents/' . $ascent->id)
+        $this->followingRedirects()->delete('/admin/ascents/' . $ascent->id)
             ->assertInertia('Auth/login');
 
         $this->signIn();
 
-        $this->followingRedirects()->delete('/ascents/' . $ascent->id)
+        $this->followingRedirects()->delete('/admin/ascents/' . $ascent->id)
             ->assertInertia('Admin/Ascents/index');
 
         $this->assertDatabaseMissing('ascents', [
