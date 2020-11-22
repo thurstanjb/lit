@@ -2,6 +2,9 @@
 
 @tailwind components;
 
+@import "themes/admin";
+@import "themes/default";
+
 @tailwind utilities;
 
 @import "buttons";

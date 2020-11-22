@@ -35,7 +35,7 @@
 
             <div class="flex items-center justify-between">
                 <button type="submit"
-                        class="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                        class="bg-primary-500 hover:bg-primary-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                     Reset Password
                 </button>
             </div>
@@ -46,7 +46,7 @@
 
 
 <script>
-    import Layout from '../../../Layouts/layout';
+    import Layout from '../../../Layouts/default';
 
     export default {
         name: "auth-password-reset",

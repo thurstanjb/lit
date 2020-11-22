@@ -18,10 +18,10 @@
                 <p v-if="errors.password" class="text-red-500 text-xs italic" v-html="errors.password[0]"></p>
             </div>
             <div class="flex items-center justify-between">
-                <button class="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                <button class="bg-primary-500 hover:bg-primary-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
                     Sign In
                 </button>
-                <inertia-link class="inline-block align-baseline font-bold text-sm text-teal-500 hover:text-teal-800" href="/password/reset">
+                <inertia-link class="inline-block align-baseline font-bold text-sm text-primary-500 hover:text-primary-800" href="/password/reset">
                     Forgot Password?
                 </inertia-link>
             </div>
@@ -32,7 +32,7 @@
 </template>
 
 <script>
-    import Layout from '../../Layouts/layout';
+    import Layout from '../../Layouts/default';
     export default {
         name: "auth-login",
         layout: Layout,

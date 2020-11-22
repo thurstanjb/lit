@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="theme-default">
         <navbar></navbar>
         <div class="container mx-auto mt-5">
             <slot />

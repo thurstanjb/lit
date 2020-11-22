@@ -3,7 +3,7 @@
 </template>
 
 <script>
-    import Layout from '../../../Layouts/layout';
+    import Layout from '../../../Layouts/admin';
     import AscentForm from "./Components/ascentForm";
 
     export default {

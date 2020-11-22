@@ -1,10 +1,10 @@
 .tj-topbar{
-    @apply flex content-between bg-teal-400 rounded-t py-5 px-5;
+    @apply flex content-between bg-primary-400 rounded-t py-5 px-5;
     &_heading{
         @apply text-2xl;
     }
     &_link{
-        @apply text-teal-700 font-bold pt-1;
+        @apply text-primary-700 font-bold pt-1;
 
         &:hover{
             @apply text-white;
@@ -13,13 +13,17 @@
     }
 }
 
+.tj-main{
+    @apply w-full p-5 min-h-full border-r border-l;
+}
+
 .tj-footer{
-    @apply bg-teal-400 rounded-b py-5 px-5 mb-4;
+    @apply bg-primary-400 rounded-b py-5 px-5 mb-4;
     &_heading{
         @apply text-2xl flex-1;
     }
     &_link{
-        @apply text-teal-700 font-bold pt-1;
+        @apply text-primary-700 font-bold pt-1;
 
         &:hover{
             @apply text-white;

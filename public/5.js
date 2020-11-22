@@ -1,24 +1,20 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[5],{
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Admin/Uploads/index.vue?vue&type=script&lang=js&":
-/*!*************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Admin/Uploads/index.vue?vue&type=script&lang=js& ***!
-  \*************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Admin/Mountains/index.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Admin/Mountains/index.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Layouts_layout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../Layouts/layout */ "./resources/js/Layouts/layout.vue");
+/* harmony import */ var _Layouts_admin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../Layouts/admin */ "./resources/js/Layouts/admin.vue");
 /* harmony import */ var _Components_paginator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Components/paginator */ "./resources/js/Pages/Components/paginator.vue");
 /* harmony import */ var _Components_filteredHeading__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Components/filteredHeading */ "./resources/js/Pages/Components/filteredHeading.vue");
 /* harmony import */ var _Components_queryManager__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../Components/queryManager */ "./resources/js/Pages/Components/queryManager.js");
 /* harmony import */ var _Components_searchBar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../Components/searchBar */ "./resources/js/Pages/Components/searchBar.vue");
 /* harmony import */ var _Components_filterDdown__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../Components/filterDdown */ "./resources/js/Pages/Components/filterDdown.vue");
-//
-//
-//
-//
 //
 //
 //
@@ -76,7 +72,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "upload-index",
+  name: "admin-mountains-index",
   components: {
     FilterDdown: _Components_filterDdown__WEBPACK_IMPORTED_MODULE_5__["default"],
     SearchBar: _Components_searchBar__WEBPACK_IMPORTED_MODULE_4__["default"],
@@ -85,28 +81,23 @@ __webpack_require__.r(__webpack_exports__);
   },
   props: {
     title: String,
-    uploads: Object,
-    folders: Array
+    mountains: Object,
+    books: Array
   },
   data: function data() {
     return {
-      page_data: null,
+      page_data: {},
       query_manager: _Components_queryManager__WEBPACK_IMPORTED_MODULE_3__["default"]
     };
   },
-  layout: _Layouts_layout__WEBPACK_IMPORTED_MODULE_0__["default"],
+  layout: _Layouts_admin__WEBPACK_IMPORTED_MODULE_0__["default"],
   created: function created() {
     this.$parent.title = this.title;
-    this.page_data = _.clone(this.uploads);
+    this.page_data = _.clone(this.mountains);
     delete this.page_data.data;
   },
   mounted: function mounted() {
     this.query_manager.init(this.$inertia);
-  },
-  methods: {
-    deleteUpload: function deleteUpload(id) {
-      this.$inertia["delete"]('/uploads/' + id);
-    }
   }
 });
 
@@ -421,6 +412,8 @@ __webpack_require__.r(__webpack_exports__);
     events.$on('set-filter', function (params) {
       if (_this.column === params.column) {
         _this.input = _this.value_set = params.value;
+
+        _this.$refs.search.focus();
       }
     });
   },
@@ -440,10 +433,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Admin/Uploads/index.vue?vue&type=template&id=0e8eb8c8&scoped=true&":
-/*!*****************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Admin/Uploads/index.vue?vue&type=template&id=0e8eb8c8&scoped=true& ***!
-  \*****************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Admin/Mountains/index.vue?vue&type=template&id=f83fb060&":
+/*!*******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Pages/Admin/Mountains/index.vue?vue&type=template&id=f83fb060& ***!
+  \*******************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -461,7 +454,7 @@ var render = function() {
       { staticClass: "tj-topbar" },
       [
         _c("h1", { staticClass: "tj-topbar_heading mr-10" }, [
-          _vm._v("Uploads")
+          _vm._v("Mountains")
         ]),
         _vm._v(" "),
         _c(
@@ -470,11 +463,11 @@ var render = function() {
           [
             _c("search-bar", {
               staticClass: "mr-2",
-              attrs: { column: "filename" }
+              attrs: { column: "name" }
             }),
             _vm._v(" "),
             _c("filter-ddown", {
-              attrs: { column: "folder", options: _vm.folders }
+              attrs: { column: "book", options: _vm.books }
             })
           ],
           1
@@ -489,16 +482,16 @@ var render = function() {
           "inertia-link",
           {
             staticClass: "tj-topbar_link",
-            attrs: { href: "/uploads/upload-file" }
+            attrs: { href: "/mountains/create" }
           },
-          [_c("font-awesome-icon", { attrs: { icon: "upload" } })],
+          [_c("font-awesome-icon", { attrs: { icon: "plus" } })],
           1
         )
       ],
       1
     ),
     _vm._v(" "),
-    _c("table", { staticClass: "table-auto w-full table-responsive" }, [
+    _c("table", { staticClass: "table-auto w-full table-responsive text-sm" }, [
       _c("thead", { staticClass: "border" }, [
         _c(
           "tr",
@@ -511,26 +504,26 @@ var render = function() {
             _vm._v(" "),
             _c(
               "filtered-heading",
-              { staticClass: "px-4 py-1", attrs: { column: "filename" } },
-              [_vm._v("Filename")]
+              { staticClass: "px-4 py-1", attrs: { column: "name" } },
+              [_vm._v("Name")]
             ),
             _vm._v(" "),
             _c(
               "filtered-heading",
-              { staticClass: "px-4 py-1", attrs: { column: "folder" } },
-              [_vm._v("Folder")]
+              { staticClass: "px-4 py-1", attrs: { column: "height" } },
+              [_vm._v("Height")]
             ),
             _vm._v(" "),
             _c(
               "filtered-heading",
-              { staticClass: "px-4 py-1", attrs: { column: "created_at" } },
-              [_vm._v("Uploaded")]
+              { staticClass: "px-4 py-1", attrs: { column: "book" } },
+              [_vm._v("Book")]
             ),
             _vm._v(" "),
             _c(
               "filtered-heading",
-              { staticClass: "px-4 py-1", attrs: { column: "user_id" } },
-              [_vm._v("Uploaded By")]
+              { staticClass: "px-4 py-1", attrs: { column: "slug" } },
+              [_vm._v("slug")]
             ),
             _vm._v(" "),
             _c("th", { staticClass: "px-4 py-1" })
@@ -539,13 +532,29 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _vm.uploads.data.length > 0
+      _vm.mountains.data.length > 0
         ? _c(
             "tbody",
-            _vm._l(_vm.uploads.data, function(upload) {
-              return _c("tr", { key: upload.id }, [
+            _vm._l(_vm.mountains.data, function(mountain) {
+              return _c("tr", { key: mountain.id }, [
                 _c("td", { staticClass: "border px-4 py-1" }, [
-                  _vm._v(_vm._s(upload.id))
+                  _vm._v(_vm._s(mountain.id))
+                ]),
+                _vm._v(" "),
+                _c("td", { staticClass: "border px-4 py-1" }, [
+                  _vm._v(_vm._s(mountain.name))
+                ]),
+                _vm._v(" "),
+                _c("td", { staticClass: "border px-4 py-1" }, [
+                  _vm._v(_vm._s(mountain.height))
+                ]),
+                _vm._v(" "),
+                _c("td", { staticClass: "border px-4 py-1" }, [
+                  _vm._v(_vm._s(mountain.book))
+                ]),
+                _vm._v(" "),
+                _c("td", { staticClass: "border px-4 py-1" }, [
+                  _vm._v(_vm._s(mountain.slug))
                 ]),
                 _vm._v(" "),
                 _c(
@@ -555,45 +564,13 @@ var render = function() {
                     _c(
                       "inertia-link",
                       {
-                        staticClass: "hover:underline",
-                        attrs: { href: "/uploads/" + upload.id }
+                        attrs: { href: "/mountains/" + mountain.slug + "/edit" }
                       },
-                      [_vm._v(" " + _vm._s(upload.filename) + " ")]
+                      [_vm._v("Edit")]
                     )
                   ],
                   1
-                ),
-                _vm._v(" "),
-                _c("td", { staticClass: "border px-4 py-1" }, [
-                  _vm._v(_vm._s(upload.folder))
-                ]),
-                _vm._v(" "),
-                _c("td", { staticClass: "border px-4 py-1" }, [
-                  _vm._v(_vm._s(upload.upload_date))
-                ]),
-                _vm._v(" "),
-                _c("td", { staticClass: "border px-4 py-1" }, [
-                  _vm._v(_vm._s(upload.user.name))
-                ]),
-                _vm._v(" "),
-                _c("td", { staticClass: "border px-4 py-1 text-center" }, [
-                  _c(
-                    "a",
-                    { attrs: { href: "#" } },
-                    [
-                      _c("font-awesome-icon", {
-                        staticClass: "text-red-500 hover:text-red-700",
-                        attrs: { icon: "trash-alt" },
-                        on: {
-                          click: function($event) {
-                            return _vm.deleteUpload(upload.id)
-                          }
-                        }
-                      })
-                    ],
-                    1
-                  )
-                ])
+                )
               ])
             }),
             0
@@ -626,7 +603,7 @@ var staticRenderFns = [
           staticClass: "text-center border px-4 py-1",
           attrs: { colspan: "6" }
         },
-        [_vm._v("\n                No files available\n            ")]
+        [_vm._v("\n                No mountains available\n            ")]
       )
     ])
   }
@@ -915,10 +892,20 @@ var render = function() {
             expression: "input"
           }
         ],
+        ref: "search",
         staticClass: "inline-input",
         attrs: { name: _vm.column, placeholder: "search " + _vm.column },
         domProps: { value: _vm.input },
         on: {
+          keyup: function($event) {
+            if (
+              !$event.type.indexOf("key") &&
+              _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+            ) {
+              return null
+            }
+            return _vm.submitted($event)
+          },
           input: function($event) {
             if ($event.target.composing) {
               return
@@ -944,17 +931,17 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./resources/js/Pages/Admin/Uploads/index.vue":
-/*!****************************************************!*\
-  !*** ./resources/js/Pages/Admin/Uploads/index.vue ***!
-  \****************************************************/
+/***/ "./resources/js/Pages/Admin/Mountains/index.vue":
+/*!******************************************************!*\
+  !*** ./resources/js/Pages/Admin/Mountains/index.vue ***!
+  \******************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _index_vue_vue_type_template_id_0e8eb8c8_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.vue?vue&type=template&id=0e8eb8c8&scoped=true& */ "./resources/js/Pages/Admin/Uploads/index.vue?vue&type=template&id=0e8eb8c8&scoped=true&");
-/* harmony import */ var _index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.vue?vue&type=script&lang=js& */ "./resources/js/Pages/Admin/Uploads/index.vue?vue&type=script&lang=js&");
+/* harmony import */ var _index_vue_vue_type_template_id_f83fb060___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.vue?vue&type=template&id=f83fb060& */ "./resources/js/Pages/Admin/Mountains/index.vue?vue&type=template&id=f83fb060&");
+/* harmony import */ var _index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.vue?vue&type=script&lang=js& */ "./resources/js/Pages/Admin/Mountains/index.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -965,49 +952,49 @@ __webpack_require__.r(__webpack_exports__);
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
   _index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _index_vue_vue_type_template_id_0e8eb8c8_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _index_vue_vue_type_template_id_0e8eb8c8_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _index_vue_vue_type_template_id_f83fb060___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _index_vue_vue_type_template_id_f83fb060___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
-  "0e8eb8c8",
+  null,
   null
   
 )
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/Pages/Admin/Uploads/index.vue"
+component.options.__file = "resources/js/Pages/Admin/Mountains/index.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/Pages/Admin/Uploads/index.vue?vue&type=script&lang=js&":
-/*!*****************************************************************************!*\
-  !*** ./resources/js/Pages/Admin/Uploads/index.vue?vue&type=script&lang=js& ***!
-  \*****************************************************************************/
+/***/ "./resources/js/Pages/Admin/Mountains/index.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/Pages/Admin/Mountains/index.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./index.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Admin/Uploads/index.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./index.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Admin/Mountains/index.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/Pages/Admin/Uploads/index.vue?vue&type=template&id=0e8eb8c8&scoped=true&":
-/*!***********************************************************************************************!*\
-  !*** ./resources/js/Pages/Admin/Uploads/index.vue?vue&type=template&id=0e8eb8c8&scoped=true& ***!
-  \***********************************************************************************************/
+/***/ "./resources/js/Pages/Admin/Mountains/index.vue?vue&type=template&id=f83fb060&":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/Pages/Admin/Mountains/index.vue?vue&type=template&id=f83fb060& ***!
+  \*************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_0e8eb8c8_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./index.vue?vue&type=template&id=0e8eb8c8&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Admin/Uploads/index.vue?vue&type=template&id=0e8eb8c8&scoped=true&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_0e8eb8c8_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_f83fb060___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./index.vue?vue&type=template&id=f83fb060& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Pages/Admin/Mountains/index.vue?vue&type=template&id=f83fb060&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_f83fb060___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_0e8eb8c8_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_f83fb060___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

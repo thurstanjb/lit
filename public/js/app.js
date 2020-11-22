@@ -42242,328 +42242,338 @@ var map = {
 	"./Admin/Ascents": [
 		"./resources/js/Pages/Admin/Ascents/index.vue",
 		0,
-		3
+		4
 	],
 	"./Admin/Ascents/": [
 		"./resources/js/Pages/Admin/Ascents/index.vue",
 		0,
-		3
+		4
 	],
 	"./Admin/Ascents/Components/ascentForm": [
 		"./resources/js/Pages/Admin/Ascents/Components/ascentForm.vue",
-		8,
-		29
+		9,
+		31
 	],
 	"./Admin/Ascents/Components/ascentForm.vue": [
 		"./resources/js/Pages/Admin/Ascents/Components/ascentForm.vue",
-		8,
-		29
+		9,
+		31
 	],
 	"./Admin/Ascents/create": [
 		"./resources/js/Pages/Admin/Ascents/create.vue",
 		0,
-		8,
-		17
+		9,
+		18
 	],
 	"./Admin/Ascents/create.vue": [
 		"./resources/js/Pages/Admin/Ascents/create.vue",
 		0,
-		8,
-		17
+		9,
+		18
 	],
 	"./Admin/Ascents/index": [
 		"./resources/js/Pages/Admin/Ascents/index.vue",
 		0,
-		3
+		4
 	],
 	"./Admin/Ascents/index.vue": [
 		"./resources/js/Pages/Admin/Ascents/index.vue",
 		0,
-		3
+		4
 	],
 	"./Admin/Mountaineers": [
 		"./resources/js/Pages/Admin/Mountaineers/index.vue",
 		0,
-		7
+		8
 	],
 	"./Admin/Mountaineers/": [
 		"./resources/js/Pages/Admin/Mountaineers/index.vue",
 		0,
-		7
+		8
 	],
 	"./Admin/Mountaineers/Components/mountaineerForm": [
 		"./resources/js/Pages/Admin/Mountaineers/Components/mountaineerForm.vue",
-		12
+		13
 	],
 	"./Admin/Mountaineers/Components/mountaineerForm.vue": [
 		"./resources/js/Pages/Admin/Mountaineers/Components/mountaineerForm.vue",
-		12
+		13
 	],
 	"./Admin/Mountaineers/create": [
 		"./resources/js/Pages/Admin/Mountaineers/create.vue",
 		0,
-		10
+		11
 	],
 	"./Admin/Mountaineers/create.vue": [
 		"./resources/js/Pages/Admin/Mountaineers/create.vue",
 		0,
-		10
+		11
 	],
 	"./Admin/Mountaineers/index": [
 		"./resources/js/Pages/Admin/Mountaineers/index.vue",
 		0,
-		7
+		8
 	],
 	"./Admin/Mountaineers/index.vue": [
 		"./resources/js/Pages/Admin/Mountaineers/index.vue",
 		0,
-		7
+		8
 	],
 	"./Admin/Mountaineers/update": [
 		"./resources/js/Pages/Admin/Mountaineers/update.vue",
 		0,
-		11
+		12
 	],
 	"./Admin/Mountaineers/update.vue": [
 		"./resources/js/Pages/Admin/Mountaineers/update.vue",
 		0,
-		11
+		12
 	],
 	"./Admin/Mountains": [
 		"./resources/js/Pages/Admin/Mountains/index.vue",
 		0,
-		4
+		5
 	],
 	"./Admin/Mountains/": [
 		"./resources/js/Pages/Admin/Mountains/index.vue",
 		0,
-		4
+		5
 	],
 	"./Admin/Mountains/Components/mountainForm": [
 		"./resources/js/Pages/Admin/Mountains/Components/mountainForm.vue",
-		1,
-		30
+		2,
+		32
 	],
 	"./Admin/Mountains/Components/mountainForm.vue": [
 		"./resources/js/Pages/Admin/Mountains/Components/mountainForm.vue",
-		1,
-		30
+		2,
+		32
 	],
 	"./Admin/Mountains/create": [
 		"./resources/js/Pages/Admin/Mountains/create.vue",
 		0,
-		1,
-		18
+		2,
+		19
 	],
 	"./Admin/Mountains/create.vue": [
 		"./resources/js/Pages/Admin/Mountains/create.vue",
 		0,
-		1,
-		18
+		2,
+		19
 	],
 	"./Admin/Mountains/index": [
 		"./resources/js/Pages/Admin/Mountains/index.vue",
 		0,
-		4
+		5
 	],
 	"./Admin/Mountains/index.vue": [
 		"./resources/js/Pages/Admin/Mountains/index.vue",
 		0,
-		4
+		5
 	],
 	"./Admin/Mountains/update": [
 		"./resources/js/Pages/Admin/Mountains/update.vue",
 		0,
-		1,
-		19
+		2,
+		20
 	],
 	"./Admin/Mountains/update.vue": [
 		"./resources/js/Pages/Admin/Mountains/update.vue",
 		0,
-		1,
-		19
+		2,
+		20
 	],
 	"./Admin/Uploads": [
 		"./resources/js/Pages/Admin/Uploads/index.vue",
 		0,
-		5
+		6
 	],
 	"./Admin/Uploads/": [
 		"./resources/js/Pages/Admin/Uploads/index.vue",
 		0,
-		5
+		6
 	],
 	"./Admin/Uploads/index": [
 		"./resources/js/Pages/Admin/Uploads/index.vue",
 		0,
-		5
+		6
 	],
 	"./Admin/Uploads/index.vue": [
 		"./resources/js/Pages/Admin/Uploads/index.vue",
 		0,
-		5
+		6
 	],
 	"./Admin/Uploads/show": [
 		"./resources/js/Pages/Admin/Uploads/show.vue",
 		0,
-		20
+		21
 	],
 	"./Admin/Uploads/show.vue": [
 		"./resources/js/Pages/Admin/Uploads/show.vue",
 		0,
-		20
+		21
 	],
 	"./Admin/Uploads/uploadFile": [
 		"./resources/js/Pages/Admin/Uploads/uploadFile.vue",
 		0,
-		21
+		22
 	],
 	"./Admin/Uploads/uploadFile.vue": [
 		"./resources/js/Pages/Admin/Uploads/uploadFile.vue",
 		0,
-		21
+		22
 	],
 	"./Admin/Users": [
 		"./resources/js/Pages/Admin/Users/index.vue",
 		0,
-		6
+		7
 	],
 	"./Admin/Users/": [
 		"./resources/js/Pages/Admin/Users/index.vue",
 		0,
-		6
+		7
 	],
 	"./Admin/Users/Components/userForm": [
 		"./resources/js/Pages/Admin/Users/Components/userForm.vue",
-		2,
-		31
+		3,
+		33
 	],
 	"./Admin/Users/Components/userForm.vue": [
 		"./resources/js/Pages/Admin/Users/Components/userForm.vue",
-		2,
-		31
+		3,
+		33
 	],
 	"./Admin/Users/create": [
 		"./resources/js/Pages/Admin/Users/create.vue",
 		0,
-		2,
-		22
+		3,
+		23
 	],
 	"./Admin/Users/create.vue": [
 		"./resources/js/Pages/Admin/Users/create.vue",
 		0,
-		2,
-		22
+		3,
+		23
 	],
 	"./Admin/Users/index": [
 		"./resources/js/Pages/Admin/Users/index.vue",
 		0,
-		6
+		7
 	],
 	"./Admin/Users/index.vue": [
 		"./resources/js/Pages/Admin/Users/index.vue",
 		0,
-		6
+		7
 	],
 	"./Admin/Users/update": [
 		"./resources/js/Pages/Admin/Users/update.vue",
 		0,
-		2,
-		23
+		3,
+		24
 	],
 	"./Admin/Users/update.vue": [
 		"./resources/js/Pages/Admin/Users/update.vue",
 		0,
-		2,
-		23
+		3,
+		24
+	],
+	"./Admin/dashboard": [
+		"./resources/js/Pages/Admin/dashboard.vue",
+		0,
+		25
+	],
+	"./Admin/dashboard.vue": [
+		"./resources/js/Pages/Admin/dashboard.vue",
+		0,
+		25
 	],
 	"./Auth/Passwords/email": [
 		"./resources/js/Pages/Auth/Passwords/email.vue",
-		0,
-		24
+		1,
+		26
 	],
 	"./Auth/Passwords/email.vue": [
 		"./resources/js/Pages/Auth/Passwords/email.vue",
-		0,
-		24
+		1,
+		26
 	],
 	"./Auth/Passwords/reset": [
 		"./resources/js/Pages/Auth/Passwords/reset.vue",
-		0,
-		25
+		1,
+		27
 	],
 	"./Auth/Passwords/reset.vue": [
 		"./resources/js/Pages/Auth/Passwords/reset.vue",
-		0,
-		25
+		1,
+		27
 	],
 	"./Auth/login": [
 		"./resources/js/Pages/Auth/login.vue",
-		0,
-		26
+		1,
+		28
 	],
 	"./Auth/login.vue": [
 		"./resources/js/Pages/Auth/login.vue",
-		0,
-		26
+		1,
+		28
 	],
 	"./Components/filterDdown": [
 		"./resources/js/Pages/Components/filterDdown.vue",
-		13
+		14
 	],
 	"./Components/filterDdown.vue": [
 		"./resources/js/Pages/Components/filterDdown.vue",
-		13
+		14
 	],
 	"./Components/filteredHeading": [
 		"./resources/js/Pages/Components/filteredHeading.vue",
-		14
+		15
 	],
 	"./Components/filteredHeading.vue": [
 		"./resources/js/Pages/Components/filteredHeading.vue",
-		14
+		15
 	],
 	"./Components/paginator": [
 		"./resources/js/Pages/Components/paginator.vue",
-		9
+		10
 	],
 	"./Components/paginator.vue": [
 		"./resources/js/Pages/Components/paginator.vue",
-		9
+		10
 	],
 	"./Components/paginatorLink": [
 		"./resources/js/Pages/Components/paginatorLink.vue",
-		15
+		16
 	],
 	"./Components/paginatorLink.vue": [
 		"./resources/js/Pages/Components/paginatorLink.vue",
-		15
+		16
 	],
 	"./Components/queryManager": [
 		"./resources/js/Pages/Components/queryManager.js",
-		28
+		30
 	],
 	"./Components/queryManager.js": [
 		"./resources/js/Pages/Components/queryManager.js",
-		28
+		30
 	],
 	"./Components/searchBar": [
 		"./resources/js/Pages/Components/searchBar.vue",
-		16
+		17
 	],
 	"./Components/searchBar.vue": [
 		"./resources/js/Pages/Components/searchBar.vue",
-		16
+		17
 	],
 	"./home": [
 		"./resources/js/Pages/home.vue",
-		0,
-		27
+		1,
+		29
 	],
 	"./home.vue": [
 		"./resources/js/Pages/home.vue",
-		0,
-		27
+		1,
+		29
 	]
 };
 function webpackAsyncContext(req) {

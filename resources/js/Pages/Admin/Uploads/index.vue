@@ -53,7 +53,7 @@
 </template>
 
 <script>
-    import Layout from '../../../Layouts/layout';
+    import Layout from '../../../Layouts/admin';
     import Paginator from "../../Components/paginator";
     import FilteredHeading from "../../Components/filteredHeading";
     import QueryManager from "../../Components/queryManager"

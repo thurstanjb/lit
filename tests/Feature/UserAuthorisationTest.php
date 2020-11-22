@@ -46,4 +46,17 @@ class UserAuthorisationTest extends TestCase
             ->assertInertia('Admin/Users/index')
             ->assertStatus(200);
     }
+
+    /**
+     * @test
+     */
+    public function _an_authorised_user_can_visit_the_admin_section()
+    {
+        $this->withoutExceptionHandling();
+        $this->signIn();
+
+        $this->get('/admin')
+            ->assertInertia('Admin/dashboard')
+            ->assertStatus(200);
+    }
 }

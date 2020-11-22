@@ -3,7 +3,7 @@
 </template>
 
 <script>
-    import Layout from '../../../Layouts/layout';
+    import Layout from '../../../Layouts/admin';
     import UserForm from "./Components/userForm";
 
     export default {

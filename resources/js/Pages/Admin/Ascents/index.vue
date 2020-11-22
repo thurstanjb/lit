@@ -51,7 +51,7 @@
 </template>
 
 <script>
-    import Layout from '../../../Layouts/layout';
+    import Layout from '../../../Layouts/admin';
     import Paginator from "../../Components/paginator";
     import QueryManager from "../../Components/queryManager"
     import FilteredHeading from "../../Components/filteredHeading";

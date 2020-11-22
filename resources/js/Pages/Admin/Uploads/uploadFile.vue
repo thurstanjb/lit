@@ -58,7 +58,7 @@
 </template>
 
 <script>
-    import Layout from '../../../Layouts/layout';
+    import Layout from '../../../Layouts/admin';
 
     export default {
         name: "upload-uploadFile",

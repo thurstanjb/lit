@@ -21,6 +21,10 @@ Auth::routes(['register' => false]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::namespace('Admin')->prefix('/admin')->as('admin.')->middleware(['auth'])->group(function(){
+   Route::get('/', 'AdminController@dashboard')->name('dashboard');
+});
+
 Route::prefix('/uploads')->as('uploads.')->middleware(['auth'])->group(function(){
     Route::get('/', 'UploadController@index')->name('index');
     Route::get('/upload-file', 'UploadController@create')->name('create');

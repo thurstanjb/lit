@@ -1,7 +1,7 @@
 <template>
     <nav class="flex items-center justify-between flex-wrap bg-primary-500 p-6">
         <div class="flex items-center flex-shrink-0 text-white mr-6">
-            <span class="font-semibold text-xl tracking-tight">Wainwrights</span>
+            <span class="font-semibold text-xl tracking-tight">Admin</span>
         </div>
         <div class="block lg:hidden">
             <button
@@ -14,11 +14,31 @@
         </div>
         <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto" v-if="$page.auth.user">
             <div class="text-sm lg:flex-grow">
+                <inertia-link href="/users"  v-if="$page.auth.user.isAdmin"
+                   class="block mt-4 lg:inline-block lg:mt-0 text-primary-200 hover:text-white mr-4">
+                    Users
+                </inertia-link>
+                <inertia-link href="/uploads"
+                   class="block mt-4 lg:inline-block lg:mt-0 text-primary-200 hover:text-white mr-4">
+                    Uploads
+                </inertia-link>
+                <inertia-link href="/mountaineers"
+                              class="block mt-4 lg:inline-block lg:mt-0 text-primary-200 hover:text-white mr-4">
+                    Mountaineers
+                </inertia-link>
+                <inertia-link href="/mountains"
+                              class="block mt-4 lg:inline-block lg:mt-0 text-primary-200 hover:text-white mr-4">
+                    Mountains
+                </inertia-link>
+                <inertia-link href="/ascents"
+                              class="block mt-4 lg:inline-block lg:mt-0 text-primary-200 hover:text-white mr-4">
+                    Ascents
+                </inertia-link>
             </div>
             <div>
-                <inertia-link href="/admin"
+                <inertia-link href="/"
                               class="block mt-4 lg:inline-block lg:mt-0 text-primary-200 hover:text-white mr-4">
-                    Admin
+                    Main
                 </inertia-link>
                 <a class="text-primary-200 hover:text-white font-bold px-4 cursor-pointer" @click.prevent="logout" v-if="$page.auth.user">
                     <font-awesome-icon icon="eject" />

@@ -1,6 +1,6 @@
 <template>
     <div class="flex inline-btn--last inline-input--first">
-        <input :name="column" v-model="input" :placeholder="'search ' + column" class="inline-input">
+        <input ref="search" :name="column" v-model="input" :placeholder="'search ' + column" @keyup.enter="submitted" class="inline-input">
         <button @click="submitted" :class="button"><font-awesome-icon :icon="icon" /></button>
     </div>
 </template>
@@ -42,6 +42,7 @@
             events.$on('set-filter', (params => {
                 if(this.column === params.column){
                     this.input = this.value_set = params.value;
+                    this.$refs.search.focus();
                 }
             }))
         },

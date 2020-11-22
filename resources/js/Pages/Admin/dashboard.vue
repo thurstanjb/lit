@@ -1,14 +1,13 @@
 <template>
     <div class="w-full px-1">
         <div class="tj-topbar">
-            <h1 class="tj-topbar_heading mr-10">Home</h1>
+            <h1 class="tj-topbar_heading mr-10">Dashboard</h1>
             <div class="md:flex flex-1">
             </div>
         </div>
 
         <div class="tj-main">
             <p>Welcome {{auth.user.name}}</p>
-            <p>All current data can be found in the <inertia-link href="/admin" class="submit-btn">Admin</inertia-link> section. </p>
         </div>
 
         <div class="tj-footer justify-items-center">
@@ -17,10 +16,10 @@
 </template>
 
 <script>
-    import Layout from '../Layouts/default';
+    import Layout from '../../Layouts/admin';
 
     export default {
-        name: "home",
+        name: "dashboard",
 
         props: {
             title: String,
