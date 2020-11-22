@@ -24,11 +24,11 @@ class UserFilterTest extends TestCase
         $admin = create(User::class, ['role' => 'admin', 'name' => 'tj']);
         $this->signIn($admin);
 
-        $response = $this->get('/users?asc=name');
+        $response = $this->get('/admin/users?asc=name');
         $top_spot = $response->inertiaProps()['users']['data'][0];
         $this->assertEquals($user3->name, $top_spot['name']);
 
-        $response = $this->get('/users?desc=name');
+        $response = $this->get('/admin/users?desc=name');
         $top_spot = $response->inertiaProps()['users']['data'][0];
         $this->assertEquals($user4->name, $top_spot['name']);
 
@@ -45,11 +45,11 @@ class UserFilterTest extends TestCase
 
         $this->signIn($user1);
 
-        $response = $this->get('/users?asc=role');
+        $response = $this->get('/admin/users?asc=role');
         $top_spot = $response->inertiaProps()['users']['data'][0];
         $this->assertEquals('admin', $top_spot['role']);
 
-        $response = $this->get('/users?desc=role');
+        $response = $this->get('/admin/users?desc=role');
         $top_spot = $response->inertiaProps()['users']['data'][0];
         $this->assertEquals('user', $top_spot['role']);
     }
@@ -65,15 +65,15 @@ class UserFilterTest extends TestCase
 
         $this->signIn($user1);
 
-        $response = $this->get('/users?name=adams');
+        $response = $this->get('/admin/users?name=adams');
         $results = $response->inertiaProps()['users']['data'];
         $this->assertCount(2, $results);
 
-        $response = $this->get('/users?name=steve');
+        $response = $this->get('/admin/users?name=steve');
         $results = $response->inertiaProps()['users']['data'];
         $this->assertCount(1, $results);
 
-        $response = $this->get('/users?name=ve');
+        $response = $this->get('/admin/users?name=ve');
         $results = $response->inertiaProps()['users']['data'];
         $this->assertCount(3, $results);
     }
@@ -91,15 +91,15 @@ class UserFilterTest extends TestCase
 
         $this->signIn($user1);
 
-        $response = $this->get('/users?email=ronda');
+        $response = $this->get('/admin/users?email=ronda');
         $results = $response->inertiaProps()['users']['data'];
         $this->assertCount(1, $results);
 
-        $response = $this->get('/users?email=aol.com');
+        $response = $this->get('/admin/users?email=aol.com');
         $results = $response->inertiaProps()['users']['data'];
         $this->assertCount(2, $results);
 
-        $response = $this->get('/users?email=ve@');
+        $response = $this->get('/admin/users?email=ve@');
         $results = $response->inertiaProps()['users']['data'];
         $this->assertCount(2, $results);
     }
@@ -117,15 +117,15 @@ class UserFilterTest extends TestCase
 
         $this->signIn($user1);
 
-        $response = $this->get('/users?role=admin');
+        $response = $this->get('/admin/users?role=admin');
         $results = $response->inertiaProps()['users']['data'];
         $this->assertCount(2, $results);
 
-        $response = $this->get('/users?role=browser');
+        $response = $this->get('/admin/users?role=browser');
         $results = $response->inertiaProps()['users']['data'];
         $this->assertCount(1, $results);
 
-        $response = $this->get('/users?role=ser');
+        $response = $this->get('/admin/users?role=ser');
         $results = $response->inertiaProps()['users']['data'];
         $this->assertCount(3, $results);
     }

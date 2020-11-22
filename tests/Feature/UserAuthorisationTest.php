@@ -35,14 +35,14 @@ class UserAuthorisationTest extends TestCase
     {
         $this->signIn();
 
-        $this->followingRedirects()->get('/users')
+        $this->followingRedirects()->get('/admin/users')
             ->assertInertia('home');
 
         $admin_user = Create(User::class, ['role' => 'admin']);
 
         $this->signIn($admin_user);
 
-        $this->get('/users')
+        $this->get('/admin/users')
             ->assertInertia('Admin/Users/index')
             ->assertStatus(200);
     }

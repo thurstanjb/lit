@@ -22,11 +22,11 @@ class MountaineerFilterTest extends TestCase
 
         $this->signIn();
 
-        $response = $this->get('/mountaineers?asc=name');
+        $response = $this->get('/admin/mountaineers?asc=name');
         $topspot = $response->inertiaProps()['mountaineers']['data'][0];
         $this->assertEquals($m2->name, $topspot['name']);
 
-        $response = $this->get('/mountaineers?desc=name');
+        $response = $this->get('/admin/mountaineers?desc=name');
         $topspot = $response->inertiaProps()['mountaineers']['data'][0];
         $this->assertEquals($m1->name, $topspot['name']);
     }
@@ -42,11 +42,11 @@ class MountaineerFilterTest extends TestCase
 
         $this->signIn();
 
-        $response = $this->get('/mountaineers?name=bowling');
+        $response = $this->get('/admin/mountaineers?name=bowling');
         $mountaineers = $response->inertiaProps()['mountaineers']['data'];
         $this->assertCount(2, $mountaineers);
 
-        $response = $this->get('/mountaineers?name=bow&asc=name');
+        $response = $this->get('/admin/mountaineers?name=bow&asc=name');
         $topspot = $response->inertiaProps()['mountaineers']['data'][0];
         $this->assertEquals($m2->name, $topspot['name']);
     }

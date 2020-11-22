@@ -26,11 +26,11 @@ class AscentFilterTest extends TestCase
 
         $this->signIn();
 
-        $response = $this->get('ascents?asc=ascent_date');
+        $response = $this->get('/admin/ascents?asc=ascent_date');
         $topspot = $response->inertiaProps()['ascents']['data'][0];
         $this->assertEquals($ascent2->mountain_id, $topspot['mountain_id']);
 
-        $response = $this->get('ascents?desc=ascent_date');
+        $response = $this->get('/admin/ascents?desc=ascent_date');
         $topspot = $response->inertiaProps()['ascents']['data'][0];
         $this->assertEquals($ascent3->mountain_id, $topspot['mountain_id']);
     }
@@ -51,7 +51,7 @@ class AscentFilterTest extends TestCase
 
         $this->signIn();
 
-        $response = $this->get('/ascents?mountaineer=1');
+        $response = $this->get('/admin/ascents?mountaineer=1');
         $ascents = $response->inertiaProps()['ascents']['data'];
         $this->assertCount(2, $ascents);
 
@@ -75,15 +75,15 @@ class AscentFilterTest extends TestCase
 
         $this->signIn();
 
-        $response = $this->get('ascents?mountain=scafell');
+        $response = $this->get('/admin/ascents?mountain=scafell');
         $ascents = $response->inertiaProps()['ascents']['data'];
         $this->assertCount(2, $ascents);
 
-        $response = $this->get('ascents?mountain=pike');
+        $response = $this->get('/admin/ascents?mountain=pike');
         $ascents = $response->inertiaProps()['ascents']['data'];
         $this->assertCount(3, $ascents);
 
-        $response = $this->get('ascents?mountain=skid');
+        $response = $this->get('/admin/ascents?mountain=skid');
         $ascents = $response->inertiaProps()['ascents']['data'];
         $this->assertCount(3, $ascents);
     }
@@ -108,11 +108,11 @@ class AscentFilterTest extends TestCase
 
         $this->signIn();
 
-        $response = $this->get('/ascents?book=northern');
+        $response = $this->get('/admin/ascents?book=northern');
         $ascents = $response->inertiaProps()['ascents']['data'];
         $this->assertCount(3, $ascents);
 
-        $response = $this->get('/ascents?book=southern');
+        $response = $this->get('/admin/ascents?book=southern');
         $ascents = $response->inertiaProps()['ascents']['data'];
         $this->assertCount(1, $ascents);
     }
@@ -135,7 +135,7 @@ class AscentFilterTest extends TestCase
 
         $this->signIn();
 
-        $response = $this->get('/ascents?mountaineer=' . $mr1->id . '&mountain=fell&book=southern');
+        $response = $this->get('/admin/ascents?mountaineer=' . $mr1->id . '&mountain=fell&book=southern');
         $ascents = $response->inertiaProps()['ascents']['data'];
         $this->assertCount(1, $ascents);
         $this->assertEquals($mt2->id, $ascents[0]['mountain_id']);
@@ -155,11 +155,11 @@ class AscentFilterTest extends TestCase
 
         $this->signIn();
 
-        $response = $this->get('ascents?year=1988');
+        $response = $this->get('/admin/ascents?year=1988');
         $ascents = $response->inertiaProps()['ascents']['data'];
         $this->assertCount(2, $ascents);
 
-        $response = $this->get('ascents?year=1990');
+        $response = $this->get('/admin/ascents?year=1990');
         $ascents = $response->inertiaProps()['ascents']['data'];
         $this->assertCount(1, $ascents);
     }

@@ -23,11 +23,11 @@ class MountainFilterTest extends TestCase
 
         $this->signIn();
 
-        $response = $this->get('/mountains?desc=name');
+        $response = $this->get('/admin/mountains?desc=name');
         $top_spot = $response->inertiaProps()['mountains']['data'][0];
         $this->assertEquals($m4->name, $top_spot['name']);
 
-        $response = $this->get('/mountains?asc=name');
+        $response = $this->get('/admin/mountains?asc=name');
         $top_spot = $response->inertiaProps()['mountains']['data'][0];
         $this->assertEquals($m1->name, $top_spot['name']);
     }
@@ -44,15 +44,15 @@ class MountainFilterTest extends TestCase
 
         $this->signIn();
 
-        $response = $this->get('/mountains?name=pike');
+        $response = $this->get('/admin/mountains?name=pike');
         $filtered = $response->inertiaProps()['mountains']['data'];
         $this->assertCount(2, $filtered);
 
-        $response = $this->get('/mountains?name=fell');
+        $response = $this->get('/admin/mountains?name=fell');
         $filtered = $response->inertiaProps()['mountains']['data'];
         $this->assertCount(2, $filtered);
 
-        $response = $this->get('/mountains?name=fell&asc=name');
+        $response = $this->get('/admin/mountains?name=fell&asc=name');
         $topspot = $response->inertiaProps()['mountains']['data'][0];
         $this->assertEquals($m4->name, $topspot['name']);
     }
@@ -69,15 +69,15 @@ class MountainFilterTest extends TestCase
 
         $this->signIn();
 
-        $response = $this->get('/mountains?book=north');
+        $response = $this->get('/admin/mountains?book=north');
         $filtered = $response->inertiaProps()['mountains']['data'];
         $this->assertCount(2, $filtered);
 
-        $response = $this->get('/mountains?book=east');
+        $response = $this->get('/admin/mountains?book=east');
         $filtered = $response->inertiaProps()['mountains']['data'];
         $this->assertCount(2, $filtered);
 
-        $response = $this->get('/mountains?book=northern');
+        $response = $this->get('/admin/mountains?book=northern');
         $filtered = $response->inertiaProps()['mountains']['data'];
         $this->assertCount(1, $filtered);
     }

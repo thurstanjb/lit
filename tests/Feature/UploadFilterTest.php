@@ -23,11 +23,11 @@ class UploadFilterTest extends TestCase
 
         $this->signIn();
 
-        $response = $this->get('/uploads?desc=filename');
+        $response = $this->get('/admin/uploads?desc=filename');
         $top_spot = $response->inertiaProps()['uploads']['data'][0];
         $this->assertEquals($upload1->filename, $top_spot['filename']);
 
-        $response = $this->get('/uploads?asc=filename');
+        $response = $this->get('/admin/uploads?asc=filename');
         $top_spot = $response->inertiaProps()['uploads']['data'][0];
         $this->assertEquals($upload4->filename, $top_spot['filename']);
     }
@@ -44,15 +44,15 @@ class UploadFilterTest extends TestCase
 
         $this->signIn();
 
-        $response = $this->get('/uploads?filename=xls');
+        $response = $this->get('/admin/uploads?filename=xls');
         $uploads = $response->inertiaProps()['uploads']['data'];
         $this->assertCount(2, $uploads);
 
-        $response = $this->get('/uploads?filename=mountain');
+        $response = $this->get('/admin/uploads?filename=mountain');
         $uploads = $response->inertiaProps()['uploads']['data'];
         $this->assertCount(1, $uploads);
 
-        $response = $this->get('/uploads?filename=.csv&asc=filename');
+        $response = $this->get('/admin/uploads?filename=.csv&asc=filename');
         $top_spot = $response->inertiaProps()['uploads']['data'][0];
         $this->assertEquals($upload4->filename, $top_spot['filename']);
     }
@@ -69,11 +69,11 @@ class UploadFilterTest extends TestCase
 
         $this->signIn();
 
-        $response = $this->get('uploads?folder=misc');
+        $response = $this->get('/admin/uploads?folder=misc');
         $uploads = $response->inertiaProps()['uploads']['data'];
         $this->assertCount(2, $uploads);
 
-        $response = $this->get('uploads?folder=m&asc=folder');
+        $response = $this->get('/admin/uploads?folder=m&asc=folder');
         $uploads = $response->inertiaProps()['uploads']['data'];
         $this->assertCount(3, $uploads);
         $this->assertEquals($upload2->folder, $uploads[0]['folder']);
