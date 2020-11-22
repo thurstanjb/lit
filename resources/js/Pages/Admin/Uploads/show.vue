@@ -49,7 +49,7 @@
         methods:{
             processAscentLog(){
                 this.processing_ascent_log = true;
-                window.axios.post('/imports/ascent-log/' + this.upload.id)
+                window.axios.post('/admin/imports/ascent-log/' + this.upload.id)
                 .then(response => {
                     this.processing_ascent_log = false;
                 })

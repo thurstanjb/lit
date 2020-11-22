@@ -23,12 +23,12 @@ class AscentLogImportTest extends TestCase
         $upload = create(Upload::class, ['storage_path' => 'test_folder/ascentlogtest.xls']);
         $filepath = $upload->folder . '/' . $upload->filename;
 
-        $this->post(route('imports.ascent-log', $upload))
+        $this->post(route('admin.imports.ascent-log', $upload))
             ->assertRedirect('login');
 
         $this->signIn();
 
-        $this->post(route('imports.ascent-log', $upload));
+        $this->post(route('admin.imports.ascent-log', $upload));
 
         //Check that the mountaineer has persisted
         $this->assertDatabaseHas('mountaineers', [
