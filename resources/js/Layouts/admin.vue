@@ -25,7 +25,7 @@
             title: {
                 immediate: true,
                 handler(title) {
-                    document.title = this.$page.title;
+                    document.title = 'Admin: ' + this.$page.title;
                 }
             }
         },

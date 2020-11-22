@@ -32,7 +32,7 @@ __webpack_require__.r(__webpack_exports__);
     title: {
       immediate: true,
       handler: function handler(title) {
-        document.title = this.$page.title;
+        document.title = 'Admin: ' + this.$page.title;
       }
     }
   },

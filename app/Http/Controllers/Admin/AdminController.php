@@ -10,7 +10,7 @@ class AdminController extends Controller
 {
     public function dashboard(){
         return Inertia::render('Admin/dashboard', [
-            'title' => 'Admin: Dashboard'
+            'title' => 'Dashboard'
         ]);
     }
 }
