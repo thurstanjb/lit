@@ -18,7 +18,7 @@
                    class="block mt-4 lg:inline-block lg:mt-0 text-primary-200 hover:text-white mr-4">
                     Users
                 </inertia-link>
-                <inertia-link href="/uploads"
+                <inertia-link href="/admin/uploads"
                    class="block mt-4 lg:inline-block lg:mt-0 text-primary-200 hover:text-white mr-4">
                     Uploads
                 </inertia-link>

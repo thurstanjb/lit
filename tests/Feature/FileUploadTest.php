@@ -20,15 +20,15 @@ class FileUploadTest extends TestCase
         // Seed table
         create(Upload::class, [], 5);
 
-        $this->followingRedirects()->get('/uploads')
+        $this->followingRedirects()->get('/admin/uploads')
             ->assertInertia('Auth/login');
 
         $this->signIn();
-        $this->get('/uploads')
+        $this->get('/admin/uploads')
             ->assertInertia('Admin/Uploads/index')
             ->assertStatus(200);
 
-        $this->get('/uploads/upload-file')
+        $this->get('/admin/uploads/upload-file')
             ->assertInertia('Admin/Uploads/uploadFile')
             ->assertStatus(200);
     }
@@ -43,12 +43,12 @@ class FileUploadTest extends TestCase
         Storage::fake();
 
         $this->signIn();
-        $this->post('/uploads/upload-file', [
+        $this->post('/admin/uploads/upload-file', [
             'file' => UploadedFile::fake()->create($filename, 100),
             'filename' => $filename,
             'folder' => $folder
             ])
-            ->assertRedirect('/uploads');
+            ->assertRedirect('/admin/uploads');
 
         Storage::disk('public')->assertExists($folder .'/'. $filename);
 
@@ -68,18 +68,18 @@ class FileUploadTest extends TestCase
         Storage::fake();
 
         $this->signIn();
-        $this->post('/uploads/upload-file', [
+        $this->post('/admin/uploads/upload-file', [
             'file' => UploadedFile::fake()->create($filename, 100),
             'filename' => $filename,
             'folder' => $folder
         ])
-            ->assertRedirect('/uploads');
+            ->assertRedirect('/admin/uploads');
 
         $new_upload = Upload::where('filename', $filename)
             ->where('folder', $folder)->first();
 
-        $this->delete('/uploads/'.$new_upload->id)
-            ->assertRedirect('/uploads');
+        $this->delete('/admin/uploads/'.$new_upload->id)
+            ->assertRedirect('/admin/uploads');
 
         Storage::disk('public')->assertMissing($folder .'/'. $filename);
 
@@ -96,12 +96,12 @@ class FileUploadTest extends TestCase
     {
         $upload = create(Upload::class);
 
-        $this->followingRedirects()->get('uploads/' . $upload->id)
+        $this->followingRedirects()->get('/admin/uploads/' . $upload->id)
             ->assertInertia('Auth/login');
 
         $this->signIn();
 
-        $this->followingRedirects()->get('uploads/' . $upload->id)
+        $this->followingRedirects()->get('/admin/uploads/' . $upload->id)
         ->assertInertia('Admin/Uploads/show');
     }
 

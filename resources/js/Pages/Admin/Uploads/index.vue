@@ -7,7 +7,7 @@
                 <filter-ddown column="folder" :options="folders"></filter-ddown>
             </div>
             <paginator class="mx-4" :page-data="page_data"></paginator>
-            <inertia-link href="/uploads/upload-file" class="tj-topbar_link">
+            <inertia-link href="/admin/uploads/upload-file" class="tj-topbar_link">
                 <font-awesome-icon icon="upload"/>
             </inertia-link>
         </div>
@@ -26,7 +26,7 @@
             <tr v-for="upload in uploads.data" :key="upload.id">
                 <td class="border px-4 py-1">{{upload.id}}</td>
                 <td class="border px-4 py-1">
-                    <inertia-link :href="'/uploads/' + upload.id" class="hover:underline"> {{upload.filename}} </inertia-link>
+                    <inertia-link :href="'/admin/uploads/' + upload.id" class="hover:underline"> {{upload.filename}} </inertia-link>
                 </td>
                 <td class="border px-4 py-1">{{upload.folder}}</td>
                 <td class="border px-4 py-1">{{upload.upload_date}}</td>
@@ -90,7 +90,7 @@
 
         methods:{
             deleteUpload(id){
-                this.$inertia.delete('/uploads/' + id);
+                this.$inertia.delete('/admin/uploads/' + id);
             }
         }
     }

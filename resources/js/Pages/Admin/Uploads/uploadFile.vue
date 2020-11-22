@@ -3,7 +3,7 @@
         <div class="tj-topbar">
             <h1 class="tj-topbar_heading">File Upload</h1>
             <div class="md:flex flex-1"></div>
-            <inertia-link href="/uploads" class="tj-topbar_link">
+            <inertia-link href="/admin/uploads" class="tj-topbar_link">
                 <font-awesome-icon icon="undo-alt"/>
             </inertia-link>
         </div>
@@ -95,7 +95,7 @@
             processUpload(){
                 this.formData.append('filename', this.upload.filename);
                 this.formData.append('folder', this.upload.folder);
-                this.$inertia.post('/uploads/upload-file', this.formData);
+                this.$inertia.post('/admin/uploads/upload-file', this.formData);
             }
 
         }

@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Filters\UploadFilter;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\UploadFileRequest;
 use App\Upload;
 use Exception;
@@ -76,7 +77,7 @@ class UploadController extends Controller
 
         Upload::create($valid);
 
-        return redirect()->route('uploads.index');
+        return redirect()->route('admin.uploads.index');
     }
 
     /**
@@ -91,7 +92,7 @@ class UploadController extends Controller
         Storage::disk('public')->delete($upload->storage_path);
         $upload->delete();
 
-        return redirect()->route('uploads.index');
+        return redirect()->route('admin.uploads.index');
     }
 
 }

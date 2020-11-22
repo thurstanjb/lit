@@ -58,20 +58,15 @@ Route::namespace('Admin')->prefix('/admin')->as('admin.')->middleware(['auth'])-
         Route::delete('/{mountaineer:slug}', 'MountaineerController@destroy')->name('destroy');
     });
 
+    Route::prefix('/uploads')->as('uploads.')->middleware(['auth'])->group(function(){
+        Route::get('/', 'UploadController@index')->name('index');
+        Route::get('/upload-file', 'UploadController@create')->name('create');
+        Route::post('/upload-file', 'UploadController@uploadFile')->name('uploadFile');
+        Route::get('/{upload}', 'UploadController@show')->name('show');
+        Route::delete('/{upload}', 'UploadController@destroy')->name('destroy');
+    });
+
     Route::prefix('/imports')->as('imports.')->middleware(['auth'])->group(function(){
         Route::post('/ascent-log/{upload}', 'ImportController@ascentLog')->name('ascent-log');
     });
 });
-
-Route::prefix('/uploads')->as('uploads.')->middleware(['auth'])->group(function(){
-    Route::get('/', 'UploadController@index')->name('index');
-    Route::get('/upload-file', 'UploadController@create')->name('create');
-    Route::post('/upload-file', 'UploadController@uploadFile')->name('uploadFile');
-    Route::get('/{upload}', 'UploadController@show')->name('show');
-    Route::delete('/{upload}', 'UploadController@destroy')->name('destroy');
-});
-
-
-
-
-
