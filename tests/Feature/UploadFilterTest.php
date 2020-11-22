@@ -21,7 +21,7 @@ class UploadFilterTest extends TestCase
         $upload3 = create(Upload::class, ['filename' => 'mountain_data.csv']);
         $upload4 = create(Upload::class, ['filename' => 'books.csv']);
 
-        $this->signIn();
+        $this->signInAdmin();
 
         $response = $this->get('/admin/uploads?desc=filename');
         $top_spot = $response->inertiaProps()['uploads']['data'][0];
@@ -42,7 +42,7 @@ class UploadFilterTest extends TestCase
         $upload3 = create(Upload::class, ['filename' => 'mountain_data.csv']);
         $upload4 = create(Upload::class, ['filename' => 'books.csv']);
 
-        $this->signIn();
+        $this->signInAdmin();
 
         $response = $this->get('/admin/uploads?filename=xls');
         $uploads = $response->inertiaProps()['uploads']['data'];
@@ -67,7 +67,7 @@ class UploadFilterTest extends TestCase
         $upload3 = create(Upload::class, ['folder' => 'miscellaneous']);
         $upload4 = create(Upload::class, ['folder' => 'users']);
 
-        $this->signIn();
+        $this->signInAdmin();
 
         $response = $this->get('/admin/uploads?folder=misc');
         $uploads = $response->inertiaProps()['uploads']['data'];

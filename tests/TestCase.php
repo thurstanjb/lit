@@ -18,4 +18,13 @@ TestCase extends BaseTestCase
         $this->actingAs($user);
         return $user;
     }
+
+    public function signInAdmin(User $user = null){
+        if(!$user){
+            $user = factory(User::class)->create(['role' => 'admin']);
+        }
+
+        $this->actingAs($user);
+        return $user;
+    }
 }

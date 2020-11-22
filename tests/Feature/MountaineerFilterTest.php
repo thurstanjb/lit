@@ -20,7 +20,7 @@ class MountaineerFilterTest extends TestCase
         $m2 = create(Mountaineer::class, ['name' => 'Eric Bowling']);
         $m3 = create(Mountaineer::class, ['name' => 'Paul Heetley']);
 
-        $this->signIn();
+        $this->signInAdmin();
 
         $response = $this->get('/admin/mountaineers?asc=name');
         $topspot = $response->inertiaProps()['mountaineers']['data'][0];
@@ -40,7 +40,7 @@ class MountaineerFilterTest extends TestCase
         $m2 = create(Mountaineer::class, ['name' => 'Eric Bowling']);
         $m3 = create(Mountaineer::class, ['name' => 'Paul Heetley']);
 
-        $this->signIn();
+        $this->signInAdmin();
 
         $response = $this->get('/admin/mountaineers?name=bowling');
         $mountaineers = $response->inertiaProps()['mountaineers']['data'];

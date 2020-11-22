@@ -21,7 +21,7 @@ class MountainFilterTest extends TestCase
         $m3 = create(Mountain::class, ['name' => 'mountain 3']);
         $m4 = create(Mountain::class, ['name' => 'mountain 4']);
 
-        $this->signIn();
+        $this->signInAdmin();
 
         $response = $this->get('/admin/mountains?desc=name');
         $top_spot = $response->inertiaProps()['mountains']['data'][0];
@@ -42,7 +42,7 @@ class MountainFilterTest extends TestCase
         $m3 = create(Mountain::class, ['name' => 'pavey ark']);
         $m4 = create(Mountain::class, ['name' => 'brim fell']);
 
-        $this->signIn();
+        $this->signInAdmin();
 
         $response = $this->get('/admin/mountains?name=pike');
         $filtered = $response->inertiaProps()['mountains']['data'];
@@ -67,7 +67,7 @@ class MountainFilterTest extends TestCase
         $m3 = create(Mountain::class, ['book' => 'far-eastern']);
         $m4 = create(Mountain::class, ['name' => 'southern']);
 
-        $this->signIn();
+        $this->signInAdmin();
 
         $response = $this->get('/admin/mountains?book=north');
         $filtered = $response->inertiaProps()['mountains']['data'];

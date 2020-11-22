@@ -18,7 +18,7 @@ class AscentLogImportTest extends TestCase
     /**
      * @test
      */
-    public function _an_authorised_user_can_import_ascent_logs()
+    public function _an_admin_user_can_import_ascent_logs()
     {
         $upload = create(Upload::class, ['storage_path' => 'test_folder/ascentlogtest.xls']);
         $filepath = $upload->folder . '/' . $upload->filename;
@@ -26,7 +26,7 @@ class AscentLogImportTest extends TestCase
         $this->post(route('admin.imports.ascent-log', $upload))
             ->assertRedirect('login');
 
-        $this->signIn();
+        $this->signInAdmin();
 
         $this->post(route('admin.imports.ascent-log', $upload));
 

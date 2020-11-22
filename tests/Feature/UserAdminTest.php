@@ -43,7 +43,7 @@ class UserAdminTest extends TestCase
         $this->followingRedirects()->get('/admin/users/create')
             ->assertInertia('home');
 
-        $this->signIn($this->admin_user);
+        $this->signInAdmin($this->admin_user);
         $this->get('/admin/users/create')
             ->assertInertia('Admin/Users/create')
             ->assertStatus(200);
@@ -65,7 +65,7 @@ class UserAdminTest extends TestCase
      */
     public function _a_user_must_have_a_name()
     {
-        $this->signIn($this->admin_user);
+        $this->signInAdmin($this->admin_user);
         $this->new_user['name'] = null;
 
         $this->post('/admin/users/create', $this->new_user)
@@ -77,7 +77,7 @@ class UserAdminTest extends TestCase
      */
     public function _a_user_must_have_a_valid_email()
     {
-        $this->signIn($this->admin_user);
+        $this->signInAdmin($this->admin_user);
 
         $this->new_user['email'] = null;
         $this->post('/admin/users/create', $this->new_user)
@@ -97,7 +97,7 @@ class UserAdminTest extends TestCase
      */
     public function _a_user_must_have_a_confirmed_password_of_appropriate_length()
     {
-        $this->signIn($this->admin_user);
+        $this->signInAdmin($this->admin_user);
 
         $this->new_user['password'] = '';
         $this->post('/admin/users/create', $this->new_user)
@@ -131,7 +131,7 @@ class UserAdminTest extends TestCase
         $this->followingRedirects()->get($uri)
             ->assertInertia('home');
 
-        $this->signIn($this->admin_user);
+        $this->signInAdmin($this->admin_user);
         $this->get($uri)
             ->assertInertia('Admin/Users/update')
             ->assertStatus(200);
@@ -162,7 +162,7 @@ class UserAdminTest extends TestCase
      */
     public function _an_admin_user_Cannot_update_their_own_role()
     {
-        $this->signIn($this->admin_user);
+        $this->signInAdmin($this->admin_user);
         $edited_user = $this->admin_user->toArray();
 
         $edited_user['role'] = 'user';
@@ -184,7 +184,7 @@ class UserAdminTest extends TestCase
      */
     public function _a_password_can_be_updated_if_confirmed()
     {
-        $this->signIn($this->admin_user);
+        $this->signInAdmin();
         $new_user = create(User::class);
         $edited_user = $new_user->toArray();
         $edited_user['password'] = 'newpassword';
@@ -202,14 +202,14 @@ class UserAdminTest extends TestCase
      */
     public function _only_an_admin_user_can_delete_another_user()
     {
-        $this->signin();
+        $this->signIn();
         $doomed_user = create(User::class);
         $uri = '/admin/users/' . $doomed_user->id;
 
         $this->followingRedirects()->delete($uri)
             ->assertInertia('home');
 
-        $this->signIn($this->admin_user);
+        $this->signInAdmin();
         $this->delete($uri)
             ->assertSessionHasNoErrors()
             ->assertRedirect('/admin/users');

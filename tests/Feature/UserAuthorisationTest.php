@@ -38,9 +38,7 @@ class UserAuthorisationTest extends TestCase
         $this->followingRedirects()->get('/admin/users')
             ->assertInertia('home');
 
-        $admin_user = Create(User::class, ['role' => 'admin']);
-
-        $this->signIn($admin_user);
+        $this->signInAdmin();
 
         $this->get('/admin/users')
             ->assertInertia('Admin/Users/index')
@@ -50,12 +48,21 @@ class UserAuthorisationTest extends TestCase
     /**
      * @test
      */
-    public function _an_authorised_user_can_visit_the_admin_section()
+    public function _an_admin_user_can_visit_the_admin_section()
     {
+        $this->followingRedirects()->get('/admin')
+            ->assertInertia('Auth/login');
+
         $this->signIn();
+
+        $this->followingRedirects()->get('/admin')
+            ->assertInertia('home');
+
+        $this->signInAdmin();
 
         $this->get('/admin')
             ->assertInertia('Admin/dashboard')
             ->assertStatus(200);
     }
+
 }

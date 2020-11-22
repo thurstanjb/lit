@@ -15,10 +15,14 @@ class AdminUser
      */
     public function handle($request, Closure $next)
     {
-        if(auth()->check() && auth()->user()->role === 'admin'){
-            return $next($request);
+        if(auth()->check()){
+            if(auth()->user()->role === 'admin'){
+                return $next($request);
+            }
+
+            return redirect()->route('home');
         }
 
-        return redirect()->route('home');
+        return redirect()->route('login');
     }
 }

@@ -21,10 +21,10 @@ Auth::routes(['register' => false]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::namespace('Admin')->prefix('/admin')->as('admin.')->middleware(['auth'])->group(function(){
+Route::namespace('Admin')->prefix('/admin')->as('admin.')->middleware(['admin'])->group(function(){
    Route::get('/', 'AdminController@dashboard')->name('dashboard');
 
-    Route::prefix('/users')->as('users.')->middleware(['admin'])->group(function(){
+    Route::prefix('/users')->as('users.')->group(function(){
         Route::get('/', 'UserController@index')->name('index');
         Route::get('/create', 'UserController@create')->name('create');
         Route::post('/create', 'UserController@store')->name('store');
@@ -33,14 +33,14 @@ Route::namespace('Admin')->prefix('/admin')->as('admin.')->middleware(['auth'])-
         Route::delete('/{user}', 'UserController@destroy')->name('destroy');
     });
 
-    Route::prefix('/ascents')->as('ascents.')->middleware(['auth'])->group(function(){
+    Route::prefix('/ascents')->as('ascents.')->group(function(){
         Route::get('/', 'AscentController@index')->name('index');
         Route::get('/create', 'AscentController@create')->name('create');
         Route::post('/create', 'AscentController@store')->name('store');
         Route::delete('/{ascent}', 'AscentController@destroy')->name('destroy');
     });
 
-    Route::prefix('/mountains')->as('mountains.')->middleware(['auth'])->group(function(){
+    Route::prefix('/mountains')->as('mountains.')->group(function(){
         Route::get('/', 'MountainController@index')->name('index');
         Route::get('/create', 'MountainController@create')->name('create');
         Route::post('/create', 'MountainController@store')->name('store');
@@ -49,7 +49,7 @@ Route::namespace('Admin')->prefix('/admin')->as('admin.')->middleware(['auth'])-
         Route::delete('/{mountain:slug}', 'MountainController@destroy')->name('destroy');
     });
 
-    Route::prefix('/mountaineers')->as('mountaineers.')->middleware(['auth'])->group(function(){
+    Route::prefix('/mountaineers')->as('mountaineers.')->group(function(){
         Route::get('/', 'MountaineerController@index')->name('index');
         Route::get('/create', 'MountaineerController@create')->name('create');
         Route::post('/create', 'MountaineerController@store')->name('store');
@@ -58,7 +58,7 @@ Route::namespace('Admin')->prefix('/admin')->as('admin.')->middleware(['auth'])-
         Route::delete('/{mountaineer:slug}', 'MountaineerController@destroy')->name('destroy');
     });
 
-    Route::prefix('/uploads')->as('uploads.')->middleware(['auth'])->group(function(){
+    Route::prefix('/uploads')->as('uploads.')->group(function(){
         Route::get('/', 'UploadController@index')->name('index');
         Route::get('/upload-file', 'UploadController@create')->name('create');
         Route::post('/upload-file', 'UploadController@uploadFile')->name('uploadFile');
@@ -66,7 +66,7 @@ Route::namespace('Admin')->prefix('/admin')->as('admin.')->middleware(['auth'])-
         Route::delete('/{upload}', 'UploadController@destroy')->name('destroy');
     });
 
-    Route::prefix('/imports')->as('imports.')->middleware(['auth'])->group(function(){
+    Route::prefix('/imports')->as('imports.')->group(function(){
         Route::post('/ascent-log/{upload}', 'ImportController@ascentLog')->name('ascent-log');
     });
 });

@@ -24,7 +24,7 @@ class AscentFilterTest extends TestCase
         $ascent3 = create(Ascent::class, ['ascent_date' => Carbon::create(2000, 02, 01, 10, 54, 22)]);
         $ascent4 = create(Ascent::class, ['ascent_date' => Carbon::create(2000, 01, 02, 10, 54, 22)]);
 
-        $this->signIn();
+        $this->signInAdmin();
 
         $response = $this->get('/admin/ascents?asc=ascent_date');
         $topspot = $response->inertiaProps()['ascents']['data'][0];
@@ -49,7 +49,7 @@ class AscentFilterTest extends TestCase
         $ascent4 = create(Ascent::class, ['mountaineer_id' => $mountaineer2->id]);
         $ascent5 = create(Ascent::class);
 
-        $this->signIn();
+        $this->signInAdmin();
 
         $response = $this->get('/admin/ascents?mountaineer=1');
         $ascents = $response->inertiaProps()['ascents']['data'];
@@ -73,7 +73,7 @@ class AscentFilterTest extends TestCase
         $ascent5 = create(Ascent::class, ['mountain_id' => $mountain1->id]);
         $ascent6 = create(Ascent::class, ['mountain_id' => $mountain2->id]);
 
-        $this->signIn();
+        $this->signInAdmin();
 
         $response = $this->get('/admin/ascents?mountain=scafell');
         $ascents = $response->inertiaProps()['ascents']['data'];
@@ -106,7 +106,7 @@ class AscentFilterTest extends TestCase
         $ascent6 = create(Ascent::class, ['mountain_id' => $m2->id]);
         $ascent7 = create(Ascent::class, ['mountain_id' => $m1->id]);
 
-        $this->signIn();
+        $this->signInAdmin();
 
         $response = $this->get('/admin/ascents?book=northern');
         $ascents = $response->inertiaProps()['ascents']['data'];
@@ -133,7 +133,7 @@ class AscentFilterTest extends TestCase
         $asc3 = create(Ascent::class, ['mountaineer_id' => $mr1->id, 'mountain_id' => $mt2->id]);
         $asc4 = create(Ascent::class, ['mountaineer_id' => $mr2->id, 'mountain_id' => $mt2->id]);
 
-        $this->signIn();
+        $this->signInAdmin();
 
         $response = $this->get('/admin/ascents?mountaineer=' . $mr1->id . '&mountain=fell&book=southern');
         $ascents = $response->inertiaProps()['ascents']['data'];
@@ -153,7 +153,7 @@ class AscentFilterTest extends TestCase
         $asc1 = create(Ascent::class, ['ascent_date' => Carbon::create(1991, 04, 13)]);
         $asc1 = create(Ascent::class, ['ascent_date' => Carbon::create(1991, 05, 14)]);
 
-        $this->signIn();
+        $this->signInAdmin();
 
         $response = $this->get('/admin/ascents?year=1988');
         $ascents = $response->inertiaProps()['ascents']['data'];

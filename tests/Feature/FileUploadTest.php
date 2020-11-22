@@ -15,7 +15,7 @@ class FileUploadTest extends TestCase
     /**
      * @test
      */
-    public function _an_authorised_user_can_visit_the_uploads_page()
+    public function _an_admin_user_can_visit_the_uploads_page()
     {
         // Seed table
         create(Upload::class, [], 5);
@@ -23,7 +23,7 @@ class FileUploadTest extends TestCase
         $this->followingRedirects()->get('/admin/uploads')
             ->assertInertia('Auth/login');
 
-        $this->signIn();
+        $this->signInAdmin();
         $this->get('/admin/uploads')
             ->assertInertia('Admin/Uploads/index')
             ->assertStatus(200);
@@ -36,13 +36,13 @@ class FileUploadTest extends TestCase
     /**
      * @test
      */
-    public function _an_authorised_user_can_upload_a_file()
+    public function _an_admin_user_can_upload_a_file()
     {
         $folder = 'test_folder';
         $filename  = 'mountains.xls';
         Storage::fake();
 
-        $this->signIn();
+        $this->signInAdmin();
         $this->post('/admin/uploads/upload-file', [
             'file' => UploadedFile::fake()->create($filename, 100),
             'filename' => $filename,
@@ -61,13 +61,13 @@ class FileUploadTest extends TestCase
     /**
      * @test
      */
-    public function _an_authorised_user_can_delete_a_file()
+    public function _an_admin_user_can_delete_a_file()
     {
         $folder = 'test_folder';
         $filename  = 'mountains.xls';
         Storage::fake();
 
-        $this->signIn();
+        $this->signInAdmin();
         $this->post('/admin/uploads/upload-file', [
             'file' => UploadedFile::fake()->create($filename, 100),
             'filename' => $filename,
@@ -92,14 +92,14 @@ class FileUploadTest extends TestCase
     /**
      * @test
      */
-    public function _an_authorised_user_can_view_an_upload()
+    public function _an_admin_user_can_view_an_upload()
     {
         $upload = create(Upload::class);
 
         $this->followingRedirects()->get('/admin/uploads/' . $upload->id)
             ->assertInertia('Auth/login');
 
-        $this->signIn();
+        $this->signInAdmin();
 
         $this->followingRedirects()->get('/admin/uploads/' . $upload->id)
         ->assertInertia('Admin/Uploads/show');

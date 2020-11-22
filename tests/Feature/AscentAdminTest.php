@@ -14,12 +14,17 @@ class AscentAdminTest extends TestCase
     /**
      * @test
      */
-    public function _an_authorised_user_can_view_ascent_index()
+    public function _an_admin_user_can_view_ascent_index()
     {
         $this->followingRedirects()->get('/admin/ascents')
             ->assertInertia('Auth/login');
 
         $this->signIn();
+
+        $this->followingRedirects()->get('/admin/ascents')
+            ->assertInertia('home');
+
+        $this->signInAdmin();
 
         $this->followingRedirects()->get('/admin/ascents')
             ->assertInertia('Admin/Ascents/index');
@@ -32,7 +37,7 @@ class AscentAdminTest extends TestCase
     {
         $ascent = create(Ascent::class);
 
-        $this->signIn();
+        $this->signInAdmin();
 
         $response = $this->get('/admin/ascents');
 
@@ -45,7 +50,7 @@ class AscentAdminTest extends TestCase
     /**
      * @test
      */
-    public function _an_authorised_user_can_add_an_ascent()
+    public function _an_admin_user_can_add_an_ascent()
     {
 
         $ascent = make(Ascent::class)->toArray();
@@ -56,8 +61,12 @@ class AscentAdminTest extends TestCase
 
         $this->withoutExceptionHandling();
 
-
         $this->signIn();
+
+        $this->followingRedirects()->get('/admin/ascents/create')
+            ->assertInertia('home');
+
+        $this->signInAdmin();
 
         $this->followingRedirects()->get('/admin/ascents/create')
             ->assertInertia('Admin/Ascents/create');
@@ -74,7 +83,7 @@ class AscentAdminTest extends TestCase
     /**
      * @test
      */
-    public function _an_authorised_user_can_delete_an_ascent()
+    public function _an_admin_user_can_delete_an_ascent()
     {
         $ascent = create(Ascent::class);
 
@@ -82,6 +91,11 @@ class AscentAdminTest extends TestCase
             ->assertInertia('Auth/login');
 
         $this->signIn();
+
+        $this->followingRedirects()->delete('/admin/ascents/' . $ascent->id)
+            ->assertInertia('home');
+
+        $this->signInAdmin();
 
         $this->followingRedirects()->delete('/admin/ascents/' . $ascent->id)
             ->assertInertia('Admin/Ascents/index');
