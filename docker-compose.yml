@@ -1,0 +1,51 @@
+version: "3.7"
+
+networks:
+  lit:
+    driver: bridge
+
+services:
+  app:
+    build:
+      args:
+        user: thurstanjb
+        uid: 1000
+      context: ./
+      dockerfile: Dockerfile
+    image: lit
+    container_name: lit-app
+    restart: unless-stopped
+    working_dir: /var/www/
+    volumes:
+      - ./:/var/www
+    networks:
+      - lit
+  db:
+    image: mysql:8.0
+    container_name: lit-db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_USER: ${DB_USERNAME}
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    volumes:
+      - ./docker/mysql:/docker-entrypoint-initdb.d
+    networks:
+      - lit
+  nginx:
+    build:
+      context: ./
+      dockerfile: docker/nginx/Dockerfile
+    image: nginx
+    container_name: lit-nginx
+    restart: unless-stopped
+    ports:
+      - 8000:80
+    volumes:
+      - ./:/var/www
+      - ./docker/nginx:/etc/nginx/conf.d
+    networks:
+      - lit
